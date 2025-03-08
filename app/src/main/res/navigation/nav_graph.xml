@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_signInFragment_to_verifyFragment2"
             app:destination="@id/verifyFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signInAdminFragment"
+            app:destination="@id/signInAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -72,4 +75,13 @@
         android:name="com.example.unihub.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/signInAdminFragment"
+        android:name="com.example.unihub.presentation.authentication.signup.SignInAdminFragment"
+        android:label="fragment_sign_in_admin"
+        tools:layout="@layout/fragment_sign_in_admin" >
+        <action
+            android:id="@+id/action_signInAdminFragment_to_verifyFragment"
+            app:destination="@id/verifyFragment" />
+    </fragment>
 </navigation>

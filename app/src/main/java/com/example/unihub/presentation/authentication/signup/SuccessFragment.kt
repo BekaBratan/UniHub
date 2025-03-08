@@ -25,7 +25,7 @@ class SuccessFragment : Fragment() {
 
         binding.run {
             btnBack.setOnClickListener {
-                findNavController().navigateUp()
+                findNavController().popBackStack()
             }
 
             btnLogin.setOnClickListener {

@@ -25,11 +25,15 @@ class SignInFragment : Fragment() {
 
         binding.run {
             btnBack.setOnClickListener {
-                findNavController().navigateUp()
+                findNavController().popBackStack()
             }
 
             btnCreate.setOnClickListener {
                 findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToVerifyFragment2())
+            }
+
+            btnAdmin.setOnClickListener {
+                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToSignInAdminFragment())
             }
         }
     }

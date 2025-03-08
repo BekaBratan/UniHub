@@ -1,22 +1,23 @@
 package com.example.unihub.presentation.authentication.signup
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.unihub.databinding.FragmentVerifyBinding
+import com.example.unihub.R
+import com.example.unihub.databinding.FragmentSignInAdminBinding
 
-class VerifyFragment : Fragment() {
+class SignInAdminFragment : Fragment() {
 
-    private lateinit var binding: FragmentVerifyBinding
+    private lateinit var binding: FragmentSignInAdminBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentVerifyBinding.inflate(inflater, container, false)
+        binding = FragmentSignInAdminBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -28,13 +29,10 @@ class VerifyFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
-            btnVerify.setOnClickListener {
-                findNavController().navigate(VerifyFragmentDirections.actionVerifyFragment2ToSuccessFragment2())
-            }
-
-            tvDifferentEmail.setOnClickListener {
-                findNavController().navigate(VerifyFragmentDirections.actionVerifyFragmentToSignInFragment())
+            btnCreate.setOnClickListener {
+                findNavController().navigate(SignInAdminFragmentDirections.actionSignInAdminFragmentToVerifyFragment())
             }
         }
     }
+
 }

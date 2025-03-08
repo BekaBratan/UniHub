@@ -28,7 +28,7 @@ class ResetFragment : Fragment() {
 
         binding.run {
             btnBack.setOnClickListener {
-                findNavController().navigateUp()
+                findNavController().popBackStack()
             }
 
             btnSend.setOnClickListener {

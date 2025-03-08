@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentWelcomeBinding
+import com.example.unihub.utils.provideNavigationHost
 
 class WelcomeFragment : Fragment() {
 
@@ -24,6 +25,7 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
 
         binding.run {
             btnCreate.setOnClickListener{

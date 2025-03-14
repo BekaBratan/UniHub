@@ -15,14 +15,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivClubAvatar"
+        <include
+            android:id="@+id/clubAvatar"
+            layout="@layout/card_club_post"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:scaleType="centerCrop"
-            android:layout_marginStart="13dp"
-            app:shapeAppearanceOverlay="@style/style_corner_rounded"
-            android:src="@drawable/king_speech"/>
+            android:layout_marginStart="13dp"/>
 
         <TextView
             android:id="@+id/tvClubName"

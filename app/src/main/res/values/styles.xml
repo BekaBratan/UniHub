@@ -3,6 +3,9 @@
     <style name="style_corner_16dp">
         <item name="cornerSize">16dp</item>
     </style>
+    <style name="style_corner_25dp">
+        <item name="cornerSize">25dp</item>
+    </style>
     <style name="style_corner_rounded">
         <item name="cornerSize">50%</item>
     </style>

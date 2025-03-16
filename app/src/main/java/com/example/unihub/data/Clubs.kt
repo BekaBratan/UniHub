@@ -12,5 +12,7 @@ data class Clubs(
     @SerializedName("image")
     val image: String = "",
     @SerializedName("posts")
-    val posts: List<Posts> = listOf()
+    val posts: List<Posts> = listOf(),
+    @SerializedName("isFollowed")
+    val isFollowed: Boolean = false,
 )

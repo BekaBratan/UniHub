@@ -52,9 +52,12 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                 tvPostName.text = posts.description
                 var isLiked = posts.isLiked
 
-                Glide.with(itemView.context)
-                    .load(posts.image)
-                    .into(ivPostImage)
+                if (posts.image.isEmpty())
+                    ivPostImage.setImageResource(R.drawable.example_post)
+                else
+                    Glide.with(itemView.context)
+                        .load(posts.image)
+                        .into(ivPostImage)
 
                 if (isLiked)
                     btnLike.setImageResource(R.drawable.ic_liked)

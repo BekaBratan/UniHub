@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
+import com.example.unihub.data.Clubs
 import com.example.unihub.data.Posts
 import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
 
 class HomeFragment : Fragment() {
@@ -41,10 +43,22 @@ class HomeFragment : Fragment() {
             }
         )
 
-        val linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        val clubsAdapter = ClubsAdapter()
+        clubsAdapter.submitList(List(10) { Clubs() })
+
+        clubsAdapter.setOnFollowClickListener(
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
+
+                }
+            }
+        )
+
+        val verticalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        val horizontalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         binding.run {
-            rvPosts.layoutManager = linearLayoutManager
+            rvPosts.layoutManager = verticalLinearLayoutManager
             rvPosts.adapter = postsAdapter
             rvPosts.addItemDecoration(
                 CustomDividerItemDecoration(
@@ -54,6 +68,11 @@ class HomeFragment : Fragment() {
                     )!!
                 )
             )
+
+            rvClubs.layoutManager = horizontalLinearLayoutManager
+            rvClubs.adapter = clubsAdapter
+            val space = resources.getDimensionPixelSize(R.dimen.dp_12)
+            rvClubs.addItemDecoration(SpacesItemDecoration(space))
         }
 
     }

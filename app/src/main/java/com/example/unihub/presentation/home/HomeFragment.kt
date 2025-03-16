@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.unihub.R
 import com.example.unihub.data.Clubs
 import com.example.unihub.data.Posts
+import com.example.unihub.databinding.CardPostBinding
 import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
@@ -19,6 +21,7 @@ import com.example.unihub.utils.provideNavigationHost
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var postBinding: CardPostBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +35,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
 
+        val firstPost = Posts()
         val postsAdapter = PostsAdapter()
         postsAdapter.submitList(List(10) { Posts() })
 
@@ -56,6 +60,36 @@ class HomeFragment : Fragment() {
 
         val verticalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         val horizontalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        postBinding = binding.firstPost
+
+        postBinding.run {
+            llClubInfo
+            tvClubName.text = firstPost.club.name
+            tvTime.text = firstPost.postedAt
+            tvPostName.text = firstPost.description
+            var isLiked = firstPost.isLiked
+
+            if (firstPost.image.isEmpty())
+                ivPostImage.setImageResource(R.drawable.example_post)
+            else
+                Glide.with(requireContext())
+                    .load(firstPost.image)
+                    .into(ivPostImage)
+
+            if (isLiked)
+                btnLike.setImageResource(R.drawable.ic_liked)
+            else
+                btnLike.setImageResource(R.drawable.ic_unliked)
+
+            btnLike.setOnClickListener {
+                if (isLiked)
+                    btnLike.setImageResource(R.drawable.ic_unliked)
+                else
+                    btnLike.setImageResource(R.drawable.ic_liked)
+                isLiked = !isLiked
+            }
+        }
 
         binding.run {
             rvPosts.layoutManager = verticalLinearLayoutManager

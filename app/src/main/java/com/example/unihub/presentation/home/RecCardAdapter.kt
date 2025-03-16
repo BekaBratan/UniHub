@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unihub.R
 import com.example.unihub.data.Clubs
-import com.example.unihub.data.Posts
-import com.example.unihub.databinding.CardRecomendationBinding
+import com.example.unihub.databinding.ItemRecCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 
-open class ClubsAdapter: RecyclerView.Adapter<ClubsAdapter.ClubsViewHolder>() {
+open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<Clubs>() {
         override fun areItemsTheSame(
@@ -42,7 +41,7 @@ open class ClubsAdapter: RecyclerView.Adapter<ClubsAdapter.ClubsViewHolder>() {
     }
 
     inner class ClubsViewHolder(
-        var binding: CardRecomendationBinding
+        var binding: ItemRecCardBinding
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
@@ -80,7 +79,7 @@ open class ClubsAdapter: RecyclerView.Adapter<ClubsAdapter.ClubsViewHolder>() {
         viewType: Int
     ): ClubsViewHolder {
         return ClubsViewHolder(
-            CardRecomendationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemRecCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unihub.R
 import com.example.unihub.data.Posts
-import com.example.unihub.databinding.CardPostBinding
+import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 
 open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
@@ -35,13 +35,18 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         differ.submitList(list)
     }
 
-    var listenerClickAtItem: RcViewItemClickIdCallback? = null
+    var listenerClickLike: RcViewItemClickIdCallback? = null
     fun setOnLikeClickListener(listener: RcViewItemClickIdCallback) {
-        this.listenerClickAtItem = listener
+        this.listenerClickLike = listener
+    }
+
+    var listenerClickClubName: RcViewItemClickIdCallback? = null
+    fun setOnClubNameClickListener(listener: RcViewItemClickIdCallback) {
+        this.listenerClickClubName = listener
     }
 
     inner class PostsViewHolder(
-        var binding: CardPostBinding
+        var binding: ItemPostCardBinding
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
@@ -70,7 +75,11 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                     else
                         btnLike.setImageResource(R.drawable.ic_liked)
                     isLiked = !isLiked
-                    listenerClickAtItem?.onClick(posts.id)
+                    listenerClickLike?.onClick(posts.id)
+                }
+
+                tvClubName.setOnClickListener {
+                    listenerClickClubName?.onClick(posts.club.id)
                 }
             }
         }
@@ -81,7 +90,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         viewType: Int
     ): PostsViewHolder {
         return PostsViewHolder(
-            CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemPostCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

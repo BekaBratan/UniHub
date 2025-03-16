@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.unihub.R
 import com.example.unihub.data.Clubs
 import com.example.unihub.data.Posts
-import com.example.unihub.databinding.CardPostBinding
 import com.example.unihub.databinding.FragmentHomeBinding
+import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.SpacesItemDecoration
@@ -23,7 +24,7 @@ import com.example.unihub.utils.provideNavigationHost
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var postBinding: CardPostBinding
+    private lateinit var postBinding: ItemPostCardBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +50,15 @@ class HomeFragment : Fragment() {
             }
         )
 
-        val clubsAdapter = ClubsAdapter()
+        postsAdapter.setOnClubNameClickListener(
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment())
+                }
+            }
+        )
+
+        val clubsAdapter = RecCardAdapter()
         clubsAdapter.submitList(List(10) { Clubs() })
 
         clubsAdapter.setOnFollowClickListener(
@@ -91,6 +100,10 @@ class HomeFragment : Fragment() {
                     btnLike.setImageResource(R.drawable.ic_liked)
                 isLiked = !isLiked
             }
+
+            tvClubName.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment())
+            }
         }
 
         binding.run {
@@ -110,7 +123,13 @@ class HomeFragment : Fragment() {
             val space = resources.getDimensionPixelSize(R.dimen.dp_12)
             rvClubs.addItemDecoration(SpacesItemDecoration(space))
 
+            llSearch.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+            }
 
+            etSearch.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+            }
 
             btnSubscriptions.setOnClickListener {
                 val color = ContextCompat.getColor(requireContext(), R.color.blue_800)

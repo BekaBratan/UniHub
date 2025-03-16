@@ -99,7 +99,7 @@
                 android:layout_height="24dp"
                 android:scaleType="centerCrop"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/ic_heart"/>
+                android:src="@drawable/ic_unliked"/>
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btnMessage"

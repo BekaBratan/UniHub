@@ -3,10 +3,12 @@
     <color name="black_1000">#FF000000</color>
     <color name="black_900">#27252E</color>
     <color name="white_1000">#FFFFFFFF</color>
+    <color name="white_900">#FBFBFB</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="violet_200">#CFB0F0</color>
     <color name="grey_100">#EDECEF</color>
-    <color name="grey_200">#A0A0A0</color>
+    <color name="grey_300">#A0A0A0</color>
+    <color name="grey_200">#C5C5C5</color>
     <color name="grey_600">#9EA1A8</color>
     <color name="grey_700">#439EA1A8</color>
     <color name="grey_900">#121A2C</color>

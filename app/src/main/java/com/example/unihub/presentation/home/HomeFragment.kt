@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.unihub.R
@@ -107,6 +109,50 @@ class HomeFragment : Fragment() {
             rvClubs.adapter = clubsAdapter
             val space = resources.getDimensionPixelSize(R.dimen.dp_12)
             rvClubs.addItemDecoration(SpacesItemDecoration(space))
+
+
+
+            btnSubscriptions.setOnClickListener {
+                val color = ContextCompat.getColor(requireContext(), R.color.blue_800)
+                val buttonDrawable = DrawableCompat.wrap(btnSubscriptions.background)
+                DrawableCompat.setTint(buttonDrawable, color)
+                btnSubscriptions.background = buttonDrawable
+                btnSubscriptions.setTextColor(ContextCompat.getColor(requireContext(), R.color.white_1000))
+                btnSubscriptions.isEnabled = false
+
+                val color1 = ContextCompat.getColor(requireContext(), R.color.white_900)
+                val buttonDrawable1 = DrawableCompat.wrap(btnRecommendations.background)
+                DrawableCompat.setTint(buttonDrawable1, color1)
+                btnRecommendations.background = buttonDrawable1
+                btnRecommendations.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_200))
+                btnRecommendations.isEnabled = true
+
+                tvWelcomeName.visibility = View.GONE
+                llClubs.visibility = View.GONE
+                llFirstPost.visibility = View.GONE
+                llSearch.visibility = View.GONE
+            }
+
+            btnRecommendations.setOnClickListener {
+                val color = ContextCompat.getColor(requireContext(), R.color.blue_800)
+                val buttonDrawable = DrawableCompat.wrap(btnRecommendations.background)
+                DrawableCompat.setTint(buttonDrawable, color)
+                btnRecommendations.background = buttonDrawable
+                btnRecommendations.setTextColor(ContextCompat.getColor(requireContext(), R.color.white_1000))
+                btnRecommendations.isEnabled = false
+
+                val color1 = ContextCompat.getColor(requireContext(), R.color.white_900)
+                val buttonDrawable1 = DrawableCompat.wrap(btnSubscriptions.background)
+                DrawableCompat.setTint(buttonDrawable1, color1)
+                btnSubscriptions.background = buttonDrawable1
+                btnSubscriptions.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_200))
+                btnSubscriptions.isEnabled = true
+
+                tvWelcomeName.visibility = View.VISIBLE
+                llClubs.visibility = View.VISIBLE
+                llFirstPost.visibility = View.VISIBLE
+                llSearch.visibility = View.VISIBLE
+            }
         }
 
     }

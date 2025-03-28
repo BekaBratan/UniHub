@@ -138,6 +138,9 @@
         <action
             android:id="@+id/action_adminPageFragment_to_addUserFragment"
             app:destination="@id/addUserFragment" />
+        <action
+            android:id="@+id/action_adminPageFragment_to_requestsListFragment"
+            app:destination="@id/requestsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/editUserFragment"
@@ -157,4 +160,9 @@
             android:id="@+id/action_addUserFragment_to_adminPageFragment"
             app:destination="@id/adminPageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/requestsListFragment"
+        android:name="com.example.unihub.presentation.admin.RequestsListFragment"
+        android:label="fragment_requests_list"
+        tools:layout="@layout/fragment_requests_list" />
 </navigation>

@@ -32,7 +32,7 @@
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMenu"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"/>
 
     <ImageButton
         android:id="@+id/btnEditUser"
@@ -175,7 +175,7 @@
 
         <EditText
             android:id="@+id/etStatus"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"
@@ -186,11 +186,12 @@
             android:hint="Select status"
             android:layout_marginBottom="10dp"
             android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            android:drawableEnd="@drawable/ic_arrow_down"/>
 
         <EditText
             android:id="@+id/etPhone"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"
@@ -205,7 +206,7 @@
 
         <EditText
             android:id="@+id/etPosition"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"
@@ -220,7 +221,7 @@
 
         <EditText
             android:id="@+id/etOrganization"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"
@@ -235,7 +236,7 @@
 
         <EditText
             android:id="@+id/etActivity"
-            android:inputType="textPersonName"
+            android:inputType="datetime"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"
@@ -250,7 +251,7 @@
 
         <EditText
             android:id="@+id/etClubName"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/sh_edit_text"

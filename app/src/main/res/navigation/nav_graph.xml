@@ -116,7 +116,17 @@
         android:id="@+id/profileFragment"
         android:name="com.example.unihub.presentation.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/clubPageFragment"
         android:name="com.example.unihub.presentation.home.ClubPageFragment"
@@ -165,4 +175,19 @@
         android:name="com.example.unihub.presentation.admin.RequestsListFragment"
         android:label="fragment_requests_list"
         tools:layout="@layout/fragment_requests_list" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.unihub.presentation.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.unihub.presentation.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.unihub.presentation.home.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
 </navigation>

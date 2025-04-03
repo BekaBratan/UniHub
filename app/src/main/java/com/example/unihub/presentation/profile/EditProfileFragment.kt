@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentEditProfileBinding
 import com.example.unihub.databinding.FragmentEditUserBinding
+import com.example.unihub.utils.provideNavigationHost
 
 class EditProfileFragment : Fragment() {
 
@@ -21,4 +23,14 @@ class EditProfileFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
+
+        binding.run {
+            btnBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
+    }
 }

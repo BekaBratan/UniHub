@@ -14,6 +14,7 @@ import com.example.unihub.databinding.FragmentClubPageBinding
 import com.example.unihub.databinding.FragmentSearchBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.provideNavigationHost
 
 class ClubPageFragment : Fragment() {
 
@@ -29,6 +30,7 @@ class ClubPageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(false)
 
         val postsAdapter = PostsAdapter()
         postsAdapter.submitList(List(10) { Posts() })

@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentChangePasswordBinding
+import com.example.unihub.utils.provideNavigationHost
 
 class ChangePasswordFragment : Fragment() {
 
@@ -20,4 +22,14 @@ class ChangePasswordFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
+
+        binding.run {
+            btnBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
+    }
 }

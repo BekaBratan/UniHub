@@ -1,10 +1,13 @@
 package com.example.unihub.presentation.home
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.ImageButton
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,6 +53,10 @@ class ClubPageFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
+            llClubMoreInfo.setOnClickListener {
+                showCustomDialogBox()
+            }
+
             rvPosts.layoutManager = verticalLinearLayoutManager
             rvPosts.adapter = postsAdapter
             rvPosts.addItemDecoration(
@@ -63,4 +70,19 @@ class ClubPageFragment : Fragment() {
         }
     }
 
+    private fun showCustomDialogBox() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_detailed_info)
+        dialog.window?.setBackgroundDrawableResource(R.color.transparent)
+
+        val btnClose: ImageButton = dialog.findViewById(R.id.btnClose)
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
 }

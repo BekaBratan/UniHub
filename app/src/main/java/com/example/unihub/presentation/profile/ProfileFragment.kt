@@ -32,8 +32,12 @@ class ProfileFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(false)
 
         binding.run {
-            llProfileCard.setOnClickListener {
-                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToUserProfileFragment())
+            btnBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+
+            btnMain.setOnClickListener {
+                findNavController().popBackStack()
             }
 
             llMyAccount.setOnClickListener {

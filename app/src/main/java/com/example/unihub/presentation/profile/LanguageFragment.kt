@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentSettingsBinding
+import com.example.unihub.databinding.FragmentLanguageBinding
 
-class SettingsFragment : Fragment() {
+class LanguageFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsBinding
+    private lateinit var binding: FragmentLanguageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        binding = FragmentLanguageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -27,10 +27,6 @@ class SettingsFragment : Fragment() {
         binding.run {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
-            }
-
-            llLanguage.setOnClickListener {
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToLanguageFragment())
             }
         }
     }

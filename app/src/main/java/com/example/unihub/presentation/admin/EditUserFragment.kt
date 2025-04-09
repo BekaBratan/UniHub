@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentEditUserBinding
+import com.example.unihub.utils.provideNavigationHost
 
 class EditUserFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class EditUserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
 
         binding.run {
             btnBack.setOnClickListener {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentEventsBinding
+import com.example.unihub.utils.provideNavigationHost
 
 class EventsFragment : Fragment() {
 
@@ -20,4 +21,8 @@ class EventsFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(false)
+    }
 }

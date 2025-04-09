@@ -33,6 +33,24 @@ class UserProfileFragment : Fragment() {
             btnEditUser.setOnClickListener {
                 findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToProfileFragment())
             }
+
+            btnWrite.setOnClickListener {
+                findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToCreateRequestFragment())
+            }
+
+            tvReposts.setOnClickListener {
+                rvReposts.visibility = View.VISIBLE
+                rvReplies.visibility = View.GONE
+                idReposts.visibility = View.VISIBLE
+                idReplies.visibility = View.INVISIBLE
+            }
+
+            tvReplies.setOnClickListener {
+                rvReposts.visibility = View.GONE
+                rvReplies.visibility = View.VISIBLE
+                idReposts.visibility = View.INVISIBLE
+                idReplies.visibility = View.VISIBLE
+            }
         }
     }
 }

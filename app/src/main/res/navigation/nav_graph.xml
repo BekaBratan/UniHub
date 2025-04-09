@@ -188,6 +188,9 @@
         <action
             android:id="@+id/action_userProfileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_createRequestFragment"
+            app:destination="@id/createRequestFragment" />
     </fragment>
     <fragment
         android:id="@+id/languageFragment"
@@ -208,4 +211,9 @@
         android:name="com.example.unihub.presentation.post.EventsFragment"
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/createRequestFragment"
+        android:name="com.example.unihub.presentation.profile.CreateRequestFragment"
+        android:label="fragment_create_request"
+        tools:layout="@layout/fragment_create_request" />
 </navigation>

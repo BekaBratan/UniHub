@@ -7,23 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentProfileBinding
+import com.example.unihub.databinding.FragmentCreateRequestBinding
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
-class ProfileFragment : Fragment() {
+class CreateRequestFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    private lateinit var binding: FragmentCreateRequestBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        binding = FragmentCreateRequestBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,19 +35,21 @@ class ProfileFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
-            btnMain.setOnClickListener {
-                findNavController().popBackStack()
+            tvRequests.setOnClickListener {
+                llRequests.visibility = View.VISIBLE
+                rvMyRequests.visibility = View.GONE
+                idRequests.visibility = View.VISIBLE
+                idMyRequests.visibility = View.INVISIBLE
             }
 
-            llMyAccount.setOnClickListener {
-                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment())
+            tvMyRequests.setOnClickListener {
+                llRequests.visibility = View.GONE
+                rvMyRequests.visibility = View.VISIBLE
+                idRequests.visibility = View.INVISIBLE
+                idMyRequests.visibility = View.VISIBLE
             }
 
-            llChangePassword.setOnClickListener {
-                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToChangePasswordFragment())
-            }
-
-            llLogOut.setOnClickListener {
+            btnSend.setOnClickListener {
                 showCustomDialogBox()
             }
         }
@@ -61,8 +62,11 @@ class ProfileFragment : Fragment() {
         dialog.setContentView(R.layout.dialog_log_out)
         dialog.window?.setBackgroundDrawableResource(R.color.transparent)
 
+        val tvTitle: TextView = dialog.findViewById(R.id.tvTitle)
         val btnDismiss: TextView = dialog.findViewById(R.id.btnNo)
         val btnLogout: TextView = dialog.findViewById(R.id.btnYes)
+
+        tvTitle.text = "Do you want to send?"
 
         btnDismiss.setOnClickListener {
             dialog.dismiss()
@@ -70,8 +74,6 @@ class ProfileFragment : Fragment() {
 
         btnLogout.setOnClickListener {
             dialog.dismiss()
-            SharedProvider(requireContext()).clearShared()
-            findNavController().navigate(R.id.welcomeFragment)
         }
 
         dialog.show()

@@ -9,8 +9,8 @@
         android:icon="@drawable/ic_chat"
         android:title=""/>
     <item
-        android:id="@+id/postFragment"
-        android:icon="@drawable/ic_post"
+        android:id="@+id/eventsFragment"
+        android:icon="@drawable/ic_calendar_events"
         android:title=""/>
     <item
         android:id="@+id/favouriteFragment"

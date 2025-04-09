@@ -5,10 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.unihub.R
-import com.example.unihub.data.Clubs
-import com.example.unihub.databinding.ItemRecCardBinding
+import com.example.unihub.data.model.Clubs
 import com.example.unihub.databinding.ItemRecInlineBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 

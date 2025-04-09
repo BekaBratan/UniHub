@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.unihub.R
-import com.example.unihub.data.Clubs
-import com.example.unihub.data.Posts
+import com.example.unihub.data.model.Clubs
+import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration

@@ -12,9 +12,8 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
-import com.example.unihub.data.Posts
+import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.FragmentClubPageBinding
-import com.example.unihub.databinding.FragmentSearchBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.provideNavigationHost

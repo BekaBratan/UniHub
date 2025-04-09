@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.unihub.R
-import com.example.unihub.data.Clubs
+import com.example.unihub.data.model.Clubs
 import com.example.unihub.databinding.FragmentSearchBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
 
 class SearchFragment : Fragment() {

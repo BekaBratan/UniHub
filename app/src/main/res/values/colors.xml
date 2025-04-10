@@ -16,9 +16,11 @@
     <color name="grey_700">#439EA1A8</color>
     <color name="grey_900">#121A2C</color>
     <color name="blue_800">#212153</color>
-    <color name="blue_200">#F1F5F9</color>
+    <color name="blue_600">#165DFF</color>
+    <color name="blue_500">#E6EDFD</color>
     <color name="blue_400">#A4B9DE</color>
     <color name="blue_300">#4DA4B9DE</color>
+    <color name="blue_200">#F1F5F9</color>
     <color name="blue_900">#1A1A2E</color>
     <color name="blue_1000">#00003D</color>
     <color name="red_900">#B93232</color>

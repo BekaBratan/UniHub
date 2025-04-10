@@ -216,4 +216,9 @@
         android:name="com.example.unihub.presentation.profile.CreateRequestFragment"
         android:label="fragment_create_request"
         tools:layout="@layout/fragment_create_request" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.unihub.presentation.post.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
 </navigation>

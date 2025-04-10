@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_home"
         android:title=""/>
     <item
-        android:id="@+id/chatFragment"
+        android:id="@+id/chatBotFragment"
         android:icon="@drawable/ic_chat"
         android:title=""/>
     <item
@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_calendar_events"
         android:title=""/>
     <item
-        android:id="@+id/favouriteFragment"
+        android:id="@+id/activitiesFragment"
         android:icon="@drawable/ic_favourite"
         android:title="" />
 

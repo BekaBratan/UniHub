@@ -1,11 +1,10 @@
-package com.example.unihub.presentation.chat
+package com.example.unihub.presentation.favourite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.unihub.R
+import androidx.fragment.app.Fragment
 import com.example.unihub.databinding.FragmentChatBinding
 import com.example.unihub.utils.provideNavigationHost
 

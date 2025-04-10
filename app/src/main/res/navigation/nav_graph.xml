@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.unihub.presentation.chat.ChatFragment"
+        android:name="com.example.unihub.presentation.favourite.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
@@ -207,11 +207,6 @@
             app:destination="@id/languageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/eventsFragment"
-        android:name="com.example.unihub.presentation.post.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
-    <fragment
         android:id="@+id/createRequestFragment"
         android:name="com.example.unihub.presentation.profile.CreateRequestFragment"
         android:label="fragment_create_request"
@@ -221,4 +216,23 @@
         android:name="com.example.unihub.presentation.post.CalendarFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/activitiesFragment"
+        android:name="com.example.unihub.presentation.favourite.ActivitiesFragment"
+        android:label="fragment_activities"
+        tools:layout="@layout/fragment_activities" >
+        <action
+            android:id="@+id/action_activitiesFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.example.unihub.presentation.post.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/chatBotFragment"
+        android:name="com.example.unihub.presentation.chat.ChatBotFragment"
+        android:label="fragment_chat_bot"
+        tools:layout="@layout/fragment_chat_bot" />
 </navigation>

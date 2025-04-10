@@ -78,373 +78,496 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clEventsTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="160dp">
 
-                <LinearLayout
-                    android:id="@+id/time8am"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time8am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="34dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginHorizontal="18dp"
-                    android:layout_marginTop="34dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="8:00 am"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="8:00 am"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime8am"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time8am"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="18dp"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:id="@+id/time9am"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time8am"
-                    android:layout_width="match_parent"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/time9am"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time8am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="9:00 am"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="9:00 am"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime9am"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time9am"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time10am"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time9am"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time10am"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time9am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="10:00 am"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="10:00 am"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime10am"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time10am"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time11am"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time10am"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time11am"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time10am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="11:00 am"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="11:00 am"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime11am"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time11am"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time12am"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time11am"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time12am"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time11am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="12:00 am"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="12:00 am"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime12am"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time12am"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time1pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time12am"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time1pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time12am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="1:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="1:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime1pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time1pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time2pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time1pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time2pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time1pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="2:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="2:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime2pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time2pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time3pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time2pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time3pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time2pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="3:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="3:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime3pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time3pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time4pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time3pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time4pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time3pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="4:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="4:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime4pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time4pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time5pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time4pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time5pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time4pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="5:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="5:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime5pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time5pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time6pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time5pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time6pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time5pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="6:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="6:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime6pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time6pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time7pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time6pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time7pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time6pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="7:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="7:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime7pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time7pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
-                <LinearLayout
-                    android:id="@+id/time8pm"
-                    android:layout_marginHorizontal="18dp"
-                    app:layout_constraintTop_toBottomOf="@+id/time7pm"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/time8pm"
+                android:layout_marginHorizontal="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/time7pm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="120dp"
-                    android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_semibold"
+                    android:textColor="@color/blue_400"
+                    android:ellipsize="end"
+                    android:text="8:00 pm"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/roboto_semibold"
-                        android:textColor="@color/blue_400"
-                        android:ellipsize="end"
-                        android:text="8:00 pm"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_300"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"/>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="1dp"
-                        android:background="@color/blue_300"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"/>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llTime8pm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/time8pm"
+                android:layout_marginStart="80dp"
+                android:orientation="horizontal"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

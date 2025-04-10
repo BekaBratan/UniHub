@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.marginTop
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCalendarBinding
 
@@ -22,5 +26,52 @@ class CalendarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        addEventCard("8:00 AM")
+        addEventCard("12:00 AM")
+    }
+
+
+    fun addEventCard(time: String) {
+        val eventCardLayout = LayoutInflater.from(requireContext()).inflate(R.layout.item_calendar_card, binding.clEventsTime, false)
+
+        val icEvent = eventCardLayout.findViewById<ImageButton>(R.id.icEvent)
+        val tvEventName = eventCardLayout.findViewById<TextView>(R.id.tvEventName)
+        val tvEventTime = eventCardLayout.findViewById<TextView>(R.id.tvEventTime)
+        val tvEventDuration = eventCardLayout.findViewById<TextView>(R.id.tvEventDuration)
+
+        tvEventName.text = "Sample Event"
+        tvEventTime.text = time
+        tvEventDuration.text = "1 hours"
+
+        if (time == "8:00 AM") {
+            binding.llTime8am.addView(eventCardLayout)
+        } else if (time == "9:00 AM") {
+            binding.llTime9am.addView(eventCardLayout)
+        } else if (time == "10:00 AM") {
+            binding.llTime10am.addView(eventCardLayout)
+        } else if (time == "11:00 AM") {
+            binding.llTime11am.addView(eventCardLayout)
+        } else if (time == "12:00 AM") {
+            binding.llTime12am.addView(eventCardLayout)
+        } else if (time == "1:00 PM") {
+            binding.llTime1pm.addView(eventCardLayout)
+        } else if (time == "2:00 PM") {
+            binding.llTime2pm.addView(eventCardLayout)
+        } else if (time == "3:00 PM") {
+            binding.llTime3pm.addView(eventCardLayout)
+        } else if (time == "4:00 PM") {
+            binding.llTime4pm.addView(eventCardLayout)
+        } else if (time == "5:00 PM") {
+            binding.llTime5pm.addView(eventCardLayout)
+        } else if (time == "6:00 PM") {
+            binding.llTime6pm.addView(eventCardLayout)
+        } else if (time == "7:00 PM") {
+            binding.llTime7pm.addView(eventCardLayout)
+        } else if (time == "8:00 PM") {
+            binding.llTime8pm.addView(eventCardLayout)
+        } else {
+            return
+        }
     }
 }

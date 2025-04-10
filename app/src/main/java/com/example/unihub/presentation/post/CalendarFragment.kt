@@ -1,16 +1,19 @@
 package com.example.unihub.presentation.post
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.marginTop
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCalendarBinding
+import java.util.Calendar
 
 class CalendarFragment : Fragment() {
 
@@ -27,8 +30,58 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val calendar = Calendar.getInstance()
+
+        var yearSelected = calendar.get(Calendar.YEAR);
+        var monthSelected = calendar.get(Calendar.MONTH);
+        var daySelected = calendar.get(Calendar.DAY_OF_MONTH);
+        setMonthAndYear(monthSelected, yearSelected)
+
+
+        binding.run {
+            llYear.setOnClickListener {
+                val datePickerDialog = DatePickerDialog(requireContext(), { _: DatePicker, selectedYear: Int, selectedMonth: Int, daySelected: Int ->
+                    calendar.set(Calendar.YEAR, selectedYear)
+                    calendar.set(Calendar.DAY_OF_MONTH, daySelected)
+                    calendar.set(Calendar.MONTH, selectedMonth)
+                    viewCalendar.date = calendar.timeInMillis
+
+                    setMonthAndYear(selectedMonth, selectedYear)
+                }, yearSelected, monthSelected, daySelected)
+                datePickerDialog.show()
+            }
+
+            viewCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+
+            }
+        }
+
         addEventCard("8:00 AM")
         addEventCard("12:00 AM")
+    }
+
+    private fun setMonthAndYear(month: Int, year: Int) {
+        binding.tvYear.text = "${getMonthName(month)} $year"
+    }
+
+    private fun getMonthName(month: Int): String {
+        return when (month) {
+            0 -> "January"
+            1 -> "February"
+            2 -> "March"
+            3 -> "April"
+            4 -> "May"
+            5 -> "June"
+            6 -> "July"
+            7 -> "August"
+            8 -> "September"
+            9 -> "October"
+            10 -> "November"
+            11 -> "December"
+            else -> {
+                ""
+            }
+        }
     }
 
 

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.data.model.Clubs
 import com.example.unihub.databinding.ItemRecInlineBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHolder>() {
 
@@ -33,8 +34,8 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
         differ.submitList(list)
     }
 
-    var listenerClickAtItem: RcViewItemClickIdCallback? = null
-    fun setOnFollowClickListener(listener: RcViewItemClickIdCallback) {
+    var listenerClickAtItem: RcViewItemClickIdStringCallback? = null
+    fun setOnFollowClickListener(listener: RcViewItemClickIdStringCallback) {
         this.listenerClickAtItem = listener
     }
 

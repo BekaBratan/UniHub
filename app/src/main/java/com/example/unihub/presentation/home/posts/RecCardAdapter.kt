@@ -10,6 +10,7 @@ import com.example.unihub.R
 import com.example.unihub.data.model.Clubs
 import com.example.unihub.databinding.ItemRecCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>() {
 
@@ -35,8 +36,8 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
         differ.submitList(list)
     }
 
-    var listenerClickAtItem: RcViewItemClickIdCallback? = null
-    fun setOnFollowClickListener(listener: RcViewItemClickIdCallback) {
+    var listenerClickAtItem: RcViewItemClickIdStringCallback? = null
+    fun setOnFollowClickListener(listener: RcViewItemClickIdStringCallback) {
         this.listenerClickAtItem = listener
     }
 

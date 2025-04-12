@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.data.model.Clubs
 import com.example.unihub.databinding.FragmentSearchBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.provideNavigationHost
 
 class SearchFragment : Fragment() {
@@ -32,8 +33,8 @@ class SearchFragment : Fragment() {
         clubsAdapter.submitList(List(6) { Clubs() })
 
         clubsAdapter.setOnFollowClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+            object : RcViewItemClickIdStringCallback {
+                override fun onClick(id: String) {
 
                 }
             }

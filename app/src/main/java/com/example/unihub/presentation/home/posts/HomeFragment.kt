@@ -63,8 +63,8 @@ class HomeFragment : Fragment() {
         clubsAdapter.submitList(List(10) { Clubs() })
 
         clubsAdapter.setOnFollowClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+            object : RcViewItemClickIdStringCallback {
+                override fun onClick(id: String) {
 
                 }
             }

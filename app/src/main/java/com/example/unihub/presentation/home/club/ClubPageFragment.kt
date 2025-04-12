@@ -2,12 +2,14 @@ package com.example.unihub.presentation.home.club
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,7 +46,7 @@ class ClubPageFragment : Fragment() {
         var clubMotto = ""
         var clubInfo = ""
 
-        clubViewModel.getClubById(args.id)
+        clubViewModel.getClubById("67faab3b8f3a56f739d04c22")
 
         val postsAdapter = PostsAdapter()
         postsAdapter.submitList(List(10) { Posts() })
@@ -122,17 +124,15 @@ class ClubPageFragment : Fragment() {
                 )
             )
 
-            rvEvents.layoutManager = verticalLinearLayoutManager
             rvEvents.adapter = eventsAdapter
 
-            rvRatings.layoutManager = verticalLinearLayoutManager
             rvRatings.adapter = ratingsAdapter
         }
 
         clubViewModel.clubResponse.observe(viewLifecycleOwner) {
-            binding.tvClubName.text = it.name
-            clubMotto = it.name
-            clubInfo = it.description
+            binding.tvClubName.text = it.club.name
+            clubMotto = it.club.name
+            clubInfo = it.club.description
         }
 
         clubViewModel.eventsResponse.observe(viewLifecycleOwner) {
@@ -140,6 +140,7 @@ class ClubPageFragment : Fragment() {
         }
 
         clubViewModel.clubsResponse.observe(viewLifecycleOwner) {
+            Log.d("Clubs", it.toString())
             ratingsAdapter.submitList(it.clubs)
         }
     }

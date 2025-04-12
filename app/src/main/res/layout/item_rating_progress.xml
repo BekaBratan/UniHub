@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:progress="70"
         android:layout_marginStart="8dp"
-        android:progressTint="@color/blue_900"
+        android:progressTint="@color/blue_800"
         android:layout_weight="1"/>
 
 </LinearLayout>

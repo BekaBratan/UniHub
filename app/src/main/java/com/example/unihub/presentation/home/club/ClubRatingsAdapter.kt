@@ -43,7 +43,7 @@ open class ClubRatingsAdapter: RecyclerView.Adapter<ClubRatingsAdapter.RatingsVi
         fun onBind(club: Club) {
             binding.run {
                 tvClubName.text = club.name
-                progressBar.progress = (club.rating.toInt()/5)*100
+                progressBar.progress = ((club.rating/5)*100).toInt()
             }
         }
     }

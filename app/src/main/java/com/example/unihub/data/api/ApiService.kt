@@ -1,6 +1,7 @@
 package com.example.unihub.data.api
 
 import com.example.unihub.data.model.Club
+import com.example.unihub.data.model.ClubResponse
 import com.example.unihub.data.model.ClubsResponse
 import com.example.unihub.data.model.CreateClubRequest
 import com.example.unihub.data.model.CreateClubResponse
@@ -20,27 +21,41 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("events")
-    suspend fun getEvents(): EventsResponse
+    suspend fun getEvents(
+    ): EventsResponse
 
     @GET("events/{id}")
-    suspend fun getEventById(@Path("id") id: String): EventsResponseItem
+    suspend fun getEventById(
+        @Path("id") id: String
+    ): EventsResponseItem
 
     @POST("events")
-    suspend fun createEvent(@Body event: CreateEventRequest): EventsResponseItem
+    suspend fun createEvent(
+        @Body event: CreateEventRequest
+    ): EventsResponseItem
 
     @PUT("events/{id}")
-    suspend fun updateEventById(@Path("id") id: String, @Body event: CreateEventRequest): EventsResponseItem
+    suspend fun updateEventById(
+        @Path("id") id: String,
+        @Body event: CreateEventRequest
+    ): EventsResponseItem
 
     @DELETE("events/{id}")
-    suspend fun deleteEventById(@Path("id") id: String): SimpleMessageResponse
+    suspend fun deleteEventById(
+        @Path("id") id: String
+    ): SimpleMessageResponse
 
 
     @GET("clubs")
     suspend fun getClubs(): ClubsResponse
 
     @GET("clubs/{id}")
-    suspend fun getClubById(@Path("id") id: String): Club
+    suspend fun getClubById(
+        @Path("id") id: String
+    ): ClubResponse
 
     @POST("clubs")
-    suspend fun createClub(@Body club: CreateClubRequest): CreateClubResponse
+    suspend fun createClub(
+        @Body club: CreateClubRequest
+    ): CreateClubResponse
 }

@@ -18,6 +18,7 @@ import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
 
@@ -51,9 +52,9 @@ class HomeFragment : Fragment() {
         )
 
         postsAdapter.setOnClubNameClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment())
+            object : RcViewItemClickIdStringCallback {
+                override fun onClick(id: String) {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id))
                 }
             }
         )
@@ -102,7 +103,7 @@ class HomeFragment : Fragment() {
             }
 
             tvClubName.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment())
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment("67f2f4ebb2608eae089764bf"))
             }
         }
 

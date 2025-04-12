@@ -86,7 +86,11 @@
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_homeFragment_to_clubPageFragment"
-            app:destination="@id/clubPageFragment" />
+            app:destination="@id/clubPageFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/signInAdminFragment"
@@ -123,7 +127,11 @@
         android:id="@+id/clubPageFragment"
         android:name="com.example.unihub.presentation.home.club.ClubPageFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_club_page" />
+        tools:layout="@layout/fragment_club_page">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.unihub.presentation.home.search.SearchFragment"

@@ -10,6 +10,7 @@ import com.example.unihub.R
 import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
@@ -40,8 +41,8 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         this.listenerClickLike = listener
     }
 
-    var listenerClickClubName: RcViewItemClickIdCallback? = null
-    fun setOnClubNameClickListener(listener: RcViewItemClickIdCallback) {
+    var listenerClickClubName: RcViewItemClickIdStringCallback? = null
+    fun setOnClubNameClickListener(listener: RcViewItemClickIdStringCallback) {
         this.listenerClickClubName = listener
     }
 

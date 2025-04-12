@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Clubs(
     @SerializedName("id")
-    val id: Int = 0,
+    val id: String = "67f2f4ebb2608eae089764bf",
     @SerializedName("name")
     val name: String = "Puzzle Club",
     @SerializedName("description")

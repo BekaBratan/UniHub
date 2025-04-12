@@ -23,23 +23,23 @@ interface ApiService {
     suspend fun getEvents(): EventsResponse
 
     @GET("events/{id}")
-    suspend fun getEventById(@Path("id") id: Int): EventsResponseItem
+    suspend fun getEventById(@Path("id") id: String): EventsResponseItem
 
     @POST("events")
     suspend fun createEvent(@Body event: CreateEventRequest): EventsResponseItem
 
     @PUT("events/{id}")
-    suspend fun updateEventById(@Path("id") id: Int, @Body event: CreateEventRequest): EventsResponseItem
+    suspend fun updateEventById(@Path("id") id: String, @Body event: CreateEventRequest): EventsResponseItem
 
     @DELETE("events/{id}")
-    suspend fun deleteEventById(@Path("id") id: Int): SimpleMessageResponse
+    suspend fun deleteEventById(@Path("id") id: String): SimpleMessageResponse
 
 
     @GET("clubs")
     suspend fun getClubs(): ClubsResponse
 
     @GET("clubs/{id}")
-    suspend fun getClubById(@Path("id") id: Int): Club
+    suspend fun getClubById(@Path("id") id: String): Club
 
     @POST("clubs")
     suspend fun createClub(@Body club: CreateClubRequest): CreateClubResponse

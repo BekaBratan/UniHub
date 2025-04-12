@@ -216,15 +216,17 @@
                 android:id="@+id/idBooking"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="@color/white_1000"
-                android:layout_weight="1"/>
+                android:background="@color/black_1000"
+                android:layout_weight="1"
+                android:visibility="invisible"/>
 
             <View
                 android:id="@+id/idRating"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="@color/white_1000"
-                android:layout_weight="1"/>
+                android:background="@color/black_1000"
+                android:layout_weight="1"
+                android:visibility="invisible"/>
 
         </LinearLayout>
 

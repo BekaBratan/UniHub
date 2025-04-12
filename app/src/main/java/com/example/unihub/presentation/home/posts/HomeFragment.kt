@@ -1,4 +1,4 @@
-package com.example.unihub.presentation.home
+package com.example.unihub.presentation.home.posts
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,15 +1,17 @@
-package com.example.unihub.presentation.home
+package com.example.unihub.presentation.home.posts
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.unihub.R
 import com.example.unihub.data.model.Clubs
-import com.example.unihub.databinding.ItemRecInlineBinding
+import com.example.unihub.databinding.ItemRecCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 
-open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHolder>() {
+open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<Clubs>() {
         override fun areItemsTheSame(
@@ -39,7 +41,7 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
     }
 
     inner class ClubsViewHolder(
-        var binding: ItemRecInlineBinding
+        var binding: ItemRecCardBinding
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
@@ -48,12 +50,12 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
                 tvRecClub.text = clubs.name
                 var isFollowed = clubs.isFollowed
 
-//                if (clubs.image.isEmpty())
-//                    ivRecClub.setImageResource(R.drawable.puzzle_club)
-//                else
-//                    Glide.with(itemView.context)
-//                        .load(clubs.image)
-//                        .into(ivRecClub)
+                if (clubs.image.isEmpty())
+                    ivRecClub.setImageResource(R.drawable.puzzle_club)
+                else
+                    Glide.with(itemView.context)
+                        .load(clubs.image)
+                        .into(ivRecClub)
 
                 if (isFollowed)
                     btnFollow.text = "Unfollow"
@@ -77,7 +79,7 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
         viewType: Int
     ): ClubsViewHolder {
         return ClubsViewHolder(
-            ItemRecInlineBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemRecCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

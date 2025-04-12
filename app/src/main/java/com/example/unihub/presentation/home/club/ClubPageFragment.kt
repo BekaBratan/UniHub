@@ -1,19 +1,20 @@
-package com.example.unihub.presentation.home
+package com.example.unihub.presentation.home.club
 
 import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageButton
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
 import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.FragmentClubPageBinding
+import com.example.unihub.presentation.home.posts.PostsAdapter
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.provideNavigationHost
@@ -45,7 +46,8 @@ class ClubPageFragment : Fragment() {
             }
         )
 
-        val verticalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        val verticalLinearLayoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
         binding.run {
             btnBack.setOnClickListener {
@@ -60,7 +62,7 @@ class ClubPageFragment : Fragment() {
             rvPosts.adapter = postsAdapter
             rvPosts.addItemDecoration(
                 CustomDividerItemDecoration(
-                    getDrawable(
+                    AppCompatResources.getDrawable(
                         requireContext(),
                         R.drawable.divider_1dp
                     )!!

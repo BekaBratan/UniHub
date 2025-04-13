@@ -131,6 +131,13 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_clubPageFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -243,4 +250,25 @@
         android:name="com.example.unihub.presentation.chat.ChatBotFragment"
         android:label="fragment_chat_bot"
         tools:layout="@layout/fragment_chat_bot" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.unihub.presentation.home.club.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_bookingFragment_to_registerBookingFragment"
+            app:destination="@id/registerBookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerBookingFragment"
+        android:name="com.example.unihub.presentation.home.club.RegisterBookingFragment"
+        android:label="fragment_register_booking"
+        tools:layout="@layout/fragment_register_booking" >
+        <action
+            android:id="@+id/action_registerBookingFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
 </navigation>

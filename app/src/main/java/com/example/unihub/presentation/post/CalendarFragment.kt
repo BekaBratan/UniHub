@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.marginTop
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCalendarBinding
+import com.example.unihub.utils.provideNavigationHost
 import java.util.Calendar
 
 class CalendarFragment : Fragment() {
@@ -29,6 +30,7 @@ class CalendarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        provideNavigationHost()?.hideBottomNavigationBar(false)
 
         val calendar = Calendar.getInstance()
 

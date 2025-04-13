@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        provideNavigationHost()?.hideBottomNavigationBar(false)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
 
         val clubsAdapter = RecInlineAdapter()
         clubsAdapter.submitList(List(6) { Clubs() })

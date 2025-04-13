@@ -9,6 +9,7 @@ import com.example.unihub.data.model.Club
 import com.example.unihub.data.model.ClubResponse
 import com.example.unihub.data.model.ClubsResponse
 import com.example.unihub.data.model.EventsResponse
+import com.example.unihub.data.model.EventsResponseItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -18,6 +19,9 @@ class ClubViewModel(): ViewModel() {
 
     private var _clubsResponse: MutableLiveData<ClubsResponse> = MutableLiveData()
     val clubsResponse: LiveData<ClubsResponse> = _clubsResponse
+
+    private var _eventResponse: MutableLiveData<EventsResponseItem> = MutableLiveData()
+    val eventResponse: LiveData<EventsResponseItem> = _eventResponse
 
     private var _eventsResponse: MutableLiveData<EventsResponse> = MutableLiveData()
     val eventsResponse: LiveData<EventsResponse> = _eventsResponse
@@ -47,6 +51,21 @@ class ClubViewModel(): ViewModel() {
             }.fold(
                 onSuccess = {
                     _clubsResponse.postValue(it)
+                },
+                onFailure = {
+                    _errorMessage.postValue(it.localizedMessage)
+                }
+            )
+        }
+    }
+
+    fun getEventById(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.getEventById(id)
+            }.fold(
+                onSuccess = {
+                    _eventResponse.postValue(it)
                 },
                 onFailure = {
                     _errorMessage.postValue(it.localizedMessage)

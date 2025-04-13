@@ -68,6 +68,17 @@ class ClubPageFragment : Fragment() {
         )
 
         val eventsAdapter = EventCardsAdapter()
+
+        eventsAdapter.setOnCardClickListener(
+            object : RcViewItemClickIdStringCallback {
+                override fun onClick(id: String) {
+                    findNavController().navigate(
+                        ClubPageFragmentDirections.actionClubPageFragmentToBookingFragment(id)
+                    )
+                }
+            }
+        )
+
         val ratingsAdapter = ClubRatingsAdapter()
 
         val verticalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

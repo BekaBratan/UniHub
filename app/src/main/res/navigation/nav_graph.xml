@@ -103,12 +103,12 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.unihub.presentation.favourite.ChatFragment"
+        android:name="com.example.unihub.presentation.notifications.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.unihub.presentation.favourite.FavouriteFragment"
+        android:name="com.example.unihub.presentation.notifications.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
     <fragment
@@ -130,6 +130,9 @@
         tools:layout="@layout/fragment_club_page">
         <argument
             android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="type"
             app:argType="string" />
         <action
             android:id="@+id/action_clubPageFragment_to_bookingFragment"
@@ -228,12 +231,20 @@
         tools:layout="@layout/fragment_create_request" />
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.unihub.presentation.post.CalendarFragment"
+        android:name="com.example.unihub.presentation.calendar.CalendarFragment"
         android:label="fragment_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_calendarFragment_to_eventsFragment"
+            app:destination="@id/eventsFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/activitiesFragment"
-        android:name="com.example.unihub.presentation.favourite.ActivitiesFragment"
+        android:name="com.example.unihub.presentation.notifications.ActivitiesFragment"
         android:label="fragment_activities"
         tools:layout="@layout/fragment_activities" >
         <action
@@ -242,9 +253,13 @@
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
-        android:name="com.example.unihub.presentation.post.EventsFragment"
+        android:name="com.example.unihub.presentation.calendar.EventsFragment"
         android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/chatBotFragment"
         android:name="com.example.unihub.presentation.chat.ChatBotFragment"
@@ -260,15 +275,26 @@
             app:argType="string" />
         <action
             android:id="@+id/action_bookingFragment_to_registerBookingFragment"
-            app:destination="@id/registerBookingFragment" />
+            app:destination="@id/registerBookingFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/registerBookingFragment"
         android:name="com.example.unihub.presentation.home.club.RegisterBookingFragment"
         android:label="fragment_register_booking"
         tools:layout="@layout/fragment_register_booking" >
+        <argument
+            android:name="id"
+            app:argType="string" />
         <action
-            android:id="@+id/action_registerBookingFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment" />
+            android:id="@+id/action_registerBookingFragment_to_clubPageFragment"
+            app:destination="@id/clubPageFragment">
+            <argument
+                android:name="type"
+                app:argType="string" />
+        </action>
     </fragment>
 </navigation>

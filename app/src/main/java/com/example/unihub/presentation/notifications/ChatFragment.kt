@@ -1,23 +1,22 @@
-package com.example.unihub.presentation.favourite
+package com.example.unihub.presentation.notifications
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.unihub.R
-import com.example.unihub.databinding.FragmentActivitiesBinding
+import androidx.fragment.app.Fragment
+import com.example.unihub.databinding.FragmentChatBinding
 import com.example.unihub.utils.provideNavigationHost
 
-class ActivitiesFragment : Fragment() {
+class ChatFragment : Fragment() {
 
-    private lateinit var binding: FragmentActivitiesBinding
+    private lateinit var binding: FragmentChatBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentActivitiesBinding.inflate(inflater, container, false)
+        binding = FragmentChatBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,4 +24,5 @@ class ActivitiesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
     }
+
 }

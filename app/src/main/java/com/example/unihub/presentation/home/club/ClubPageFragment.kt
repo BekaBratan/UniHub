@@ -23,6 +23,7 @@ import com.example.unihub.presentation.home.posts.PostsAdapter
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
 class ClubPageFragment : Fragment() {
@@ -45,6 +46,20 @@ class ClubPageFragment : Fragment() {
 
         var clubMotto = ""
         var clubInfo = ""
+
+        if (args.type == "book"){
+            showCustomDialogBox()
+            binding.run {
+                clubViewModel.getEvents()
+                idAll.visibility = View.INVISIBLE
+                idBooking.visibility = View.VISIBLE
+                idRating.visibility = View.INVISIBLE
+
+                rvPosts.visibility = View.GONE
+                rvEvents.visibility = View.VISIBLE
+                llRatings.visibility = View.GONE
+            }
+        }
 
         clubViewModel.getClubById(args.id)
 
@@ -171,6 +186,29 @@ class ClubPageFragment : Fragment() {
         tvClubMotto.text = clubMotto
 
         btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun showCustomDialogBox() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_log_out)
+        dialog.window?.setBackgroundDrawableResource(R.color.transparent)
+
+        val tvTitle: TextView = dialog.findViewById(R.id.tvTitle)
+        val btnDismiss: TextView = dialog.findViewById(R.id.btnNo)
+        val btnLogout: TextView = dialog.findViewById(R.id.btnYes)
+
+        tvTitle.text = "Your request has been sended, please wait."
+        btnDismiss.text = "OK"
+
+        btnLogout.visibility = View.GONE
+
+        btnDismiss.setOnClickListener {
             dialog.dismiss()
         }
 

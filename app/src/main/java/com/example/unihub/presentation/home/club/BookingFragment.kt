@@ -53,7 +53,7 @@ class BookingFragment : Fragment() {
             }
 
             btnGetTicket.setOnClickListener {
-                findNavController().navigate(R.id.action_bookingFragment_to_registerBookingFragment)
+                findNavController().navigate(BookingFragmentDirections.actionBookingFragmentToRegisterBookingFragment(args.id))
             }
         }
     }

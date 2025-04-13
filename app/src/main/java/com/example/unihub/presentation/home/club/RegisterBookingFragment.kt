@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentRegisterBookingBinding
 import com.example.unihub.utils.provideNavigationHost
@@ -13,6 +14,7 @@ import com.example.unihub.utils.provideNavigationHost
 class RegisterBookingFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBookingBinding
+    private val args: RegisterBookingFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +30,7 @@ class RegisterBookingFragment : Fragment() {
 
         binding.run {
             btnRegister.setOnClickListener {
-                findNavController().navigate(R.id.action_registerBookingFragment_to_calendarFragment)
+                findNavController().navigate(RegisterBookingFragmentDirections.actionRegisterBookingFragmentToClubPageFragment(id = args.id, type = "book"))
             }
         }
     }

@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         postsAdapter.setOnClubNameClickListener(
             object : RcViewItemClickIdStringCallback {
                 override fun onClick(id: String) {
-                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id))
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id, ""))
                 }
             }
         )
@@ -103,7 +103,7 @@ class HomeFragment : Fragment() {
             }
 
             tvClubName.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment("67f2f4ebb2608eae089764bf"))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment("67f2f4ebb2608eae089764bf", ""))
             }
         }
 

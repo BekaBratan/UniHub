@@ -1,4 +1,4 @@
-package com.example.unihub.presentation.post
+package com.example.unihub.presentation.calendar
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.view.marginTop
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCalendarBinding
 import com.example.unihub.utils.provideNavigationHost

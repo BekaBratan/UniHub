@@ -1,23 +1,22 @@
-package com.example.unihub.presentation.favourite
+package com.example.unihub.presentation.calendar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.unihub.R
-import com.example.unihub.databinding.FragmentFavouriteBinding
+import com.example.unihub.databinding.FragmentEventsBinding
 import com.example.unihub.utils.provideNavigationHost
 
-class FavouriteFragment : Fragment() {
+class EventsFragment : Fragment() {
 
-    private lateinit var binding: FragmentFavouriteBinding
+    private lateinit var binding: FragmentEventsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFavouriteBinding.inflate(inflater, container, false)
+        binding = FragmentEventsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

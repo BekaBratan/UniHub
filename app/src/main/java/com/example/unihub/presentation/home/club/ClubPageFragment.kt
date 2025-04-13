@@ -46,7 +46,7 @@ class ClubPageFragment : Fragment() {
         var clubMotto = ""
         var clubInfo = ""
 
-        clubViewModel.getClubById("67faab3b8f3a56f739d04c22")
+        clubViewModel.getClubById(args.id)
 
         val postsAdapter = PostsAdapter()
         postsAdapter.submitList(List(10) { Posts() })

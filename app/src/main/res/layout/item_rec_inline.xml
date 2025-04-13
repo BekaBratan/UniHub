@@ -28,7 +28,7 @@
         android:id="@+id/btnFollow"
         android:layout_width="121dp"
         android:layout_height="24dp"
-        android:background="@drawable/sh_rounded"
+        android:background="@drawable/sh_rounded_blue"
         android:backgroundTint="@color/blue_800"
         android:fontFamily="@font/roboto_medium"
         android:text="Follow"

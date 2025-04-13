@@ -241,6 +241,9 @@
                 android:name="id"
                 app:argType="string" />
         </action>
+        <action
+            android:id="@+id/action_calendarFragment_to_addEventFragment"
+            app:destination="@id/addEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/activitiesFragment"
@@ -297,4 +300,9 @@
                 app:argType="string" />
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/addEventFragment"
+        android:name="com.example.unihub.presentation.calendar.AddEventFragment"
+        android:label="fragment_add_event"
+        tools:layout="@layout/fragment_add_event" />
 </navigation>

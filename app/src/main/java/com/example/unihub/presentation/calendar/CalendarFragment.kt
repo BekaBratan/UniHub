@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCalendarBinding
 import com.example.unihub.utils.provideNavigationHost
@@ -54,6 +55,10 @@ class CalendarFragment : Fragment() {
             viewCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
 
             }
+
+            btnPlus.setOnClickListener {
+                findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToAddEventFragment())
+            }
         }
 
         addEventCard("8:00 AM")
@@ -96,6 +101,10 @@ class CalendarFragment : Fragment() {
         tvEventName.text = "Sample Event"
         tvEventTime.text = time
         tvEventDuration.text = "1 hours"
+
+        eventCardLayout.setOnClickListener {
+            findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToEventsFragment("Sample Event"))
+        }
 
         if (time == "8:00 AM") {
             binding.llTime8am.addView(eventCardLayout)

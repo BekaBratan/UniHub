@@ -26,4 +26,20 @@
         <item name="android:textColorPrimaryInverse">@color/white_1000</item>
     </style>
 
-</resources>
+    <style name="CustomTimePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <!-- Цвет фона диалога -->
+        <item name="android:windowBackground">@color/blue_200</item>
+        <!-- Цвет текста времени -->
+        <item name="android:textColorPrimary">@color/blue_800</item>
+        <!-- Цвет кнопки "OK" -->
+        <item name="colorPrimary">@color/blue_800</item>
+        <item name="colorOnPrimary">@color/white_1000</item>
+        <!-- Цвет кнопки "Cancel" -->
+        <item name="colorSecondary">@color/grey_200</item>
+        <item name="colorOnSecondary">@color/white_1000</item>
+        <!-- Цвет заголовка диалога -->
+        <item name="android:textColor">@color/blue_800</item>
+        <!-- Цвет фона диалогового окна -->
+        <item name="android:colorBackground">@color/white_1000</item>
+        <item name="colorAccent">@color/grey_200</item>
+    </style></resources>

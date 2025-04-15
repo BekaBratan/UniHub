@@ -31,6 +31,8 @@ class EventsFragment : Fragment() {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
+
+            tvEventName.text = args.id
         }
     }
 }

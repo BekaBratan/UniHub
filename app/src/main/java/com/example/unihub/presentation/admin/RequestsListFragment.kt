@@ -46,7 +46,7 @@ class RequestsListFragment : Fragment() {
         adapterEvent.setOnItemClickListener(
             object : RcViewItemClickIdStringCallback {
                 override fun onClick(id: String) {
-                    TODO("Not yet implemented")
+                    findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateEventRequestFragment(id, false))
                 }
             }
         )

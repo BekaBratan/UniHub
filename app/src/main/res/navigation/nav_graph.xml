@@ -193,6 +193,16 @@
                 android:name="fromAdmin"
                 app:argType="boolean" />
         </action>
+        <action
+            android:id="@+id/action_requestsListFragment_to_createEventRequestFragment"
+            app:destination="@id/createEventRequestFragment" >
+            <argument
+                android:name="id"
+                app:argType="string" />
+            <argument
+                android:name="fromAdmin"
+                app:argType="boolean" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
@@ -330,6 +340,18 @@
         android:name="com.example.unihub.presentation.requests.CreateClubRequestFragment"
         android:label="fragment_create_club_request"
         tools:layout="@layout/fragment_create_club_request">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="fromAdmin"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEventRequestFragment"
+        android:name="com.example.unihub.presentation.requests.CreateEventRequestFragment"
+        android:label="fragment_create_event_request"
+        tools:layout="@layout/fragment_create_event_request" >
         <argument
             android:name="id"
             app:argType="string" />

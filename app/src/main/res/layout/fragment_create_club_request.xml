@@ -29,7 +29,7 @@
             android:fontFamily="@font/roboto_semibold"
             android:textColor="@color/grey_900"
             android:ellipsize="end"
-            android:text="Request to create a club"
+            android:text="Requests"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnBack"

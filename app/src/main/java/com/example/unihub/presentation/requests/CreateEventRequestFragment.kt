@@ -7,22 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentCreateClubRequestBinding
-import com.example.unihub.presentation.calendar.EventsFragmentArgs
+import com.example.unihub.databinding.FragmentCreateEventRequestBinding
 import com.example.unihub.utils.provideNavigationHost
-import kotlin.getValue
 
-class CreateClubRequestFragment : Fragment() {
+class CreateEventRequestFragment : Fragment() {
 
-    private lateinit var binding: FragmentCreateClubRequestBinding
-    private val args: CreateClubRequestFragmentArgs by navArgs()
-
+    private lateinit var binding: FragmentCreateEventRequestBinding
+    private val args: CreateEventRequestFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCreateClubRequestBinding.inflate(inflater, container, false)
+        binding = FragmentCreateEventRequestBinding.inflate(inflater, container, false)
         return binding.root
     }
 

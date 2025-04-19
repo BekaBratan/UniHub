@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentEditUserBinding
+import com.example.unihub.databinding.FragmentDeleteUserSuccessBinding
 import com.example.unihub.utils.provideNavigationHost
 
-class EditUserFragment : Fragment() {
+class DeleteUserSuccessFragment : Fragment() {
 
-    private lateinit var binding: FragmentEditUserBinding
+    private lateinit var binding: FragmentDeleteUserSuccessBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEditUserBinding.inflate(inflater, container, false)
+        binding = FragmentDeleteUserSuccessBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,15 +26,8 @@ class EditUserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
 
-        binding.run {
-            btnBack.setOnClickListener {
-                findNavController().popBackStack()
-            }
-
-            btnSave.setOnClickListener {
-                findNavController().popBackStack()
-            }
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(DeleteUserSuccessFragmentDirections.actionDeleteUserSuccessFragmentToAdminPageFragment())
         }
     }
-
 }

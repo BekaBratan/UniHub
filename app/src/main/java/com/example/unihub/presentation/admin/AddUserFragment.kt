@@ -30,6 +30,10 @@ class AddUserFragment : Fragment() {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
+
+            btnCreate.setOnClickListener {
+                findNavController().navigate(AddUserFragmentDirections.actionAddUserFragmentToAddUserSuccessFragment())
+            }
         }
     }
 

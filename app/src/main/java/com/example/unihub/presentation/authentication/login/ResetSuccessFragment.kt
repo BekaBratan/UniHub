@@ -1,4 +1,4 @@
-package com.example.unihub.presentation.admin
+package com.example.unihub.presentation.authentication.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentEditUserBinding
+import com.example.unihub.databinding.FragmentResetSuccessBinding
 import com.example.unihub.utils.provideNavigationHost
 
-class EditUserFragment : Fragment() {
+class ResetSuccessFragment : Fragment() {
 
-    private lateinit var binding: FragmentEditUserBinding
+    private lateinit var binding: FragmentResetSuccessBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEditUserBinding.inflate(inflater, container, false)
+        binding = FragmentResetSuccessBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,10 +31,9 @@ class EditUserFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
-            btnSave.setOnClickListener {
-                findNavController().popBackStack()
+            btnLogin.setOnClickListener {
+                findNavController().navigate(ResetSuccessFragmentDirections.actionResetSuccessFragmentToLogInFragment())
             }
         }
     }
-
 }

@@ -43,7 +43,7 @@ class ResetFragment : Fragment() {
                     tvSendMsg.text = "We have sent an email \n to ${email} with instructions to reset your password."
                     btnSend.text = "Back to login"
                 } else {
-                    findNavController().navigate(ResetFragmentDirections.actionResetFragmentToLogInFragment())
+                    findNavController().navigate(ResetFragmentDirections.actionResetFragmentToResetSuccessFragment())
                 }
             }
         }

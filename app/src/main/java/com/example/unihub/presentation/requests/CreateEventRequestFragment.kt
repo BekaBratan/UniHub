@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCreateEventRequestBinding
@@ -34,6 +35,14 @@ class CreateEventRequestFragment : Fragment() {
             } else {
                 tvComment.visibility = View.VISIBLE
                 etStatus.visibility = View.GONE
+            }
+
+            btnBack.setOnClickListener{
+                findNavController().popBackStack()
+            }
+
+            btnSend.setOnClickListener {
+                findNavController().navigate(CreateEventRequestFragmentDirections.actionCreateEventRequestFragmentToRequestConfirmSuccessFragment())
             }
         }
     }

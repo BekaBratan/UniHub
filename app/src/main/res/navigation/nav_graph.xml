@@ -49,8 +49,8 @@
         android:label="fragment_reset"
         tools:layout="@layout/fragment_reset" >
         <action
-            android:id="@+id/action_resetFragment_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            android:id="@+id/action_resetFragment_to_resetSuccessFragment"
+            app:destination="@id/resetSuccessFragment" />
     </fragment>
     <fragment
         android:id="@+id/successFragment"
@@ -159,6 +159,9 @@
         <action
             android:id="@+id/action_adminPageFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_adminPageFragment_to_deleteUserSuccessFragment"
+            app:destination="@id/deleteUserSuccessFragment" />
     </fragment>
     <fragment
         android:id="@+id/editUserFragment"
@@ -175,8 +178,8 @@
         android:label="fragment_add_user"
         tools:layout="@layout/fragment_add_user" >
         <action
-            android:id="@+id/action_addUserFragment_to_adminPageFragment"
-            app:destination="@id/adminPageFragment" />
+            android:id="@+id/action_addUserFragment_to_addUserSuccessFragment"
+            app:destination="@id/addUserSuccessFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestsListFragment"
@@ -346,6 +349,9 @@
         <argument
             android:name="fromAdmin"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_createClubRequestFragment_to_requestConfirmSuccessFragment"
+            app:destination="@id/requestConfirmSuccessFragment" />
     </fragment>
     <fragment
         android:id="@+id/createEventRequestFragment"
@@ -358,5 +364,44 @@
         <argument
             android:name="fromAdmin"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_createEventRequestFragment_to_requestConfirmSuccessFragment"
+            app:destination="@id/requestConfirmSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUserSuccessFragment"
+        android:name="com.example.unihub.presentation.admin.AddUserSuccessFragment"
+        android:label="fragment_add_user_success"
+        tools:layout="@layout/fragment_add_user_success" >
+        <action
+            android:id="@+id/action_addUserSuccessFragment_to_adminPageFragment"
+            app:destination="@id/adminPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteUserSuccessFragment"
+        android:name="com.example.unihub.presentation.admin.DeleteUserSuccessFragment"
+        android:label="fragment_delete_user_success"
+        tools:layout="@layout/fragment_delete_user_success" >
+        <action
+            android:id="@+id/action_deleteUserSuccessFragment_to_adminPageFragment"
+            app:destination="@id/adminPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestConfirmSuccessFragment"
+        android:name="com.example.unihub.presentation.requests.RequestConfirmSuccessFragment"
+        android:label="fragment_request_confirm_success"
+        tools:layout="@layout/fragment_request_confirm_success" >
+        <action
+            android:id="@+id/action_requestConfirmSuccessFragment_to_requestsListFragment"
+            app:destination="@id/requestsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetSuccessFragment"
+        android:name="com.example.unihub.presentation.authentication.login.ResetSuccessFragment"
+        android:label="fragment_reset_success"
+        tools:layout="@layout/fragment_reset_success" >
+        <action
+            android:id="@+id/action_resetSuccessFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
     </fragment>
 </navigation>

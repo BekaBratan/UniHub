@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName
 
 data class EventsResponseItem(
     @SerializedName("club")
-    val club: Any?,
+    val club: Any? = "No Club",
     @SerializedName("date")
-    val date: String,
+    val date: String = "No date",
     @SerializedName("description")
-    val description: String,
+    val description: String = "No description",
     @SerializedName("_id")
-    val id: String,
+    val id: String = "No id",
     @SerializedName("location")
-    val location: String,
+    val location: String = "No location",
     @SerializedName("name")
-    val name: String,
+    val name: String = "No name",
     @SerializedName("price")
-    val price: Int,
+    val price: Int = 0,
     @SerializedName("__v")
-    val v: Int
+    val v: Int = 0
 )

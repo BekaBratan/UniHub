@@ -404,4 +404,19 @@
             android:id="@+id/action_resetSuccessFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/clubProfileFragment"
+        android:name="com.example.unihub.presentation.club.ClubProfileFragment"
+        android:label="fragment_club_profile"
+        tools:layout="@layout/fragment_club_profile" >
+        <action
+            android:id="@+id/action_clubProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_clubProfileFragment_to_createRequestFragment"
+            app:destination="@id/createRequestFragment" />
+        <action
+            android:id="@+id/action_clubProfileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>

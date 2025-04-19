@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_1000"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.home.club.ClubPageFragment">
+    tools:context=".presentation.club.ClubProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -94,37 +93,52 @@
             app:layout_constraintTop_toBottomOf="@+id/llClubInfo">
 
             <LinearLayout
+                android:id="@+id/llUserDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:gravity="center_vertical">
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/llClubInfo">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnFollow"
+                    android:id="@+id/btnEditUser"
                     android:layout_width="0dp"
                     android:layout_height="34dp"
-                    android:background="@drawable/sh_14dp"
-                    android:backgroundTint="@color/blue_800"
+                    android:background="@drawable/sh_10dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Follow"
+                    android:text="Edit profile"
                     android:textAllCaps="false"
-                    android:textColor="@color/white_1000"
+                    android:textColor="@color/black_1000"
                     android:textSize="15sp"
                     android:layout_weight="1"/>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnChat"
+                    android:id="@+id/btnSettings"
                     android:layout_width="0dp"
                     android:layout_height="34dp"
-                    android:background="@drawable/sh_14dp"
-                    android:backgroundTint="@color/blue_800"
+                    android:background="@drawable/sh_10dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Chat discussion"
+                    android:text="Settings"
                     android:textAllCaps="false"
                     android:layout_marginStart="18dp"
-                    android:textColor="@color/white_1000"
+                    android:textColor="@color/black_1000"
                     android:textSize="15sp"
                     android:layout_weight="1"/>
+
+                <LinearLayout
+                    android:id="@+id/btnWrite"
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/sh_10dp"
+                    android:gravity="center"
+                    android:layout_marginStart="15dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_write"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -255,7 +269,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone"/>
-        
+
         <LinearLayout
             android:id="@+id/llRatings"
             android:layout_width="match_parent"

@@ -31,16 +31,87 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBack"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRequestsList"
+    <LinearLayout
+        android:id="@+id/llPages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <TextView
+            android:id="@+id/tvClubRequests"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Clubs/Admins"
+            android:textAlignment="center"
+            android:textColor="@color/black_1000"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvEventRequests"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Events"
+            android:textAlignment="center"
+            android:textColor="@color/black_1000"
+            android:textSize="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llIndicators"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@+id/llPages">
+
+        <View
+            android:id="@+id/idClubRequests"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black_1000"
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <View
+            android:id="@+id/idEventRequests"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black_1000"
+            android:visibility="invisible"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvClubRequestsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:paddingTop="12dp"
         android:layout_marginBottom="16dp"
         android:layout_marginHorizontal="22dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/llIndicators"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEventRequestsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:paddingTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/llIndicators"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

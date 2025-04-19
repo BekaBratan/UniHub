@@ -156,6 +156,9 @@
         <action
             android:id="@+id/action_adminPageFragment_to_requestsListFragment"
             app:destination="@id/requestsListFragment" />
+        <action
+            android:id="@+id/action_adminPageFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/editUserFragment"
@@ -179,7 +182,18 @@
         android:id="@+id/requestsListFragment"
         android:name="com.example.unihub.presentation.admin.RequestsListFragment"
         android:label="fragment_requests_list"
-        tools:layout="@layout/fragment_requests_list" />
+        tools:layout="@layout/fragment_requests_list" >
+        <action
+            android:id="@+id/action_requestsListFragment_to_createClubRequestFragment"
+            app:destination="@id/createClubRequestFragment">
+            <argument
+                android:name="id"
+                app:argType="string" />
+            <argument
+                android:name="fromAdmin"
+                app:argType="boolean" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="com.example.unihub.presentation.profile.ChangePasswordFragment"
@@ -223,7 +237,18 @@
         android:id="@+id/createRequestFragment"
         android:name="com.example.unihub.presentation.profile.CreateRequestFragment"
         android:label="fragment_create_request"
-        tools:layout="@layout/fragment_create_request" />
+        tools:layout="@layout/fragment_create_request" >
+        <action
+            android:id="@+id/action_createRequestFragment_to_createClubRequestFragment"
+            app:destination="@id/createClubRequestFragment" >
+            <argument
+                android:name="id"
+                app:argType="string" />
+            <argument
+                android:name="fromAdmin"
+                app:argType="boolean" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/calendarFragment"
         android:name="com.example.unihub.presentation.calendar.CalendarFragment"
@@ -300,4 +325,16 @@
         android:name="com.example.unihub.presentation.calendar.AddEventFragment"
         android:label="fragment_add_event"
         tools:layout="@layout/fragment_add_event" />
+    <fragment
+        android:id="@+id/createClubRequestFragment"
+        android:name="com.example.unihub.presentation.requests.CreateClubRequestFragment"
+        android:label="fragment_create_club_request"
+        tools:layout="@layout/fragment_create_club_request">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="fromAdmin"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

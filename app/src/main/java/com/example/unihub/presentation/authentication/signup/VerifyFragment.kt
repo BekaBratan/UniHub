@@ -1,17 +1,24 @@
 package com.example.unihub.presentation.authentication.signup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.databinding.FragmentVerifyBinding
+import com.example.unihub.presentation.authentication.AuthViewModel
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
+import kotlin.getValue
 
 class VerifyFragment : Fragment() {
 
     private lateinit var binding: FragmentVerifyBinding
+    private val authViewModel: AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +31,7 @@ class VerifyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
+        val sharedProvider = SharedProvider(requireContext())
 
         binding.run {
             btnBack.setOnClickListener {
@@ -31,7 +39,24 @@ class VerifyFragment : Fragment() {
             }
 
             btnVerify.setOnClickListener {
+                val email = sharedProvider.getEmail()
+                val code = etCode.text.toString()
+                Log.d("Verify", "Email: $email, Code: $code")
+                authViewModel.verify(email = email, code = code)
+            }
+
+            etCode.addTextChangedListener {
+                tvError.visibility = View.INVISIBLE
+            }
+
+            authViewModel.verifyResponse.observe(viewLifecycleOwner) {
+                sharedProvider.saveToken(it.token)
                 findNavController().navigate(VerifyFragmentDirections.actionVerifyFragment2ToSuccessFragment2())
+            }
+
+            authViewModel.errorMessage.observe(viewLifecycleOwner) {
+                tvError.text = it.message
+                tvError.visibility = View.VISIBLE
             }
 
             tvDifferentEmail.setOnClickListener {

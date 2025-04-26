@@ -85,78 +85,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:layout_width="wrap_content"
-                android:inputType="number"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/sh_edit_text"
-                android:fontFamily="@font/roboto_regular"
-                android:textColorHint="@color/grey_600"
-                android:textColor="@color/grey_900"
-                android:textSize="16sp"
-                android:paddingHorizontal="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"/>
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="number"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/sh_edit_text"
-                android:fontFamily="@font/roboto_regular"
-                android:textColorHint="@color/grey_600"
-                android:textColor="@color/grey_900"
-                android:textSize="16sp"
-                android:paddingHorizontal="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"/>
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="number"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/sh_edit_text"
-                android:fontFamily="@font/roboto_regular"
-                android:textColorHint="@color/grey_600"
-                android:textColor="@color/grey_900"
-                android:textSize="16sp"
-                android:paddingHorizontal="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"/>
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="number"
-                android:layout_height="48dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/sh_edit_text"
-                android:fontFamily="@font/roboto_regular"
-                android:textColorHint="@color/grey_600"
-                android:textColor="@color/grey_900"
-                android:textSize="16sp"
-                android:paddingHorizontal="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"/>
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-
-            <EditText
+                android:id="@+id/etCode"
                 android:layout_width="wrap_content"
                 android:inputType="number"
                 android:layout_height="48dp"
@@ -171,6 +100,18 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Confirm password"
+            android:textColor="@color/red_900"
+            android:textSize="16sp"
+            android:visibility="invisible"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnVerify"

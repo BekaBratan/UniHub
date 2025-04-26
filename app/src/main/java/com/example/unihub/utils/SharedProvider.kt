@@ -3,10 +3,11 @@ package com.example.unihub.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.core.content.edit
 
 class SharedProvider(private val context: Context) {
     private val sharedToken = "AccessToken"
-    private val tokenType = "TokenType"
+    private val email = "Email"
     private val isAuthorized = "isAuthorized"
 
     private val preferences: SharedPreferences
@@ -27,23 +28,31 @@ class SharedProvider(private val context: Context) {
         return preferences.getBoolean(isAuthorized, false)
     }
 
+    fun saveEmail(_email: String) {
+        preferences.edit() { putString(email, _email) }
+    }
+
     fun saveToken(token: String) {
-        preferences.edit().putString(sharedToken, token).apply()
+        preferences.edit() { putString(sharedToken, token) }
+    }
+
+    fun getEmail(): String {
+        return preferences.getString(email, "without_email").toString()
     }
 
     fun getToken():String {
-        return "${preferences.getString(tokenType, "without_token_type")} ${preferences.getString(sharedToken, "without_token")}"
+        return "Bearer ${preferences.getString(sharedToken, "without_token")}"
     }
 
     fun setToken(token: String) {
-        val editor = preferences.edit()
-        editor.putString(sharedToken, token)
-        Log.d("AAA", "setToken: $token")
-        editor.apply()
+        preferences.edit() {
+            putString(sharedToken, token)
+            Log.d("AAA", "setToken: $token")
+        }
     }
 
     fun clearShared() {
-        preferences.edit().clear().apply()
+        preferences.edit() { clear() }
     }
 
 }

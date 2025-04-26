@@ -172,6 +172,18 @@
             android:paddingHorizontal="16dp"
             android:gravity="center_vertical"/>
 
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Confirm password"
+            android:textColor="@color/red_900"
+            android:textSize="16sp"
+            android:visibility="invisible"/>
+
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton

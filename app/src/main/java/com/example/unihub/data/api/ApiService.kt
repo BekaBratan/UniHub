@@ -8,7 +8,13 @@ import com.example.unihub.data.model.CreateClubResponse
 import com.example.unihub.data.model.CreateEventRequest
 import com.example.unihub.data.model.EventsResponse
 import com.example.unihub.data.model.EventsResponseItem
+import com.example.unihub.data.model.LoginRequest
+import com.example.unihub.data.model.LoginResponse
+import com.example.unihub.data.model.MessageResponse
+import com.example.unihub.data.model.SignUpRequest
 import com.example.unihub.data.model.SimpleMessageResponse
+import com.example.unihub.data.model.VerificationRequest
+import com.example.unihub.data.model.VerificationResponse
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -58,4 +64,19 @@ interface ApiService {
     suspend fun createClub(
         @Body club: CreateClubRequest
     ): CreateClubResponse
+
+    @POST("auth/login")
+    suspend fun login(
+        @Body loginBody: LoginRequest
+    ): LoginResponse
+
+    @POST("auth/register")
+    suspend fun register(
+        @Body registerBody: SignUpRequest
+    ): MessageResponse
+
+    @POST("auth/verify")
+    suspend fun verify(
+        @Body verifyBody: VerificationRequest
+    ): VerificationResponse
 }

@@ -39,6 +39,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
 
+
+
         val firstPost = Posts()
         val postsAdapter = PostsAdapter()
         postsAdapter.submitList(List(10) { Posts() })
@@ -55,6 +57,15 @@ class HomeFragment : Fragment() {
             object : RcViewItemClickIdStringCallback {
                 override fun onClick(id: String) {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id, ""))
+                }
+            }
+        )
+
+        postsAdapter.setOnRepostClickListener(
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
+                    val repostBottomSheet = RepostBottomSheet(id)
+                    repostBottomSheet.show(childFragmentManager, repostBottomSheet.tag)
                 }
             }
         )

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/sh_top_24dp"
-    android:backgroundTint="@color/grey_700"
+    android:backgroundTint="@color/grey_200"
     android:paddingBottom="45dp"
     tools:context=".presentation.home.posts.RepostBottomSheet">
 
@@ -34,6 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/llRepost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -61,6 +62,7 @@
             android:layout_marginVertical="14dp"/>
 
         <LinearLayout
+            android:id="@+id/llQuote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

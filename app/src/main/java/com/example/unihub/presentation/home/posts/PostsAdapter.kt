@@ -46,6 +46,11 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         this.listenerClickClubName = listener
     }
 
+    var listenerClickRepost: RcViewItemClickIdCallback? = null
+    fun setOnRepostClickListener(listener: RcViewItemClickIdCallback) {
+        this.listenerClickRepost = listener
+    }
+
     inner class PostsViewHolder(
         var binding: ItemPostCardBinding
     ) : RecyclerView.ViewHolder(
@@ -81,6 +86,10 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
                 tvClubName.setOnClickListener {
                     listenerClickClubName?.onClick(posts.club.id)
+                }
+
+                btnRepost.setOnClickListener {
+                    listenerClickRepost?.onClick(posts.id)
                 }
             }
         }

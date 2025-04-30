@@ -419,4 +419,13 @@
             android:id="@+id/action_clubProfileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/repostBottomSheet"
+        android:name="com.example.unihub.presentation.home.posts.RepostBottomSheet"
+        android:label="fragment_repost_bottom_sheet"
+        tools:layout="@layout/fragment_repost_bottom_sheet" >
+        <action
+            android:id="@+id/action_repostBottomSheet_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </dialog>
 </navigation>

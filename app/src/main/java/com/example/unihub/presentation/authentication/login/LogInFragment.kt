@@ -1,9 +1,11 @@
 package com.example.unihub.presentation.authentication.login
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
@@ -30,6 +32,7 @@ class LogInFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
@@ -45,7 +48,6 @@ class LogInFragment : Fragment() {
                 val password = etPassword.text.toString().trim()
                 Log.d("Login", "Email: $email, Password: $password")
                 authViewModel.login(email = email, password = password)
-                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
 
             etEmail.addTextChangedListener {
@@ -54,6 +56,24 @@ class LogInFragment : Fragment() {
 
             etPassword.addTextChangedListener {
                 tvError.visibility = View.INVISIBLE
+            }
+
+            etPassword.setOnTouchListener { _, event ->
+                if (event.action == MotionEvent.ACTION_UP) {
+                    val drawableEnd = etPassword.compoundDrawablesRelative[2]
+                    if (drawableEnd != null && event.rawX >= (etPassword.right - etPassword.paddingEnd - drawableEnd.bounds.width())) {
+                        if (etPassword.inputType == android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD or android.text.InputType.TYPE_CLASS_TEXT) {
+                            etPassword.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                            etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_hide, 0)
+                        } else {
+                            etPassword.inputType = android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD or android.text.InputType.TYPE_CLASS_TEXT
+                            etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_hide, 0)
+                        }
+                        etPassword.setSelection(etPassword.text?.length ?: 0)
+                        return@setOnTouchListener true
+                    }
+                }
+                false
             }
 
             authViewModel.loginResponse.observe(viewLifecycleOwner) {

@@ -211,7 +211,12 @@
         android:id="@+id/changePasswordFragment"
         android:name="com.example.unihub.presentation.profile.ChangePasswordFragment"
         android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password" />
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_successChangePasswordFragment"
+            app:destination="@id/successChangePasswordFragment"
+            app:popUpTo="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.example.unihub.presentation.profile.EditProfileFragment"
@@ -428,4 +433,9 @@
             android:id="@+id/action_repostBottomSheet_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/successChangePasswordFragment"
+        android:name="com.example.unihub.presentation.profile.SuccessChangePasswordFragment"
+        android:label="fragment_success_change_password"
+        tools:layout="@layout/fragment_success_change_password" />
 </navigation>

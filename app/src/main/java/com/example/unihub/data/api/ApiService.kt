@@ -1,5 +1,6 @@
 package com.example.unihub.data.api
 
+import com.example.unihub.data.model.ChangePasswordRequest
 import com.example.unihub.data.model.Club
 import com.example.unihub.data.model.ClubResponse
 import com.example.unihub.data.model.ClubsResponse
@@ -79,4 +80,10 @@ interface ApiService {
     suspend fun verify(
         @Body verifyBody: VerificationRequest
     ): VerificationResponse
+
+    @POST("users/change-password")
+    suspend fun changePassword(
+        @Header("Authorization") token: String,
+        @Body password: ChangePasswordRequest
+    ): MessageResponse
 }

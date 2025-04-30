@@ -40,45 +40,46 @@ android {
 }
 
 dependencies {
-
+    // AndroidX libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // Testing libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Navigation
+    // Navigation libraries
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.dynamic.features.fragment)
     androidTestImplementation(libs.androidx.navigation.testing)
 
-    // Gson
-    implementation(libs.gson)
+    // Gson (use only one version to avoid conflicts)
+    implementation(libs.gson.v290) // Make sure to use only this
 
-    // Retrofit
+    // Retrofit libraries
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
-    // Glide
+    // Image loading library
     implementation(libs.glide)
 
-    // MultiProgressBar
+    // MultiProgressBar library
     implementation(libs.multiprogressbar)
 
-
-    // SwtichButton
+    // SwitchButton library
     implementation(libs.library)
 
-    //android-youtube-player
+    // YouTube player library
     implementation(libs.core)
 
-    // Shimmer
+    // Shimmer animation
     implementation(libs.shimmer)
 }

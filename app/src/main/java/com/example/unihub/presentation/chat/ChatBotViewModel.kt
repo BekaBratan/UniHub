@@ -38,6 +38,7 @@ class ChatBotViewModel : ViewModel() {
                     messages = listOf(systemMessage, userMessage)
                 )
 
+
                 val response = chatApi.sendMessage(request, "Bearer ${Constants.ChatGPTApi}")
                 val reply = response.choices.firstOrNull()?.message?.content ?: "No response"
                 _botMessage.postValue(reply)

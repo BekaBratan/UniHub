@@ -455,4 +455,13 @@
         android:name="com.example.unihub.presentation.home.comments.CommentsFragment"
         android:label="fragment_comments"
         tools:layout="@layout/fragment_comments" />
+    <dialog
+        android:id="@+id/shareBottomSheet"
+        android:name="com.example.unihub.presentation.home.posts.ShareBottomSheet"
+        android:label="fragment_share_bottom_sheet"
+        tools:layout="@layout/fragment_share_bottom_sheet" >
+        <action
+            android:id="@+id/action_shareBottomSheet_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </dialog>
 </navigation>

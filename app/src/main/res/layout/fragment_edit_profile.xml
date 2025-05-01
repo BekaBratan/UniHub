@@ -194,12 +194,12 @@
                 android:id="@+id/tvGender"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:fontFamily="@font/roboto_medium"
-                android:textColor="@color/grey_600"
+                android:layout_weight="1"
                 android:ellipsize="end"
-                android:text="Name"
-                android:layout_weight="1"/>
+                android:fontFamily="@font/roboto_medium"
+                android:text="Gender"
+                android:textColor="@color/grey_600"
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/etGender"

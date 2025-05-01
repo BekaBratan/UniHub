@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.profile
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,15 +10,18 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentProfileBinding
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
+import kotlin.getValue
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private val profileViewModel: ProfileViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,9 +31,23 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
+        val sharedProvider = SharedProvider(requireContext())
+
+        profileViewModel.getProfile(sharedProvider.getToken())
+
+        profileViewModel.getProfileResponse.observe(viewLifecycleOwner) {
+            binding.tvName.text = "${it.name} ${it.surname}"
+            binding.tvEmail.text = it.email
+            sharedProvider.saveProfile(it)
+        }
+
+        profileViewModel.errorMessage.observe(viewLifecycleOwner) {
+            binding.tvName.text = it.message
+        }
 
         binding.run {
             btnBack.setOnClickListener {

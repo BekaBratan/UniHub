@@ -9,6 +9,7 @@ import com.example.unihub.data.model.CreateClubResponse
 import com.example.unihub.data.model.CreateEventRequest
 import com.example.unihub.data.model.EventsResponse
 import com.example.unihub.data.model.EventsResponseItem
+import com.example.unihub.data.model.GetProfileResponse
 import com.example.unihub.data.model.LoginRequest
 import com.example.unihub.data.model.LoginResponse
 import com.example.unihub.data.model.MessageResponse
@@ -86,4 +87,9 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body password: ChangePasswordRequest
     ): MessageResponse
+
+    @GET("users/profile")
+    suspend fun getProfile(
+        @Header("Authorization") token: String
+    ): GetProfileResponse
 }

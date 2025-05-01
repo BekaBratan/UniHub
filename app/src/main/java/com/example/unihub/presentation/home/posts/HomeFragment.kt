@@ -38,8 +38,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
-
-
+        provideNavigationHost()?.setupBottomNavForRole(false)
 
         val firstPost = Posts()
         val postsAdapter = PostsAdapter()

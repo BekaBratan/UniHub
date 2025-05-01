@@ -2,16 +2,15 @@
 
 package com.example.unihub
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.unihub.databinding.ActivityMainBinding
@@ -76,5 +75,18 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
         } else {
             binding.bottomNavigationBarMainActivity.visibility = View.VISIBLE
         }
+    }
+
+    override fun setupBottomNavForRole(isHead: Boolean) {
+        val menu = binding.bottomNavigationBarMainActivity.menu
+        menu.clear()
+        if (isHead) {
+            binding.bottomNavigationBarMainActivity.inflateMenu(R.menu.bottom_menu_head)
+        } else {
+            binding.bottomNavigationBarMainActivity.inflateMenu(R.menu.bottom_menu)
+        }
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        binding.bottomNavigationBarMainActivity.setupWithNavController(navController)
     }
 }

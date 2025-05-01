@@ -94,6 +94,9 @@
         <action
             android:id="@+id/action_homeFragment_to_commentsFragment"
             app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_newQuoteFragment"
+            app:destination="@id/newQuoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInAdminFragment"
@@ -142,6 +145,9 @@
         <action
             android:id="@+id/action_clubPageFragment_to_commentsFragment"
             app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_clubPageFragment_to_newQuoteFragment"
+            app:destination="@id/newQuoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -245,6 +251,9 @@
         <action
             android:id="@+id/action_userProfileFragment_to_commentsFragment"
             app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_newQuoteFragment"
+            app:destination="@id/newQuoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/languageFragment"
@@ -435,6 +444,9 @@
         <action
             android:id="@+id/action_clubProfileFragment_to_commentsFragment"
             app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_clubProfileFragment_to_newQuoteFragment"
+            app:destination="@id/newQuoteFragment" />
     </fragment>
     <dialog
         android:id="@+id/repostBottomSheet"
@@ -464,4 +476,14 @@
             android:id="@+id/action_shareBottomSheet_to_chatFragment"
             app:destination="@id/chatFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.example.unihub.presentation.club.CreateEventFragment"
+        android:label="fragment_create_event"
+        tools:layout="@layout/fragment_create_event" />
+    <fragment
+        android:id="@+id/newQuoteFragment"
+        android:name="com.example.unihub.presentation.home.posts.NewQuoteFragment"
+        android:label="fragment_new_quote"
+        tools:layout="@layout/fragment_new_quote" />
 </navigation>

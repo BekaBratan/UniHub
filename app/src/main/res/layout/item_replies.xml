@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:background="@drawable/divider_1dp"
             android:layout_marginVertical="20dp"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
 
     </LinearLayout>
 

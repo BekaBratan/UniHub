@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentEditProfileBinding
@@ -37,14 +38,22 @@ class EditProfileFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
+            val genders = listOf("Male", "Female")
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, genders)
+            etGender.setAdapter(adapter)
+            etGender.setText("Female", false)
+            etGender.setOnClickListener {
+                etGender.showDropDown()
+            }
+
             tvMainName.text = sharedProvider.getNameFromProfile() + " " + sharedProvider.getSurnameFromProfile()
             tvMainEmail.text = sharedProvider.getEmailFromProfile()
 
-            etName.text = Editable.Factory.getInstance().newEditable(sharedProvider.getNameFromProfile())
-            etSurname.text = Editable.Factory.getInstance().newEditable(sharedProvider.getSurnameFromProfile())
-            etPhone.text = Editable.Factory.getInstance().newEditable(sharedProvider.getPhoneFromProfile())
-            etGender.text = Editable.Factory.getInstance().newEditable(sharedProvider.getGenderFromProfile())
-            etBirthDate.text = Editable.Factory.getInstance().newEditable(sharedProvider.getBirthDateFromProfile())
+            etName.setText(sharedProvider.getNameFromProfile())
+            etSurname.setText(sharedProvider.getSurnameFromProfile())
+            etPhone.setText(sharedProvider.getPhoneFromProfile())
+            etGender.setText(sharedProvider.getGenderFromProfile(), false)
+            etBirthDate.setText(sharedProvider.getBirthDateFromProfile())
         }
     }
 }

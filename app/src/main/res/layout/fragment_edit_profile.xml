@@ -201,9 +201,9 @@
                 android:textColor="@color/grey_600"
                 android:textSize="15sp" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/etGender"
-                android:inputType="text"
+                android:inputType="none"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:background="@drawable/sh_edit_text"
@@ -214,7 +214,6 @@
                 android:text="Female"
                 android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:enabled="false"
                 android:layout_weight="2"/>
 
         </LinearLayout>

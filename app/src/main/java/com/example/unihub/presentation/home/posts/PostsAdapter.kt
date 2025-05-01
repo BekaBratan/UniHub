@@ -51,6 +51,11 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         this.listenerClickRepost = listener
     }
 
+    var listenerClickShare: RcViewItemClickIdCallback? = null
+    fun setOnShareClickListener(listener: RcViewItemClickIdCallback) {
+        this.listenerClickShare = listener
+    }
+
     inner class PostsViewHolder(
         var binding: ItemPostCardBinding
     ) : RecyclerView.ViewHolder(
@@ -90,6 +95,10 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
                 btnRepost.setOnClickListener {
                     listenerClickRepost?.onClick(posts.id)
+                }
+
+                btnSend.setOnClickListener {
+                    listenerClickShare?.onClick(posts.id)
                 }
             }
         }

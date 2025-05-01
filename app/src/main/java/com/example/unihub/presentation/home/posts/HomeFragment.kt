@@ -70,6 +70,15 @@ class HomeFragment : Fragment() {
             }
         )
 
+        postsAdapter.setOnShareClickListener(
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
+                    val shareBottomSheet = ShareBottomSheet(id)
+                    shareBottomSheet.show(childFragmentManager, shareBottomSheet.tag)
+                }
+            }
+        )
+
         val clubsAdapter = RecCardAdapter()
         clubsAdapter.submitList(List(10) { Clubs() })
 

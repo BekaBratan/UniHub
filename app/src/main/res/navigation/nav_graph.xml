@@ -309,6 +309,9 @@
         <action
             android:id="@+id/action_activitiesFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_activitiesFragment_to_bookingDetailsFragment"
+            app:destination="@id/bookingDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
@@ -511,4 +514,9 @@
             android:id="@+id/action_createPosterFragment_to_createNewPostFragment"
             app:destination="@id/createNewPostFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/bookingDetailsFragment"
+        android:name="com.example.unihub.presentation.home.club.BookingDetailsFragment"
+        android:label="fragment_booking_details"
+        tools:layout="@layout/fragment_booking_details" />
 </navigation>

@@ -71,6 +71,6 @@ class CreateNewPostFragment : Fragment() {
     }
 
     companion object {
-        private const val REQUEST_CODE_PICK_MEDIA = 1001
+        internal const val REQUEST_CODE_PICK_MEDIA = 1001
     }
 }

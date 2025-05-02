@@ -5,27 +5,27 @@ import com.google.gson.annotations.SerializedName
 
 data class EventDetailsResponse(
     @SerializedName("club")
-    val club: Club,
+    val club: Club?,
     @SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String?,
     @SerializedName("eventDate")
-    val eventDate: String,
+    val eventDate: String?,
     @SerializedName("eventName")
-    val eventName: String,
+    val eventName: String?,
     @SerializedName("goal")
-    val goal: String,
+    val goal: String?,
     @SerializedName("head")
-    val head: Head,
+    val head: Head?,
     @SerializedName("id")
-    val id: Int,
+    val id: Int?,
     @SerializedName("location")
-    val location: String,
+    val location: String?,
     @SerializedName("organizers")
-    val organizers: String,
+    val organizers: String?,
     @SerializedName("schedule")
-    val schedule: String,
+    val schedule: String?,
     @SerializedName("shortDescription")
-    val shortDescription: String,
+    val shortDescription: String?,
     @SerializedName("sponsorship")
-    val sponsorship: String
+    val sponsorship: String?
 )

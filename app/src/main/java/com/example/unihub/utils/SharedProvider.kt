@@ -33,7 +33,7 @@ class SharedProvider(private val context: Context) {
     }
 
     fun getToken():String {
-        return "Bearer ${preferences.getString(sharedToken, "without_token")}"
+        return preferences.getString(sharedToken, "without_token").toString()
     }
 
     fun saveName(name: String) {

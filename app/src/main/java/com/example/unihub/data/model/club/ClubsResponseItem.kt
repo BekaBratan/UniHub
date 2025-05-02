@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName
 
 data class ClubsResponseItem(
     @SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String?,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("goal")
-    val goal: String,
+    val goal: String?,
     @SerializedName("head")
-    val head: Head,
+    val head: Head?,
     @SerializedName("id")
-    val id: Int,
+    val id: Int?,
     @SerializedName("name")
-    val name: String,
+    val name: String?,
     @SerializedName("rating")
-    val rating: Int
+    val rating: Int?
 )

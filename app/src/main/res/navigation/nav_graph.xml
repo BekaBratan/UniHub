@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_signInFragment_to_signInAdminFragment"
             app:destination="@id/signInAdminFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -89,7 +92,7 @@
             app:destination="@id/clubPageFragment">
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
         </action>
         <action
             android:id="@+id/action_homeFragment_to_commentsFragment"
@@ -131,7 +134,7 @@
         tools:layout="@layout/fragment_club_page">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <argument
             android:name="type"
             app:argType="string" />
@@ -140,7 +143,7 @@
             app:destination="@id/bookingFragment">
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
         </action>
         <action
             android:id="@+id/action_clubPageFragment_to_commentsFragment"
@@ -203,7 +206,7 @@
             app:destination="@id/createClubRequestFragment">
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
             <argument
                 android:name="fromAdmin"
                 app:argType="boolean" />
@@ -213,7 +216,7 @@
             app:destination="@id/createEventRequestFragment" >
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
             <argument
                 android:name="fromAdmin"
                 app:argType="boolean" />
@@ -279,7 +282,7 @@
             app:destination="@id/createClubRequestFragment" >
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
             <argument
                 android:name="fromAdmin"
                 app:argType="boolean" />
@@ -295,7 +298,7 @@
             app:destination="@id/eventsFragment">
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
         </action>
         <action
             android:id="@+id/action_calendarFragment_to_addEventFragment"
@@ -320,7 +323,7 @@
         tools:layout="@layout/fragment_events">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/chatBotFragment"
@@ -334,13 +337,13 @@
         tools:layout="@layout/fragment_booking">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <action
             android:id="@+id/action_bookingFragment_to_registerBookingFragment"
             app:destination="@id/registerBookingFragment">
             <argument
                 android:name="id"
-                app:argType="string" />
+                app:argType="integer" />
         </action>
     </fragment>
     <fragment
@@ -350,7 +353,7 @@
         tools:layout="@layout/fragment_register_booking" >
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <action
             android:id="@+id/action_registerBookingFragment_to_clubPageFragment"
             app:destination="@id/clubPageFragment">
@@ -371,7 +374,7 @@
         tools:layout="@layout/fragment_create_club_request">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <argument
             android:name="fromAdmin"
             app:argType="boolean" />
@@ -386,7 +389,7 @@
         tools:layout="@layout/fragment_create_event_request" >
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <argument
             android:name="fromAdmin"
             app:argType="boolean" />

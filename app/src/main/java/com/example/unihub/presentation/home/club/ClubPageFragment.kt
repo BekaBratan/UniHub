@@ -17,7 +17,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
-import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.FragmentClubPageBinding
 import com.example.unihub.presentation.home.posts.PostsAdapter
 import com.example.unihub.utils.CustomDividerItemDecoration
@@ -50,7 +49,6 @@ class ClubPageFragment : Fragment() {
         if (args.type == "book"){
             showCustomDialogBox()
             binding.run {
-                clubViewModel.getEvents()
                 idAll.visibility = View.INVISIBLE
                 idBooking.visibility = View.VISIBLE
                 idRating.visibility = View.INVISIBLE
@@ -61,10 +59,8 @@ class ClubPageFragment : Fragment() {
             }
         }
 
-        clubViewModel.getClubById(args.id)
 
         val postsAdapter = PostsAdapter()
-        postsAdapter.submitList(List(10) { Posts() })
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
@@ -75,8 +71,8 @@ class ClubPageFragment : Fragment() {
         )
 
         postsAdapter.setOnClubNameClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
 
                 }
             }
@@ -85,8 +81,8 @@ class ClubPageFragment : Fragment() {
         val eventsAdapter = EventCardsAdapter()
 
         eventsAdapter.setOnCardClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
                     findNavController().navigate(
                         ClubPageFragmentDirections.actionClubPageFragmentToBookingFragment(id)
                     )
@@ -114,7 +110,6 @@ class ClubPageFragment : Fragment() {
             }
 
             tvBooking.setOnClickListener {
-                clubViewModel.getEvents()
                 idAll.visibility = View.INVISIBLE
                 idBooking.visibility = View.VISIBLE
                 idRating.visibility = View.INVISIBLE
@@ -125,7 +120,6 @@ class ClubPageFragment : Fragment() {
             }
 
             tvRating.setOnClickListener {
-                clubViewModel.getClubs()
                 idAll.visibility = View.INVISIBLE
                 idBooking.visibility = View.INVISIBLE
                 idRating.visibility = View.VISIBLE
@@ -155,20 +149,6 @@ class ClubPageFragment : Fragment() {
             rvRatings.adapter = ratingsAdapter
         }
 
-        clubViewModel.clubResponse.observe(viewLifecycleOwner) {
-            binding.tvClubName.text = it.club.name
-            clubMotto = it.club.name
-            clubInfo = it.club.description
-        }
-
-        clubViewModel.eventsResponse.observe(viewLifecycleOwner) {
-            eventsAdapter.submitList(it)
-        }
-
-        clubViewModel.clubsResponse.observe(viewLifecycleOwner) {
-            Log.d("Clubs", it.toString())
-            ratingsAdapter.submitList(it.clubs)
-        }
     }
 
     private fun showCustomDialogBox(clubMotto: String, clubInfo: String) {

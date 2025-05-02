@@ -7,24 +7,24 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unihub.R
-import com.example.unihub.data.model.Clubs
+import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.ItemRecCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Clubs>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<ClubsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: Clubs,
-            newItem: Clubs
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: Clubs,
-            newItem: Clubs
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -32,12 +32,12 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<Clubs>) {
+    fun submitList(list: List<ClubsResponseItem>) {
         differ.submitList(list)
     }
 
-    var listenerClickAtItem: RcViewItemClickIdStringCallback? = null
-    fun setOnFollowClickListener(listener: RcViewItemClickIdStringCallback) {
+    var listenerClickAtItem: RcViewItemClickIdCallback? = null
+    fun setOnFollowClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickAtItem = listener
     }
 
@@ -46,17 +46,12 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
-        fun onBind(clubs: Clubs) {
+        fun onBind(clubs: ClubsResponseItem) {
             binding.run {
                 tvRecClub.text = clubs.name
-                var isFollowed = clubs.isFollowed
+                var isFollowed = false
 
-                if (clubs.image.isEmpty())
-                    ivRecClub.setImageResource(R.drawable.puzzle_club)
-                else
-                    Glide.with(itemView.context)
-                        .load(clubs.image)
-                        .into(ivRecClub)
+                ivRecClub.setImageResource(R.drawable.puzzle_club)
 
                 if (isFollowed)
                     btnFollow.text = "Unfollow"

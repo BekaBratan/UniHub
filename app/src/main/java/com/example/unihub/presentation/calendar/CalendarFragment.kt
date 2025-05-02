@@ -103,7 +103,7 @@ class CalendarFragment : Fragment() {
         tvEventDuration.text = "1 hours"
 
         eventCardLayout.setOnClickListener {
-            findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToEventsFragment("Sample Event"))
+            findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToEventsFragment(1))
         }
 
         if (time == "8:00 AM") {

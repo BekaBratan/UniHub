@@ -46,14 +46,14 @@ class EditProfileFragment : Fragment() {
                 etGender.showDropDown()
             }
 
-            tvMainName.text = sharedProvider.getNameFromProfile() + " " + sharedProvider.getSurnameFromProfile()
-            tvMainEmail.text = sharedProvider.getEmailFromProfile()
+            tvMainName.text = sharedProvider.getName() + " " + sharedProvider.getSurname()
+            tvMainEmail.text = sharedProvider.getEmail()
 
-            etName.setText(sharedProvider.getNameFromProfile())
-            etSurname.setText(sharedProvider.getSurnameFromProfile())
-            etPhone.setText(sharedProvider.getPhoneFromProfile())
-            etGender.setText(sharedProvider.getGenderFromProfile(), false)
-            etBirthDate.setText(sharedProvider.getBirthDateFromProfile())
+            etName.setText(sharedProvider.getName())
+            etSurname.setText(sharedProvider.getSurname())
+            etPhone.setText(sharedProvider.getPhone())
+            etGender.setText(sharedProvider.getGender(), false)
+            etBirthDate.setText(sharedProvider.getBirthDate())
         }
     }
 }

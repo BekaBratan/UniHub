@@ -42,16 +42,10 @@ class VerifyFragment : Fragment() {
                 val email = sharedProvider.getEmail()
                 val code = etCode.text.toString()
                 Log.d("Verify", "Email: $email, Code: $code")
-                authViewModel.verify(email = email, code = code)
             }
 
             etCode.addTextChangedListener {
                 tvError.visibility = View.INVISIBLE
-            }
-
-            authViewModel.verifyResponse.observe(viewLifecycleOwner) {
-                sharedProvider.saveToken(it.token)
-                findNavController().navigate(VerifyFragmentDirections.actionVerifyFragment2ToSuccessFragment2())
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {

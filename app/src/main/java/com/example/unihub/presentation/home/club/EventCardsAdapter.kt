@@ -6,23 +6,24 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.R
-import com.example.unihub.data.model.EventsResponseItem
+import com.example.unihub.data.model.club.ClubEventsResponseItem
 import com.example.unihub.databinding.ItemEventCardBinding
+import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<EventsResponseItem>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<ClubEventsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: EventsResponseItem,
-            newItem: EventsResponseItem
+            oldItem: ClubEventsResponseItem,
+            newItem: ClubEventsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: EventsResponseItem,
-            newItem: EventsResponseItem
+            oldItem: ClubEventsResponseItem,
+            newItem: ClubEventsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -30,12 +31,12 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<EventsResponseItem>) {
+    fun submitList(list: List<ClubEventsResponseItem>) {
         differ.submitList(list)
     }
 
-    var listenerClickCard: RcViewItemClickIdStringCallback? = null
-    fun setOnCardClickListener(listener: RcViewItemClickIdStringCallback) {
+    var listenerClickCard: RcViewItemClickIdCallback? = null
+    fun setOnCardClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickCard = listener
     }
 
@@ -44,11 +45,11 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
-        fun onBind(event: EventsResponseItem) {
+        fun onBind(event: ClubEventsResponseItem) {
             binding.run {
-                tvEventName.text = event.name
-                tvDescription.text = event.description
-                tvDate.text = event.date
+                tvEventName.text = event.eventName
+                tvDescription.text = event.shortDescription
+                tvDate.text = event.eventDate
 
 //                tvSeats.text = event.location
 

@@ -1,17 +1,17 @@
-package com.example.unihub.data.model
+package com.example.unihub.data.model.auth
 
 
 import com.google.gson.annotations.SerializedName
 
-data class SignUpRequest(
-    @SerializedName("confirmPassword")
-    val confirmPassword: String,
+data class User(
     @SerializedName("email")
     val email: String,
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("name")
     val name: String,
-    @SerializedName("password")
-    val password: String,
+    @SerializedName("role")
+    val role: String,
     @SerializedName("surname")
     val surname: String
 )

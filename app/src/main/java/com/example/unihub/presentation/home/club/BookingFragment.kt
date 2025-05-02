@@ -32,20 +32,7 @@ class BookingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
-        clubViewModel.getEventById(args.id)
 
-        clubViewModel.eventResponse.observe(viewLifecycleOwner) {
-            binding.run {
-                tvTitle.text = it.name
-                tvLocation.text = it.location
-                tvDescription.text = it.description
-                var dateTime = it.date.split("T")
-                var time = dateTime[1].split(".")[0].split(":")
-                tvDate.text = dateTime[0]
-                tvTime.text = "${time[0]}:${time[1]}"
-                tvPrice.text = "${it.price} KZT/Person"
-            }
-        }
 
         binding.run {
             btnBack.setOnClickListener {

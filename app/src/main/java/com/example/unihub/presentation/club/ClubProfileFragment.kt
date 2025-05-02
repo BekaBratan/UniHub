@@ -14,8 +14,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
-import com.example.unihub.data.model.EventsResponseItem
-import com.example.unihub.data.model.Posts
 import com.example.unihub.databinding.FragmentClubProfileBinding
 import com.example.unihub.presentation.home.club.ClubPageFragmentDirections
 import com.example.unihub.presentation.home.club.ClubRatingsAdapter
@@ -47,7 +45,6 @@ class ClubProfileFragment : Fragment() {
         var clubInfo = ""
 
         val postsAdapter = PostsAdapter()
-        postsAdapter.submitList(List(10) { Posts() })
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
@@ -58,19 +55,18 @@ class ClubProfileFragment : Fragment() {
         )
 
         postsAdapter.setOnClubNameClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
 
                 }
             }
         )
 
         val eventsAdapter = EventCardsAdapter()
-        eventsAdapter.submitList(List(10) { EventsResponseItem() })
 
         eventsAdapter.setOnCardClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
 
                 }
             }

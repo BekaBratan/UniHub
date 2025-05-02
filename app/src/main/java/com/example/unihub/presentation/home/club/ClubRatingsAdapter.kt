@@ -5,24 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.unihub.data.model.Club
-import com.example.unihub.databinding.ItemEventCardBinding
+import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.ItemRatingProgressBinding
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class ClubRatingsAdapter: RecyclerView.Adapter<ClubRatingsAdapter.RatingsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Club>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<ClubsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: Club,
-            newItem: Club
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: Club,
-            newItem: Club
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -30,7 +28,7 @@ open class ClubRatingsAdapter: RecyclerView.Adapter<ClubRatingsAdapter.RatingsVi
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<Club>) {
+    fun submitList(list: List<ClubsResponseItem>) {
         differ.submitList(list)
     }
 
@@ -40,7 +38,7 @@ open class ClubRatingsAdapter: RecyclerView.Adapter<ClubRatingsAdapter.RatingsVi
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
-        fun onBind(club: Club) {
+        fun onBind(club: ClubsResponseItem) {
             binding.run {
                 tvClubName.text = club.name
                 progressBar.progress = ((club.rating/5)*100).toInt()

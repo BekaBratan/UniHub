@@ -12,8 +12,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.unihub.R
-import com.example.unihub.data.model.Clubs
-import com.example.unihub.data.model.Posts
+import com.example.unihub.data.model.club.ClubsResponse
+import com.example.unihub.data.model.club.ClubsResponseItem
+import com.example.unihub.data.model.club.Head
+import com.example.unihub.data.model.post.Club
+import com.example.unihub.data.model.post.PostsResponseItem
+import com.example.unihub.data.model.post.User
 import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
@@ -40,9 +44,44 @@ class HomeFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(false)
         provideNavigationHost()?.setupBottomNavForRole(true)
 
-        val firstPost = Posts()
+        val firstPost = PostsResponseItem(
+            id = 1,
+            club = Club(
+                id = 1,
+                name = "Sample Club"
+            ),
+            content = "Sample content",
+            createdAt = "2023-01-01T00:00:00Z",
+            image = "sample_post_image_url",
+            likes = 100,
+            title = "Sample Title",
+            user = User(
+                id = 1,
+                name = "John",
+                surname = "Doe"
+            )
+        )
+
         val postsAdapter = PostsAdapter()
-        postsAdapter.submitList(List(10) { Posts() })
+        postsAdapter.submitList(List(10) {
+            PostsResponseItem(
+                id = 1,
+                club = Club(
+                    id = 1,
+                    name = "Sample Club"
+                ),
+                content = "Sample content",
+                createdAt = "2023-01-01T00:00:00Z",
+                image = "sample_post_image_url",
+                likes = 100,
+                title = "Sample Title",
+                user = User(
+                    id = 1,
+                    name = "John",
+                    surname = "Doe"
+                )
+            )
+        })
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
@@ -53,8 +92,8 @@ class HomeFragment : Fragment() {
         )
 
         postsAdapter.setOnClubNameClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id, ""))
                 }
             }
@@ -79,11 +118,23 @@ class HomeFragment : Fragment() {
         )
 
         val clubsAdapter = RecCardAdapter()
-        clubsAdapter.submitList(List(10) { Clubs() })
+        clubsAdapter.submitList(List(10) { ClubsResponseItem(
+            createdAt = "2023-01-01T00:00:00Z",
+            description = "Sample description",
+            goal = "Sample goal",
+            head = Head(
+                id = 1,
+                name = "John",
+                surname = "Doe"
+            ),
+            id = 1,
+            name = "Sample name",
+            rating = 5
+        ) })
 
         clubsAdapter.setOnFollowClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
 
                 }
             }
@@ -97,9 +148,9 @@ class HomeFragment : Fragment() {
         postBinding.run {
             llClubInfo
             tvClubName.text = firstPost.club.name
-            tvTime.text = firstPost.postedAt
-            tvPostName.text = firstPost.description
-            var isLiked = firstPost.isLiked
+            tvTime.text = firstPost.createdAt
+            tvPostName.text = firstPost.content
+            var isLiked = false
 
             if (firstPost.image.isEmpty())
                 ivPostImage.setImageResource(R.drawable.example_post)
@@ -122,7 +173,7 @@ class HomeFragment : Fragment() {
             }
 
             tvClubName.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment("67f2f4ebb2608eae089764bf", ""))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(firstPost.club.id, ""))
             }
         }
 

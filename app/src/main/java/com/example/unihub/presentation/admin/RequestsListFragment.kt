@@ -10,6 +10,7 @@ import com.example.unihub.R
 import com.example.unihub.databinding.FragmentRequestsListBinding
 import com.example.unihub.presentation.profile.CreateRequestFragmentDirections
 import com.example.unihub.presentation.requests.RequestItemAdapter
+import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.provideNavigationHost
 
@@ -36,16 +37,16 @@ class RequestsListFragment : Fragment() {
         adapterEvent.submitList(listOf("Event1", "Event2", "Event3", "Event4", "Event5", "Event6", "Event7", "Event8", "Event9", "Event10"))
 
         adapterClub.setOnItemClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
                     findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateClubRequestFragment(id, false))
                 }
             }
         )
 
         adapterEvent.setOnItemClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
                     findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateEventRequestFragment(id, false))
                 }
             }

@@ -5,17 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unihub.data.api.ServiceBuilder
-import com.example.unihub.data.model.Club
-import com.example.unihub.data.model.ClubResponse
-import com.example.unihub.data.model.ClubsResponse
-import com.example.unihub.data.model.EventsResponse
-import com.example.unihub.data.model.EventsResponseItem
-import com.example.unihub.data.model.LoginRequest
-import com.example.unihub.data.model.LoginResponse
+import com.example.unihub.data.model.auth.LoginRequest
+import com.example.unihub.data.model.auth.LoginResponse
 import com.example.unihub.data.model.MessageResponse
-import com.example.unihub.data.model.SignUpRequest
-import com.example.unihub.data.model.VerificationRequest
-import com.example.unihub.data.model.VerificationResponse
+import com.example.unihub.data.model.auth.SignUpRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -25,11 +18,8 @@ class AuthViewModel(): ViewModel() {
     private var _loginResponse: MutableLiveData<LoginResponse> = MutableLiveData()
     val loginResponse: LiveData<LoginResponse> = _loginResponse
 
-    private var _signupResponse: MutableLiveData<MessageResponse> = MutableLiveData()
-    val signupResponse: LiveData<MessageResponse> = _signupResponse
-
-    private var _verifyResponse: MutableLiveData<VerificationResponse> = MutableLiveData()
-    val verifyResponse: LiveData<VerificationResponse> = _verifyResponse
+    private var _signupResponse: MutableLiveData<LoginResponse> = MutableLiveData()
+    val signupResponse: LiveData<LoginResponse> = _signupResponse
 
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
@@ -61,40 +51,13 @@ class AuthViewModel(): ViewModel() {
         }
     }
 
-    fun signup(name: String, surname: String, email: String, password: String, confirmPassword: String) {
+    fun signup(name: String, surname: String, email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                ServiceBuilder.api.register(SignUpRequest(name = name, surname = surname, email = email, password = password, confirmPassword = confirmPassword))
+                ServiceBuilder.api.register(SignUpRequest(name = name, surname = surname, email = email, password = password))
             }.fold(
                 onSuccess = {
                     _signupResponse.postValue(it)
-                },
-                onFailure = { throwable ->
-                    val errorMessage = if (throwable is HttpException) {
-                        val errorBody = throwable.response()?.errorBody()?.string()
-                        try {
-                            val json = JSONObject(errorBody ?: "")
-                            json.getString("message")
-                        } catch (e: Exception) {
-                            "Something went wrong."
-                        }
-                    } else {
-                        throwable.message ?: "An unknown error occurred."
-                    }
-
-                    _errorMessage.postValue(MessageResponse(errorMessage))
-                }
-            )
-        }
-    }
-
-    fun verify(email: String, code: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            runCatching {
-                ServiceBuilder.api.verify(VerificationRequest(email = email, code = code))
-            }.fold(
-                onSuccess = {
-                    _verifyResponse.postValue(it)
                 },
                 onFailure = { throwable ->
                     val errorMessage = if (throwable is HttpException) {

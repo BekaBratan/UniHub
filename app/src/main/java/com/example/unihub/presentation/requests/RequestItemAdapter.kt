@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.databinding.ItemRequestBinding
+import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsViewHolder>() {
@@ -32,8 +33,8 @@ open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsV
         differ.submitList(list)
     }
 
-    var listenerClickItem: RcViewItemClickIdStringCallback? = null
-    fun setOnItemClickListener(listener: RcViewItemClickIdStringCallback) {
+    var listenerClickItem: RcViewItemClickIdCallback? = null
+    fun setOnItemClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickItem = listener
     }
 
@@ -47,7 +48,7 @@ open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsV
                 tvRequestsName.text = item
 
                 root.setOnClickListener {
-                    listenerClickItem?.onClick(item)
+                    listenerClickItem?.onClick(item.hashCode())
                 }
             }
         }

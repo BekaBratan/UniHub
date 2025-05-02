@@ -1,6 +1,7 @@
 package com.example.unihub.presentation.authentication.signup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.databinding.FragmentSignInBinding
 import com.example.unihub.presentation.authentication.AuthViewModel
+import com.example.unihub.presentation.authentication.login.LogInFragmentDirections
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 import kotlin.getValue
@@ -74,7 +76,7 @@ class SignInFragment : Fragment() {
                     val password = etPassword1.text.toString().trim()
                     val name = etName.text.toString().trim()
                     val surname = etSurname.text.toString().trim()
-                    authViewModel.signup(email = email, password = password, name = name, surname = surname, confirmPassword = password)
+                    authViewModel.signup(email = email, password = password, name = name, surname = surname)
                 } else {
                     tvError.text = "Passwords are not same"
                     tvError.visibility = View.VISIBLE
@@ -82,22 +84,19 @@ class SignInFragment : Fragment() {
             }
 
             authViewModel.signupResponse.observe(viewLifecycleOwner) {
-                if (it.message.contains("Код отправлен на вашу почту.")) {
-                    sharedProvider.saveEmail(etEmail.text.toString().trim())
-                    findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToVerifyFragment2())
-                } else {
-                    tvError.text = it.message
-                    tvError.visibility = View.VISIBLE
-                }
+                Log.d("Login Response", it.message)
+                sharedProvider.saveToken(it.token)
+                sharedProvider.saveEmail(it.user.email)
+                sharedProvider.saveName(it.user.name)
+                sharedProvider.saveSurname(it.user.surname)
+                sharedProvider.saveRole(it.user.role)
+                sharedProvider.saveID(it.user.id)
+                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToHomeFragment())
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {
                 tvError.text = it.message
                 tvError.visibility = View.VISIBLE
-            }
-
-            btnAdmin.setOnClickListener {
-                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToSignInAdminFragment())
             }
         }
     }

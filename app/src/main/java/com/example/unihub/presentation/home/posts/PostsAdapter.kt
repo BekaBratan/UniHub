@@ -7,24 +7,24 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unihub.R
-import com.example.unihub.data.model.Posts
+import com.example.unihub.data.model.post.PostsResponseItem
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Posts>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<PostsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: Posts,
-            newItem: Posts
+            oldItem: PostsResponseItem,
+            newItem: PostsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: Posts,
-            newItem: Posts
+            oldItem: PostsResponseItem,
+            newItem: PostsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -32,7 +32,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<Posts>) {
+    fun submitList(list: List<PostsResponseItem>) {
         differ.submitList(list)
     }
 
@@ -41,8 +41,8 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         this.listenerClickLike = listener
     }
 
-    var listenerClickClubName: RcViewItemClickIdStringCallback? = null
-    fun setOnClubNameClickListener(listener: RcViewItemClickIdStringCallback) {
+    var listenerClickClubName: RcViewItemClickIdCallback? = null
+    fun setOnClubNameClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickClubName = listener
     }
 
@@ -61,12 +61,12 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
-        fun onBind(posts: Posts) {
+        fun onBind(posts: PostsResponseItem) {
             binding.run {
                 tvClubName.text = posts.club.name
-                tvTime.text = posts.postedAt
-                tvPostName.text = posts.description
-                var isLiked = posts.isLiked
+                tvTime.text = posts.createdAt
+                tvPostName.text = posts.content
+                var isLiked = false
 
                 if (posts.image.isEmpty())
                     ivPostImage.setImageResource(R.drawable.example_post)

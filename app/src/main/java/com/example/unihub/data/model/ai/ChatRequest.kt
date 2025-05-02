@@ -1,4 +1,4 @@
-package com.example.unihub.data.model
+package com.example.unihub.data.model.ai
 
 // ChatRequest.kt
 data class ChatRequest(

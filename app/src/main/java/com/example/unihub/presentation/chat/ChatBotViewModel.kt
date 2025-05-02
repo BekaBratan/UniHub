@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unihub.data.api.ChatGptApi
 import com.example.unihub.data.api.ServiceBuilderGpt
-import com.example.unihub.data.model.ChatRequest
-import com.example.unihub.data.model.Message
+import com.example.unihub.data.model.ai.ChatRequest
+import com.example.unihub.data.model.ai.Message
 import com.example.unihub.utils.Constants
 import kotlinx.coroutines.launch
 

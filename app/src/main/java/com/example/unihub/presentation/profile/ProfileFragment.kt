@@ -37,14 +37,6 @@ class ProfileFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
 
-        profileViewModel.getProfile(sharedProvider.getToken())
-
-        profileViewModel.getProfileResponse.observe(viewLifecycleOwner) {
-            binding.tvName.text = "${it.name} ${it.surname}"
-            binding.tvEmail.text = it.email
-            sharedProvider.saveProfile(it)
-        }
-
         profileViewModel.errorMessage.observe(viewLifecycleOwner) {
             binding.tvName.text = it.message
         }

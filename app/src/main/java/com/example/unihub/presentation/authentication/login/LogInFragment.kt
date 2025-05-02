@@ -18,6 +18,7 @@ import com.example.unihub.presentation.home.club.ClubViewModel
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 import kotlin.getValue
+import kotlin.math.log
 
 class LogInFragment : Fragment() {
 
@@ -78,7 +79,13 @@ class LogInFragment : Fragment() {
             }
 
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
+                Log.d("Login Response", it.message)
                 sharedProvider.saveToken(it.token)
+                sharedProvider.saveEmail(it.user.email)
+                sharedProvider.saveName(it.user.name)
+                sharedProvider.saveSurname(it.user.surname)
+                sharedProvider.saveRole(it.user.role)
+                sharedProvider.saveID(it.user.id)
                 findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
 

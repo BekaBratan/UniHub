@@ -1,4 +1,4 @@
-package com.example.unihub.data.model
+package com.example.unihub.data.model.event
 
 
 import com.google.gson.annotations.SerializedName

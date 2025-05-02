@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCreateRequestBinding
 import com.example.unihub.presentation.requests.RequestItemAdapter
+import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
@@ -37,8 +38,8 @@ class CreateRequestFragment : Fragment() {
         adapterClub.submitList(listOf("Club1", "Club2", "Club3", "Club4", "Club5", "Club6", "Club7", "Club8", "Club9", "Club10"))
 
         adapterClub.setOnItemClickListener(
-            object : RcViewItemClickIdStringCallback {
-                override fun onClick(id: String) {
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int) {
                     findNavController().navigate(CreateRequestFragmentDirections.actionCreateRequestFragmentToCreateClubRequestFragment(id, false))
                 }
             }

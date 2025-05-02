@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.R
-import com.example.unihub.data.model.Clubs
+import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.ItemRecInlineBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
@@ -15,17 +15,17 @@ import javax.sql.RowSet
 
 open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Clubs>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<ClubsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: Clubs,
-            newItem: Clubs
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: Clubs,
-            newItem: Clubs
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -33,12 +33,12 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<Clubs>) {
+    fun submitList(list: List<ClubsResponseItem>) {
         differ.submitList(list)
     }
 
-    var listenerClickAtItem: RcViewItemClickIdStringCallback? = null
-    fun setOnFollowClickListener(listener: RcViewItemClickIdStringCallback) {
+    var listenerClickAtItem: RcViewItemClickIdCallback? = null
+    fun setOnFollowClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickAtItem = listener
     }
 
@@ -48,10 +48,10 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
         binding.root
     ) {
         @SuppressLint("UseCompatLoadingForDrawables", "ResourceAsColor")
-        fun onBind(clubs: Clubs) {
+        fun onBind(clubs: ClubsResponseItem) {
             binding.run {
                 tvRecClub.text = clubs.name
-                var isFollowed = clubs.isFollowed
+                var isFollowed = false
 
 //                if (clubs.image.isEmpty())
 //                    ivRecClub.setImageResource(R.drawable.puzzle_club)

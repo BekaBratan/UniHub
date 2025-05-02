@@ -9,6 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
+        buildConfigField ("String", "OPENAI_API_KEY", "\"${project.properties["OPENAI_API_KEY"]}\"")
         applicationId = "com.example.unihub"
         minSdk = 24
         targetSdk = 35
@@ -16,6 +17,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {

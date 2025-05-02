@@ -37,11 +37,14 @@ class ProfileFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
 
-        profileViewModel.errorMessage.observe(viewLifecycleOwner) {
-            binding.tvName.text = it.message
-        }
+        profileViewModel.getUserProfile(sharedProvider.getToken())
 
         binding.run {
+            profileViewModel.profileResponse.observe(viewLifecycleOwner) {
+                tvName.text = it.name + " " + it.surname
+                tvEmail.text = it.email
+            }
+
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
@@ -61,6 +64,11 @@ class ProfileFragment : Fragment() {
             llLogOut.setOnClickListener {
                 showCustomDialogBox()
             }
+        }
+
+        profileViewModel.errorMessage.observe(viewLifecycleOwner) {
+            binding.tvError.text = it.message
+            binding.tvError.visibility = View.VISIBLE
         }
     }
 

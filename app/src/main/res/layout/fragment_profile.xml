@@ -113,6 +113,18 @@
             android:backgroundTint="@color/white_1000"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
+                android:text="akniyet.serik@gmail.com"
+                android:textAlignment="center"
+                android:textColor="@color/red_900"
+                android:textSize="13sp"
+                android:visibility="gone"/>
+
             <LinearLayout
                 android:id="@+id/llMyAccount"
                 android:layout_width="match_parent"

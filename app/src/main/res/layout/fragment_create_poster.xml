@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.club.CreateEventFragment">
+    tools:context=".presentation.club.CreatePosterFragment">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -26,7 +26,7 @@
         android:textColor="@color/grey_900"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Event Request Form"
+        android:text="Create Poster"
         android:layout_marginTop="58dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,14 +65,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Name of the Event"
+                android:text="Event Title"
                 android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"/>
 
             <EditText
-                android:id="@+id/etEventName"
+                android:id="@+id/etEventTitle"
                 android:inputType="text"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -177,6 +177,47 @@
             <ImageButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:background="@drawable/ic_clock_event"
+                android:backgroundTint="@color/grey_900"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Time:"
+                android:textColor="@color/grey_900"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/etTime"
+                android:inputType="text"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sh_edit_text"
+                android:fontFamily="@font/roboto_regular"
+                android:textColorHint="@color/grey_600"
+                android:textColor="@color/grey_900"
+                android:textSize="16sp"
+                android:drawableEnd="@drawable/ic_clock_event"
+                android:drawableTint="@color/grey_600"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/ic_menu_hamburger"
                 android:backgroundTint="@color/grey_900"/>
 
@@ -184,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Short Description:"
+                android:text="Description:"
                 android:textColor="@color/grey_900"
                 android:layout_marginStart="16dp"
                 android:textSize="16sp"/>
@@ -215,33 +256,36 @@
             <ImageButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/ic_map_pin"
+                android:background="@drawable/ic_people"
                 android:backgroundTint="@color/grey_900"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Goal of Event:"
+                android:text="Seats:"
                 android:textColor="@color/grey_900"
+                android:textSize="16sp"
                 android:layout_marginStart="16dp"
-                android:textSize="16sp"/>
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/etSeats"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sh_edit_text"
+                android:fontFamily="@font/roboto_regular"
+                android:textColorHint="@color/grey_600"
+                android:textColor="@color/grey_900"
+                android:textSize="16sp"
+                android:drawableEnd="@drawable/ic_up_down"
+                android:drawableTint="@color/grey_600"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"/>
 
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/etGoal"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sh_edit_text"
-            android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -257,132 +301,18 @@
                 android:backgroundTint="@color/grey_900"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Organizers:"
-                android:textColor="@color/grey_900"
-                android:layout_marginStart="16dp"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/etOrganizers"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sh_edit_text"
-            android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="14dp"
-            android:gravity="center_vertical">
-
-            <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_calendar_event"
-                android:backgroundTint="@color/grey_900"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Event Schedule:"
-                android:textColor="@color/grey_900"
-                android:layout_marginStart="16dp"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/etShedule"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sh_edit_text"
-            android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="14dp"
-            android:gravity="center_vertical">
-
-            <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_map_pin"
-                android:backgroundTint="@color/grey_900"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Sponsorship:"
-                android:textColor="@color/grey_900"
-                android:layout_marginStart="16dp"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/etSponsorship"
-            android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sh_edit_text"
-            android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="14dp"
-            android:gravity="center_vertical">
-
-            <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_profile"
-                android:backgroundTint="@color/grey_900"/>
-
-            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Club Head:"
+                android:text="Price:"
                 android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"/>
 
             <EditText
-                android:id="@+id/etHead"
-                android:inputType="text"
+                android:id="@+id/etPrice"
+                android:inputType="number"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@drawable/sh_edit_text"
@@ -406,21 +336,21 @@
             <ImageButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/ic_profile"
+                android:background="@drawable/ic_gallery"
                 android:backgroundTint="@color/grey_900"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Phone:"
+                android:text="Add Media:"
                 android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"/>
 
-            <EditText
-                android:id="@+id/etPhone"
+            <TextView
+                android:id="@+id/etMedia"
                 android:inputType="text"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -429,49 +359,13 @@
                 android:textColorHint="@color/grey_600"
                 android:textColor="@color/grey_900"
                 android:textSize="16sp"
+                android:drawableStart="@drawable/ic_gallery"
+                android:drawableTint="@color/grey_600"
                 android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"/>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="14dp"
-            android:gravity="center_vertical">
-
-            <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_menu_hamburger"
-                android:backgroundTint="@color/grey_900"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Comment:"
-                android:textColor="@color/grey_900"
-                android:layout_marginStart="16dp"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/etComment"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/sh_edit_text"
-            android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
-            android:gravity="center_vertical"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSend"

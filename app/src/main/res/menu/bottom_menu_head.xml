@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_calendar_events"
         android:title=""/>
     <item
-        android:id="@+id/createEventFragment"
+        android:id="@+id/createNewPostFragment"
         android:icon="@drawable/ic_write"
         android:title=""/>
     <item

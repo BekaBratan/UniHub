@@ -480,10 +480,35 @@
         android:id="@+id/createEventFragment"
         android:name="com.example.unihub.presentation.club.CreateEventFragment"
         android:label="fragment_create_event"
-        tools:layout="@layout/fragment_create_event" />
+        tools:layout="@layout/fragment_create_event" >
+        <action
+            android:id="@+id/action_createEventFragment_to_createNewPostFragment"
+            app:destination="@id/createNewPostFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newQuoteFragment"
         android:name="com.example.unihub.presentation.home.posts.NewQuoteFragment"
         android:label="fragment_new_quote"
         tools:layout="@layout/fragment_new_quote" />
+    <fragment
+        android:id="@+id/createNewPostFragment"
+        android:name="com.example.unihub.presentation.club.CreateNewPostFragment"
+        android:label="fragment_create_new_post"
+        tools:layout="@layout/fragment_create_new_post" >
+        <action
+            android:id="@+id/action_createNewPostFragment_to_createEventFragment"
+            app:destination="@id/createEventFragment" />
+        <action
+            android:id="@+id/action_createNewPostFragment_to_createPosterFragment"
+            app:destination="@id/createPosterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPosterFragment"
+        android:name="com.example.unihub.presentation.club.CreatePosterFragment"
+        android:label="fragment_create_poster"
+        tools:layout="@layout/fragment_create_poster" >
+        <action
+            android:id="@+id/action_createPosterFragment_to_createNewPostFragment"
+            app:destination="@id/createNewPostFragment" />
+    </fragment>
 </navigation>

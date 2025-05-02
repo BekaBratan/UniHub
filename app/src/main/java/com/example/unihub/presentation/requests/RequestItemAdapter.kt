@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.databinding.ItemRequestBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsViewHolder>() {
 

@@ -2,14 +2,12 @@ package com.example.unihub.presentation.home.club
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -21,8 +19,6 @@ import com.example.unihub.databinding.FragmentClubPageBinding
 import com.example.unihub.presentation.home.posts.PostsAdapter
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
-import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
 class ClubPageFragment : Fragment() {
@@ -64,7 +60,7 @@ class ClubPageFragment : Fragment() {
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -72,7 +68,7 @@ class ClubPageFragment : Fragment() {
 
         postsAdapter.setOnClubNameClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -82,9 +78,9 @@ class ClubPageFragment : Fragment() {
 
         eventsAdapter.setOnCardClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
                     findNavController().navigate(
-                        ClubPageFragmentDirections.actionClubPageFragmentToBookingFragment(id)
+                        ClubPageFragmentDirections.actionClubPageFragmentToBookingFragment(id!!)
                     )
                 }
             }

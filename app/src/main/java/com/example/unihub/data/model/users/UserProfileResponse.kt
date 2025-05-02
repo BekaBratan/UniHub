@@ -5,25 +5,25 @@ import com.google.gson.annotations.SerializedName
 
 data class UserProfileResponse(
     @SerializedName("birthDate")
-    val birthDate: Any?,
+    val birthDate: Any,
     @SerializedName("clubName")
-    val clubName: Any?,
+    val clubName: Any,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    val createdAt: String,
     @SerializedName("email")
-    val email: String?,
+    val email: String,
     @SerializedName("gender")
-    val gender: Any?,
+    val gender: Any,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("name")
-    val name: String?,
+    val name: String,
     @SerializedName("phone")
-    val phone: Any?,
+    val phone: Any,
     @SerializedName("role")
-    val role: String?,
+    val role: String,
     @SerializedName("surname")
-    val surname: String?,
+    val surname: String,
     @SerializedName("updatedAt")
-    val updatedAt: String?
+    val updatedAt: String
 )

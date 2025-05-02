@@ -5,35 +5,35 @@ import com.google.gson.annotations.SerializedName
 
 data class MyCreateClubResponseItem(
     @SerializedName("attractionMethods")
-    val attractionMethods: String?,
+    val attractionMethods: String,
     @SerializedName("clubName")
-    val clubName: String?,
+    val clubName: String,
     @SerializedName("comment")
-    val comment: String?,
+    val comment: String,
     @SerializedName("communication")
-    val communication: String?,
+    val communication: String,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    val createdAt: String,
     @SerializedName("description")
-    val description: String?,
+    val description: String,
     @SerializedName("email")
-    val email: String?,
+    val email: String,
     @SerializedName("financing")
-    val financing: String?,
+    val financing: String,
     @SerializedName("goal")
-    val goal: String?,
+    val goal: String,
     @SerializedName("headId")
-    val headId: Int?,
+    val headId: Int,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("phone")
-    val phone: String?,
+    val phone: String,
     @SerializedName("resources")
-    val resources: String?,
+    val resources: String,
     @SerializedName("status")
-    val status: String?,
+    val status: String,
     @SerializedName("title")
-    val title: String?,
+    val title: String,
     @SerializedName("updatedAt")
-    val updatedAt: String?
+    val updatedAt: String
 )

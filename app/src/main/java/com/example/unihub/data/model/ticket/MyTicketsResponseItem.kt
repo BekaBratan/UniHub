@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 data class MyTicketsResponseItem(
     @SerializedName("createdAt")
-    val createdAt: String?,
+    val createdAt: String,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("numberOfPersons")
-    val numberOfPersons: Int?,
+    val numberOfPersons: Int,
     @SerializedName("poster")
-    val poster: Poster?,
+    val poster: Poster,
     @SerializedName("status")
-    val status: String?
+    val status: String
 )

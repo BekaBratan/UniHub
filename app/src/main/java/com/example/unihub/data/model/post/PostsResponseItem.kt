@@ -7,17 +7,17 @@ data class PostsResponseItem(
     @SerializedName("club")
     val club: Club?,
     @SerializedName("content")
-    val content: String?,
+    val content: String,
     @SerializedName("createdAt")
-    val createdAt: String?,
+    val createdAt: String,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("image")
-    val image: String?,
+    val image: String,
     @SerializedName("likes")
-    val likes: Int?,
+    val likes: Int,
     @SerializedName("title")
-    val title: String?,
+    val title: String,
     @SerializedName("user")
-    val user: User?
+    val user: User
 )

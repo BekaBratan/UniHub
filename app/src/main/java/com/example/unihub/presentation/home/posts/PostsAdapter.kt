@@ -10,7 +10,6 @@ import com.example.unihub.R
 import com.example.unihub.data.model.post.PostsResponseItem
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
 open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
@@ -63,7 +62,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
     ) {
         fun onBind(posts: PostsResponseItem) {
             binding.run {
-                tvClubName.text = posts.club.name
+                tvClubName.text = posts.club?.name
                 tvTime.text = posts.createdAt
                 tvPostName.text = posts.content
                 var isLiked = false
@@ -90,7 +89,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                 }
 
                 tvClubName.setOnClickListener {
-                    listenerClickClubName?.onClick(posts.club.id)
+                    listenerClickClubName?.onClick(posts.club?.id)
                 }
 
                 btnRepost.setOnClickListener {

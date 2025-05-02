@@ -80,6 +80,7 @@ class ChangePasswordFragment : Fragment() {
                 var currentPassword = etCurrentPassword.text.toString()
                 var newPassword = etNewPassword.text.toString()
 
+                profileViewModel.changePassword(sharedProvider.getToken(), currentPassword, newPassword)
             }
         }
 

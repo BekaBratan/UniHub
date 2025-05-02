@@ -10,8 +10,6 @@ import com.example.unihub.R
 import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.ItemRecInlineBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
-import javax.sql.RowSet
 
 open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHolder>() {
 

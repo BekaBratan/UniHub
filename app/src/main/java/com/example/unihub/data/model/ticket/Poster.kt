@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName
 
 data class Poster(
     @SerializedName("eventDate")
-    val eventDate: String?,
+    val eventDate: String,
     @SerializedName("eventTitle")
-    val eventTitle: String?,
+    val eventTitle: String,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("location")
-    val location: String?,
+    val location: String,
     @SerializedName("price")
-    val price: Int?,
+    val price: Int,
     @SerializedName("time")
-    val time: String?
+    val time: String
 )

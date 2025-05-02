@@ -44,7 +44,6 @@ class AuthViewModel(): ViewModel() {
                     } else {
                         throwable.message ?: "An unknown error occurred."
                     }
-
                     _errorMessage.postValue(MessageResponse(errorMessage))
                 }
             )

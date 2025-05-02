@@ -6,12 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.unihub.R
 import com.example.unihub.databinding.FragmentRequestsListBinding
-import com.example.unihub.presentation.profile.CreateRequestFragmentDirections
 import com.example.unihub.presentation.requests.RequestItemAdapter
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.provideNavigationHost
 
 class RequestsListFragment : Fragment() {
@@ -38,16 +35,16 @@ class RequestsListFragment : Fragment() {
 
         adapterClub.setOnItemClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateClubRequestFragment(id, false))
+                override fun onClick(id: Int?) {
+                    findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateClubRequestFragment(id!!, false))
                 }
             }
         )
 
         adapterEvent.setOnItemClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateEventRequestFragment(id, false))
+                override fun onClick(id: Int?) {
+                    findNavController().navigate(RequestsListFragmentDirections.actionRequestsListFragmentToCreateEventRequestFragment(id!!, false))
                 }
             }
         )

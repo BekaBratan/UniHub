@@ -13,8 +13,6 @@ import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCreateRequestBinding
 import com.example.unihub.presentation.requests.RequestItemAdapter
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
-import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
 class CreateRequestFragment : Fragment() {
@@ -39,8 +37,8 @@ class CreateRequestFragment : Fragment() {
 
         adapterClub.setOnItemClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    findNavController().navigate(CreateRequestFragmentDirections.actionCreateRequestFragmentToCreateClubRequestFragment(id, false))
+                override fun onClick(id: Int?) {
+                    findNavController().navigate(CreateRequestFragmentDirections.actionCreateRequestFragmentToCreateClubRequestFragment(id?:1, false))
                 }
             }
         )

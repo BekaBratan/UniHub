@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.databinding.FragmentSignInBinding
 import com.example.unihub.presentation.authentication.AuthViewModel
-import com.example.unihub.presentation.authentication.login.LogInFragmentDirections
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 import kotlin.getValue
@@ -84,12 +83,12 @@ class SignInFragment : Fragment() {
             }
 
             authViewModel.signupResponse.observe(viewLifecycleOwner) {
-                Log.d("Login Response", it.message)
-                sharedProvider.saveToken(it.token)
-                sharedProvider.saveEmail(it.user.email)
-                sharedProvider.saveName(it.user.name)
-                sharedProvider.saveSurname(it.user.surname)
-                sharedProvider.saveRole(it.user.role)
+                Log.d("Login Response", it.message.toString())
+                sharedProvider.saveToken(it.token.toString())
+                sharedProvider.saveEmail(it.user.email.toString())
+                sharedProvider.saveName(it.user.name.toString())
+                sharedProvider.saveSurname(it.user.surname.toString())
+                sharedProvider.saveRole(it.user.role.toString())
                 sharedProvider.saveID(it.user.id)
                 findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToHomeFragment())
             }

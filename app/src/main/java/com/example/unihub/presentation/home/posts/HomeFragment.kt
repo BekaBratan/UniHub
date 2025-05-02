@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.unihub.R
-import com.example.unihub.data.model.club.ClubsResponse
 import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.data.model.club.Head
 import com.example.unihub.data.model.post.Club
@@ -22,7 +21,6 @@ import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
 
@@ -85,7 +83,7 @@ class HomeFragment : Fragment() {
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -93,16 +91,16 @@ class HomeFragment : Fragment() {
 
         postsAdapter.setOnClubNameClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id, ""))
+                override fun onClick(id: Int?) {
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id?: 1, ""))
                 }
             }
         )
 
         postsAdapter.setOnRepostClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    val repostBottomSheet = RepostBottomSheet(id)
+                override fun onClick(id: Int?) {
+                    val repostBottomSheet = RepostBottomSheet(id?:1)
                     repostBottomSheet.show(childFragmentManager, repostBottomSheet.tag)
                 }
             }
@@ -110,8 +108,8 @@ class HomeFragment : Fragment() {
 
         postsAdapter.setOnShareClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
-                    val shareBottomSheet = ShareBottomSheet(id)
+                override fun onClick(id: Int?) {
+                    val shareBottomSheet = ShareBottomSheet(id?:1)
                     shareBottomSheet.show(childFragmentManager, shareBottomSheet.tag)
                 }
             }
@@ -134,7 +132,7 @@ class HomeFragment : Fragment() {
 
         clubsAdapter.setOnFollowClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -147,7 +145,7 @@ class HomeFragment : Fragment() {
 
         postBinding.run {
             llClubInfo
-            tvClubName.text = firstPost.club.name
+            tvClubName.text = firstPost.club?.name
             tvTime.text = firstPost.createdAt
             tvPostName.text = firstPost.content
             var isLiked = false
@@ -173,7 +171,7 @@ class HomeFragment : Fragment() {
             }
 
             tvClubName.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(firstPost.club.id, ""))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(firstPost.club?.id ?: 1, ""))
             }
         }
 

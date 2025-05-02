@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.FragmentSearchBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.provideNavigationHost
 
 class SearchFragment : Fragment() {
@@ -33,7 +31,7 @@ class SearchFragment : Fragment() {
 
         clubsAdapter.setOnFollowClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }

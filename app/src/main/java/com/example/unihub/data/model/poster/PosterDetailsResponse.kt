@@ -7,25 +7,25 @@ data class PosterDetailsResponse(
     @SerializedName("club")
     val club: Club?,
     @SerializedName("description")
-    val description: String?,
+    val description: String,
     @SerializedName("eventDate")
-    val eventDate: String?,
+    val eventDate: String,
     @SerializedName("eventTitle")
-    val eventTitle: String?,
+    val eventTitle: String,
     @SerializedName("head")
-    val head: Head?,
+    val head: Head,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int,
     @SerializedName("image")
-    val image: String?,
+    val image: String,
     @SerializedName("location")
-    val location: String?,
+    val location: String,
     @SerializedName("price")
-    val price: Int?,
+    val price: Int,
     @SerializedName("seats")
-    val seats: Int?,
+    val seats: Int,
     @SerializedName("seatsLeft")
-    val seatsLeft: Int?,
+    val seatsLeft: Int,
     @SerializedName("time")
-    val time: String?
+    val time: String
 )

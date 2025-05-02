@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class CreatePostRequest(
     @SerializedName("content")
-    val content: String?,
+    val content: String,
     @SerializedName("image")
-    val image: String?,
+    val image: String,
     @SerializedName("title")
-    val title: String?
+    val title: String
 )

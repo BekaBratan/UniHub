@@ -14,11 +14,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentLogInBinding
 import com.example.unihub.presentation.authentication.AuthViewModel
-import com.example.unihub.presentation.home.club.ClubViewModel
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 import kotlin.getValue
-import kotlin.math.log
 
 class LogInFragment : Fragment() {
 
@@ -49,7 +47,6 @@ class LogInFragment : Fragment() {
                 val password = etPassword.text.toString().trim()
                 Log.d("Login", "Email: $email, Password: $password")
                 authViewModel.login(email = email, password = password)
-                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
 
             etEmail.addTextChangedListener {
@@ -79,12 +76,12 @@ class LogInFragment : Fragment() {
             }
 
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
-                Log.d("Login Response", it.message)
-                sharedProvider.saveToken(it.token)
-                sharedProvider.saveEmail(it.user.email)
-                sharedProvider.saveName(it.user.name)
-                sharedProvider.saveSurname(it.user.surname)
-                sharedProvider.saveRole(it.user.role)
+                Log.d("Login Response", it.message.toString())
+                sharedProvider.saveToken(it.token.toString())
+                sharedProvider.saveEmail(it.user.email.toString())
+                sharedProvider.saveName(it.user.name.toString())
+                sharedProvider.saveSurname(it.user.surname.toString())
+                sharedProvider.saveRole(it.user.role.toString())
                 sharedProvider.saveID(it.user.id)
                 findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }

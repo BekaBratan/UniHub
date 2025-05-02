@@ -2,7 +2,6 @@ package com.example.unihub.presentation.club
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,14 +14,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentClubProfileBinding
-import com.example.unihub.presentation.home.club.ClubPageFragmentDirections
 import com.example.unihub.presentation.home.club.ClubRatingsAdapter
 import com.example.unihub.presentation.home.club.EventCardsAdapter
 import com.example.unihub.presentation.home.posts.PostsAdapter
-import com.example.unihub.presentation.profile.UserProfileFragmentDirections
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.provideNavigationHost
 
 class ClubProfileFragment : Fragment() {
@@ -48,7 +44,7 @@ class ClubProfileFragment : Fragment() {
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -56,7 +52,7 @@ class ClubProfileFragment : Fragment() {
 
         postsAdapter.setOnClubNameClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }
@@ -66,7 +62,7 @@ class ClubProfileFragment : Fragment() {
 
         eventsAdapter.setOnCardClickListener(
             object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int) {
+                override fun onClick(id: Int?) {
 
                 }
             }

@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.home.posts
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,13 +26,17 @@ import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
+import java.time.Duration
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var postBinding: ItemPostCardBinding
-    private val sharedProvider = SharedProvider(requireContext())
+    internal lateinit var postBinding: ItemPostCardBinding
     private val postsViewModel: PostsViewModel by viewModels()
+    internal lateinit var firstPost: PostsResponseItem
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +49,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
-        provideNavigationHost()?.setupBottomNavForRole(true)
+        provideNavigationHost()?.setupBottomNavForRole(false)
+        val sharedProvider = SharedProvider(requireContext())
+        provideNavigationHost()?.setupBottomNavForRole(sharedProvider.getRole().lowercase().contains("admin"))
+
 
         postsViewModel.getPostsList(sharedProvider.getToken())
 
-        var firstPost = PostsResponseItem(
+        firstPost = PostsResponseItem(
             id = 1,
             club = Club(
                 id = 1,
@@ -71,6 +79,7 @@ class HomeFragment : Fragment() {
         postsViewModel.getPostListResponse.observe(viewLifecycleOwner) { postList->
             postsAdapter.submitList(postList.filter { it.id != postList[0].id })
             firstPost = postList[0]
+            updateFirstPost()
         }
 
         postsAdapter.setOnLikeClickListener(
@@ -134,38 +143,6 @@ class HomeFragment : Fragment() {
         val horizontalLinearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         postBinding = binding.firstPost
-
-        postBinding.run {
-            llClubInfo
-            tvClubName.text = firstPost.club?.name
-            tvTime.text = firstPost.createdAt
-            tvPostName.text = firstPost.content
-            var isLiked = false
-
-            if (firstPost.image.isEmpty())
-                ivPostImage.setImageResource(R.drawable.example_post)
-            else
-                Glide.with(requireContext())
-                    .load(firstPost.image)
-                    .into(ivPostImage)
-
-            if (isLiked)
-                btnLike.setImageResource(R.drawable.ic_liked)
-            else
-                btnLike.setImageResource(R.drawable.ic_unliked)
-
-            btnLike.setOnClickListener {
-                if (isLiked)
-                    btnLike.setImageResource(R.drawable.ic_unliked)
-                else
-                    btnLike.setImageResource(R.drawable.ic_liked)
-                isLiked = !isLiked
-            }
-
-            tvClubName.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(firstPost.club?.id ?: 1, ""))
-            }
-        }
 
         binding.run {
             rvPosts.layoutManager = verticalLinearLayoutManager
@@ -234,6 +211,55 @@ class HomeFragment : Fragment() {
                 llSearch.visibility = View.VISIBLE
             }
         }
+    }
+}
 
+@SuppressLint("NewApi")
+private fun getTimeAgo(isoTime: String): String {
+    val formatter = DateTimeFormatter.ISO_DATE_TIME
+    val updatedTime = ZonedDateTime.parse(isoTime, formatter)
+    val now = ZonedDateTime.now(ZoneId.of("UTC"))
+    val duration = Duration.between(updatedTime, now)
+
+    return when {
+        duration.toMinutes() < 1 -> "just now"
+        duration.toMinutes() < 60 -> "${duration.toMinutes()} minutes ago"
+        duration.toHours() < 24 -> "${duration.toHours()} hours ago"
+        duration.toDays() < 7 -> "${duration.toDays()} days ago"
+        else -> updatedTime.toLocalDate().toString() // Or format if needed
+    }
+}
+
+private fun HomeFragment.updateFirstPost() {
+    postBinding.run {
+        llClubInfo
+        tvClubName.text = firstPost.club?.name
+        tvTime.text = getTimeAgo(firstPost.createdAt)
+        tvPostName.text = firstPost.content
+        var isLiked = false
+
+        if (firstPost.image.isEmpty())
+            ivPostImage.setImageResource(R.drawable.example_post)
+        else
+            Glide.with(requireContext())
+                .load(firstPost.image)
+                .into(ivPostImage)
+
+        if (isLiked)
+            btnLike.setImageResource(R.drawable.ic_liked)
+        else
+            btnLike.setImageResource(R.drawable.ic_unliked)
+
+        btnLike.setOnClickListener {
+            if (isLiked)
+                btnLike.setImageResource(R.drawable.ic_unliked)
+            else
+                btnLike.setImageResource(R.drawable.ic_liked)
+            isLiked = !isLiked
+        }
+
+        tvClubName.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(firstPost.club?.id ?: 1, ""))
+        }
     }
 }

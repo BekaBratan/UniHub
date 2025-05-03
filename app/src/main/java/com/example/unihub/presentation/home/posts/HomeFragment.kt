@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -21,6 +22,7 @@ import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
 
@@ -28,6 +30,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var postBinding: ItemPostCardBinding
+    private val sharedProvider = SharedProvider(requireContext())
+    private val postsViewModel: PostsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +46,9 @@ class HomeFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(false)
         provideNavigationHost()?.setupBottomNavForRole(true)
 
-        val firstPost = PostsResponseItem(
+        postsViewModel.getPostsList(sharedProvider.getToken())
+
+        var firstPost = PostsResponseItem(
             id = 1,
             club = Club(
                 id = 1,
@@ -61,30 +67,16 @@ class HomeFragment : Fragment() {
         )
 
         val postsAdapter = PostsAdapter()
-        postsAdapter.submitList(List(10) {
-            PostsResponseItem(
-                id = 1,
-                club = Club(
-                    id = 1,
-                    name = "Sample Club"
-                ),
-                content = "Sample content",
-                createdAt = "2023-01-01T00:00:00Z",
-                image = "sample_post_image_url",
-                likes = 100,
-                title = "Sample Title",
-                user = User(
-                    id = 1,
-                    name = "John",
-                    surname = "Doe"
-                )
-            )
-        })
+
+        postsViewModel.getPostListResponse.observe(viewLifecycleOwner) { postList->
+            postsAdapter.submitList(postList.filter { it.id != postList[0].id })
+            firstPost = postList[0]
+        }
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
-
+                    postsViewModel.likePost(sharedProvider.getToken(), id?: 1)
                 }
             }
         )

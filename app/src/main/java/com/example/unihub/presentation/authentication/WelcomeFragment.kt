@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentWelcomeBinding
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
 class WelcomeFragment : Fragment() {
@@ -26,8 +27,13 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
+        val sharedProvider = SharedProvider(requireContext())
 
         binding.run {
+            if (sharedProvider.getIsAuthorized()) {
+                findNavController().navigate(R.id.action_welcomeFragment_to_homeFragment)
+            }
+
             btnCreate.setOnClickListener{
                 findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToSignInFragment())
             }

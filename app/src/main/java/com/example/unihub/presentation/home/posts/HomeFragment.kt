@@ -23,6 +23,8 @@ import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
+import com.google.android.material.imageview.ShapeableImageView
+import kotlin.collections.listOf
 
 class HomeFragment : Fragment() {
 
@@ -40,17 +42,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
-        provideNavigationHost()?.setupBottomNavForRole(true)
+        provideNavigationHost()?.setupBottomNavForRole(false)
 
         val firstPost = PostsResponseItem(
             id = 1,
             club = Club(
                 id = 1,
-                name = "Sample Club"
+                name = "International Club"
             ),
-            content = "Sample content",
-            createdAt = "2023-01-01T00:00:00Z",
-            image = "sample_post_image_url",
+            content = "We invite you to our festival! Join us for a day of fun and excitement.",
+            createdAt = "49m",
+            image = "post_1",
             likes = 100,
             title = "Sample Title",
             user = User(
@@ -61,25 +63,78 @@ class HomeFragment : Fragment() {
         )
 
         val postsAdapter = PostsAdapter()
-        postsAdapter.submitList(List(10) {
-            PostsResponseItem(
-                id = 1,
-                club = Club(
-                    id = 1,
-                    name = "Sample Club"
+        postsAdapter.submitList(
+            listOf(
+                PostsResponseItem(
+                    id = 2,
+                    club = Club(
+                        id = 2,
+                        name = "Language Club"
+                    ),
+                    content = "Movie night! Join us for a screening of 'Inception' followed by a discussion.",
+                    createdAt = "2h",
+                    image = "post_2",
+                    likes = 100,
+                    title = "Sample Title",
+                    user = User(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    )
                 ),
-                content = "Sample content",
-                createdAt = "2023-01-01T00:00:00Z",
-                image = "sample_post_image_url",
-                likes = 100,
-                title = "Sample Title",
-                user = User(
-                    id = 1,
-                    name = "John",
-                    surname = "Doe"
-                )
+                PostsResponseItem(
+                    id = 3,
+                    club = Club(
+                        id = 3,
+                        name = "Music Club"
+                    ),
+                    content = "Open air concert! Join us for a night of live music and fun.",
+                    createdAt = "4h",
+                    image = "sample_post_image_url",
+                    likes = 100,
+                    title = "Sample Title",
+                    user = User(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    )
+                ),
+                PostsResponseItem(
+                    id = 4,
+                    club = Club(
+                        id = 4,
+                        name = "King Speech"
+                    ),
+                    content = "King speech and values of the club",
+                    createdAt = "9h",
+                    image = "sample_post_image_url",
+                    likes = 100,
+                    title = "Sample Title",
+                    user = User(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    )
+                ),
+                PostsResponseItem(
+                    id = 5,
+                    club = Club(
+                        id = 5,
+                        name = "IT Club"
+                    ),
+                    content = "Join to typeracer contest, win a prize!",
+                    createdAt = "14h",
+                    image = "sample_post_image_url",
+                    likes = 100,
+                    title = "Sample Title",
+                    user = User(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    )
+                ),
             )
-        })
+        )
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {
@@ -116,19 +171,114 @@ class HomeFragment : Fragment() {
         )
 
         val clubsAdapter = RecCardAdapter()
-        clubsAdapter.submitList(List(10) { ClubsResponseItem(
-            createdAt = "2023-01-01T00:00:00Z",
-            description = "Sample description",
-            goal = "Sample goal",
-            head = Head(
-                id = 1,
-                name = "John",
-                surname = "Doe"
-            ),
-            id = 1,
-            name = "Sample name",
-            rating = 5
-        ) })
+        clubsAdapter.submitList (
+            listOf (
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 1,
+                    name = "International Club",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 2,
+                    name = "Language Club",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 3,
+                    name = "Music Club",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 4,
+                    name = "King Speech",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 5,
+                    name = "IT Club",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 6,
+                    name = "Orlean",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 7,
+                    name = "Art Club",
+                    rating = 5
+                ),
+                ClubsResponseItem (
+                    createdAt = "2023-01-01T00:00:00Z",
+                    description = "Sample description",
+                    goal = "Sample goal",
+                    head = Head(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    ),
+                    id = 8,
+                    name = "Zhasa",
+                    rating = 5
+                ),
+            )
+        )
 
         clubsAdapter.setOnFollowClickListener(
             object : RcViewItemClickIdCallback {
@@ -150,12 +300,9 @@ class HomeFragment : Fragment() {
             tvPostName.text = firstPost.content
             var isLiked = false
 
-            if (firstPost.image.isEmpty())
-                ivPostImage.setImageResource(R.drawable.example_post)
-            else
-                Glide.with(requireContext())
-                    .load(firstPost.image)
-                    .into(ivPostImage)
+            ivPostImage.setImageResource(R.drawable.post_1)
+            val clubAvatarImageView = view.findViewById<ShapeableImageView>(R.id.ivClubAvatar)
+            clubAvatarImageView.setImageResource(R.drawable.club_1)
 
             if (isLiked)
                 btnLike.setImageResource(R.drawable.ic_liked)

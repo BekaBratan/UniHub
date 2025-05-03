@@ -83,6 +83,7 @@ class LogInFragment : Fragment() {
                 sharedProvider.saveSurname(it.user.surname.toString())
                 sharedProvider.saveRole(it.user.role.toString())
                 sharedProvider.saveID(it.user.id)
+                sharedProvider.saveIsAuthorized(true)
                 findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
 

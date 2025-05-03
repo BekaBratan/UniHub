@@ -15,9 +15,9 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivEventImage"
         android:layout_width="match_parent"
-        android:layout_height="244dp"
+        android:layout_height="274dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/example_event"
+        android:src="@drawable/post3"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
@@ -44,7 +44,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/blue_900"
-            android:text="Puzzle day!"/>
+            android:text="Air festival"/>
 
         <View
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/blue_900"
-                    android:text="18th Jan, 2020"/>
+                    android:text="18th May, 2025"/>
 
             </LinearLayout>
 
@@ -117,7 +117,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/blue_900"
-                    android:text="10:00 AM"/>
+                    android:text="12:00 AM"/>
 
             </LinearLayout>
 
@@ -153,7 +153,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/blue_700"
-            android:text="Join us for Puzzle Day for Kids — a joyful celebration full of fun, learning, and creativity. Children of all ages are welcome to explore colorful puzzles, team up for exciting games, and take part in hands-on workshops designed to inspire and entertain."/>
+            android:text="Experience the thrill of the skies at the SDU Life Air Festival! Enjoy breathtaking drone shows, model aircraft displays, and interactive aviation activities. Whether you're an enthusiast or just curious, come join us for a day filled with excitement, fun, and unforgettable aerial adventures!"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -182,7 +182,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/blue_700"
-            android:text="Number of seats: 40"/>
+            android:text="Number of seats: 200"/>
         
         <LinearLayout
             android:layout_width="match_parent"

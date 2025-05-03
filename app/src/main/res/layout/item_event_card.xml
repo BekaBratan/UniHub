@@ -4,10 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/sh_20dp"
+    android:layout_marginHorizontal="70dp"
     android:backgroundTint="@color/white_1000"
     android:clipToOutline="true"
     android:clipChildren="true"
     android:paddingBottom="30dp"
+    android:elevation="15dp"
     android:layout_marginBottom="40dp">
 
     <com.google.android.material.imageview.ShapeableImageView

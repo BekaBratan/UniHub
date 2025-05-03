@@ -10,6 +10,7 @@ import com.example.unihub.R
 import com.example.unihub.data.model.post.PostsResponseItem
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.google.android.material.imageview.ShapeableImageView
 
 open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
@@ -65,14 +66,41 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                 tvClubName.text = posts.club?.name
                 tvTime.text = posts.createdAt
                 tvPostName.text = posts.content
-                var isLiked = false
+                var isLiked = (posts.likes>300)
 
-                if (posts.image.isEmpty())
-                    ivPostImage.setImageResource(R.drawable.example_post)
+                if (posts.id == 1)
+                    ivPostImage.setImageResource(R.drawable.post_1)
+                else if (posts.id == 2)
+                    ivPostImage.setImageResource(R.drawable.post_2)
+                else if (posts.id == 3)
+                    ivPostImage.setImageResource(R.drawable.post3)
+                else if (posts.id == 4)
+                    ivPostImage.setImageResource(R.drawable.post_4)
+                else if (posts.id == 5)
+                    ivPostImage.setImageResource(R.drawable.post_5)
                 else
                     Glide.with(itemView.context)
                         .load(posts.image)
                         .into(ivPostImage)
+
+                val clubAvatarImageView = itemView.findViewById<ShapeableImageView>(R.id.ivClubAvatar)
+
+                if (posts.id == 1)
+                    clubAvatarImageView.setImageResource(R.drawable.club_1)
+                else if (posts.id == 2)
+                    clubAvatarImageView.setImageResource(R.drawable.club_2)
+                else if (posts.id == 3)
+                    clubAvatarImageView.setImageResource(R.drawable.club_3)
+                else if (posts.id == 4)
+                    clubAvatarImageView.setImageResource(R.drawable.club_4)
+                else if (posts.id == 5)
+                    clubAvatarImageView.setImageResource(R.drawable.club_5)
+                else
+                    Glide.with(itemView.context)
+                        .load(posts.image)
+                        .into(clubAvatarImageView)
+
+
 
                 if (isLiked)
                     btnLike.setImageResource(R.drawable.ic_liked)

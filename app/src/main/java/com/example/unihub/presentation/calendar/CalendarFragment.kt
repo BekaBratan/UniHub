@@ -61,7 +61,6 @@ class CalendarFragment : Fragment() {
             }
         }
 
-        addEventCard("8:00 AM")
         addEventCard("12:00 AM")
     }
 
@@ -98,9 +97,10 @@ class CalendarFragment : Fragment() {
         val tvEventTime = eventCardLayout.findViewById<TextView>(R.id.tvEventTime)
         val tvEventDuration = eventCardLayout.findViewById<TextView>(R.id.tvEventDuration)
 
-        tvEventName.text = "Sample Event"
+        icEvent.setImageResource(R.drawable.ic_circle_warning)
+        tvEventName.text = "Air festival"
         tvEventTime.text = time
-        tvEventDuration.text = "1 hours"
+        tvEventDuration.text = "1 hour"
 
         eventCardLayout.setOnClickListener {
             findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToEventsFragment(1))

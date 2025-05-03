@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihub.R
 import com.example.unihub.data.model.club.ClubEventsResponseItem
 import com.example.unihub.databinding.ItemEventCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
@@ -49,6 +50,7 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
                 tvDescription.text = event.shortDescription
                 tvDate.text = event.eventDate
 
+                ivPostImage.setImageResource(R.drawable.post3)
 //                tvSeats.text = event.location
 
 //                Glide.with(itemView.context)

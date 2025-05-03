@@ -32,7 +32,7 @@ class EventsFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
-            tvEventName.text = args.id.toString()
+//            tvEventName.text = args.id.toString()
         }
     }
 }

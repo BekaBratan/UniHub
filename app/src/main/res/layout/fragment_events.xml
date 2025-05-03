@@ -51,7 +51,8 @@
                 android:id="@+id/ivPortfile"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_portfile"
+                android:src="@drawable/ic_people"
+                android:scaleType="centerCrop"
                 android:background="@color/transparent"/>
 
             <TextView
@@ -63,7 +64,7 @@
                 android:fontFamily="@font/roboto_semibold"
                 android:textColor="@color/black_1000"
                 android:ellipsize="end"
-                android:text="Midterm Algorithms"/>
+                android:text="Air festival"/>
 
             <TextView
                 android:id="@+id/tvEventDescription"
@@ -74,7 +75,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_300"
                 android:ellipsize="end"
-                android:text="Description about the meeting what is going to happen in the boring meeting"/>
+                android:text="Experience the thrill of the skies at the SDU Life Air Festival! Enjoy breathtaking drone shows, model aircraft displays, and interactive aviation activities. Whether you're an enthusiast or just curious, come join us for a day filled with excitement, fun, and unforgettable aerial adventures!"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,7 +99,7 @@
                     android:textColor="@color/black_1000"
                     android:ellipsize="end"
                     android:layout_marginStart="12dp"
-                    android:text="Sunday, 21 Jan"/>
+                    android:text="Sunday, 18 May"/>
 
             </LinearLayout>
 
@@ -124,48 +125,48 @@
                     android:textColor="@color/black_1000"
                     android:ellipsize="end"
                     android:layout_marginStart="12dp"
-                    android:text="09:30 am - 10:30 am"/>
+                    android:text="12:00 am - 01:00 pm"/>
 
             </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_marginTop="28dp"-->
+<!--                android:gravity="center_vertical">-->
+
+<!--                <ImageButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/ic_clock"-->
+<!--                    android:backgroundTint="@color/black_1000"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textColor="@color/black_1000"-->
+<!--                    android:ellipsize="end"-->
+<!--                    android:layout_marginStart="12dp"-->
+<!--                    android:text="Task List"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rvTasks"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:isScrollContainer="false"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginStart="30dp"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="28dp"
-                android:gravity="center_vertical">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_clock"
-                    android:backgroundTint="@color/black_1000"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/black_1000"
-                    android:ellipsize="end"
-                    android:layout_marginStart="12dp"
-                    android:text="Task List"/>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTasks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:isScrollContainer="false"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="30dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="26dp"
                 android:gravity="center_vertical">
 
                 <ImageButton
@@ -196,7 +197,16 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_300"
                 android:ellipsize="end"
-                android:text="Jan 21 you will be in Tokyo. Book a flight ticket. This is in clash with other meeting"/>
+                android:text="Don’t forget to bring your student ID, wear comfortable clothes, and arrive early for the best views. Get ready to snap some cool pics and join in on hands-on drone activities!
+
+
+
+
+
+
+
+
+"/>
 
         </LinearLayout>
 

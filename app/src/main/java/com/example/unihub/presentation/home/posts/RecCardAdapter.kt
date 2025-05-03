@@ -1,7 +1,9 @@
 package com.example.unihub.presentation.home.posts
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -44,23 +46,55 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
     ) : RecyclerView.ViewHolder(
         binding.root
     ) {
+        @SuppressLint("ResourceAsColor")
         fun onBind(clubs: ClubsResponseItem) {
             binding.run {
                 tvRecClub.text = clubs.name
                 var isFollowed = false
 
-                ivRecClub.setImageResource(R.drawable.puzzle_club)
+                if (clubs.id == 1)
+                    ivRecClub.setImageResource(R.drawable.club_1)
+                else if (clubs.id == 2)
+                    ivRecClub.setImageResource(R.drawable.club_2)
+                else if (clubs.id == 3)
+                    ivRecClub.setImageResource(R.drawable.club_3)
+                else if (clubs.id == 4)
+                    ivRecClub.setImageResource(R.drawable.club_4)
+                else if (clubs.id == 5)
+                    ivRecClub.setImageResource(R.drawable.club_5)
+                else if (clubs.id == 6)
+                    ivRecClub.setImageResource(R.drawable.club_6)
+                else if (clubs.id == 7)
+                    ivRecClub.setImageResource(R.drawable.club_7)
+                else if (clubs.id == 8)
+                    ivRecClub.setImageResource(R.drawable.club_8)
 
-                if (isFollowed)
+                if (isFollowed) {
                     btnFollow.text = "Unfollow"
-                else
+                    btnFollow.setBackgroundResource(R.drawable.sh_14dp)
+                    btnFollow.backgroundTintList = null
+                    btnFollow.setTextColor(ContextCompat.getColor(binding.root.context, R.color.blue_800))
+                }
+                else {
                     btnFollow.text = "Follow"
+                    btnFollow.setBackgroundResource(R.drawable.sh_rounded)
+                    btnFollow.backgroundTintList = binding.root.context.getColorStateList(R.color.blue_800)
+                    btnFollow.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white_1000))
+                }
 
                 btnFollow.setOnClickListener {
-                    if (isFollowed)
+                    if (isFollowed) {
                         btnFollow.text = "Unfollow"
-                    else
+                        btnFollow.setBackgroundResource(R.drawable.sh_14dp)
+                        btnFollow.backgroundTintList = null
+                        btnFollow.setTextColor(ContextCompat.getColor(binding.root.context, R.color.blue_800))
+                    }
+                    else {
                         btnFollow.text = "Follow"
+                        btnFollow.setBackgroundResource(R.drawable.sh_rounded)
+                        btnFollow.backgroundTintList = binding.root.context.getColorStateList(R.color.blue_800)
+                        btnFollow.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white_1000))
+                    }
                     isFollowed = !isFollowed
                     listenerClickAtItem?.onClick(clubs.id)
                 }

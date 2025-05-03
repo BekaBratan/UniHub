@@ -8,16 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
+import com.example.unihub.data.model.club_request.CreateClubRequest
 import com.example.unihub.databinding.FragmentCreateRequestBinding
 import com.example.unihub.presentation.requests.RequestItemAdapter
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
+import kotlin.getValue
 
 class CreateRequestFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateRequestBinding
+    private val requestViewModel: RequestViewModel by viewModels()
+    private lateinit var sharedProvider: SharedProvider
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +37,34 @@ class CreateRequestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
+        sharedProvider = SharedProvider(requireContext())
 
-        val adapterClub = RequestItemAdapter()
+        requestViewModel.getMyRequests(sharedProvider.getToken())
 
-        adapterClub.submitList(listOf("Club1", "Club2", "Club3", "Club4", "Club5", "Club6", "Club7", "Club8", "Club9", "Club10"))
+        val requestItemAdapter = RequestItemAdapter()
 
-        adapterClub.setOnItemClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int?) {
-                    findNavController().navigate(CreateRequestFragmentDirections.actionCreateRequestFragmentToCreateClubRequestFragment(id?:1, false))
-                }
-            }
-        )
+        requestItemAdapter
 
         binding.run {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
+            }
+
+            requestViewModel.myRequestsResponse.observe(viewLifecycleOwner) {
+                requestItemAdapter.submitList(it)
+            }
+
+            requestViewModel.createClubResponse.observe(viewLifecycleOwner) {
+                requestViewModel.getMyRequests(sharedProvider.getToken())
+                llRequests.visibility = View.GONE
+                rvMyRequests.visibility = View.VISIBLE
+                idRequests.visibility = View.INVISIBLE
+                idMyRequests.visibility = View.VISIBLE
+            }
+
+            requestViewModel.errorMessage.observe(viewLifecycleOwner) {
+                tvError.text = it.message
+                tvError.visibility = View.VISIBLE
             }
 
             tvRequests.setOnClickListener {
@@ -56,13 +75,15 @@ class CreateRequestFragment : Fragment() {
             }
 
             tvMyRequests.setOnClickListener {
+                requestViewModel.getMyRequests(sharedProvider.getToken())
                 llRequests.visibility = View.GONE
                 rvMyRequests.visibility = View.VISIBLE
                 idRequests.visibility = View.INVISIBLE
                 idMyRequests.visibility = View.VISIBLE
             }
 
-            rvMyRequests.adapter = adapterClub
+            rvMyRequests.adapter = requestItemAdapter
+            rvMyRequests.layoutManager = LinearLayoutManager(requireContext())
 
             btnSend.setOnClickListener {
                 showCustomDialogBox()
@@ -88,6 +109,21 @@ class CreateRequestFragment : Fragment() {
         }
 
         btnLogout.setOnClickListener {
+            requestViewModel.createClubRequest(
+                sharedProvider.getToken(),
+                CreateClubRequest(
+                    attractionMethods = binding.etMethods.text.toString(),
+                    clubName = binding.etClubName.text.toString(),
+                    comment = binding.etComment.text.toString(),
+                    communication = binding.etContacts.text.toString(),
+                    description = binding.etDescription.text.toString(),
+                    financing = binding.etFinance.text.toString(),
+                    goal = binding.etGoal.text.toString(),
+                    phone = binding.etPhone.text.toString(),
+                    resources = binding.etEquipment.text.toString(),
+                    title = binding.etTitle.text.toString(),
+                )
+            )
             dialog.dismiss()
         }
 

@@ -41,6 +41,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_semibold"
             android:text="Open new club request"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/black_1000"
             android:textSize="15sp"
             android:layout_weight="1"/>
@@ -50,7 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Akniyet Serik"
+            android:text="Akniyet SerikAkniyet SerikAkniyet SerikAkniyet SerikAkniyet SerikAkniyet SerikAkniyet SerikAkniyet Serik"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/black_1000"
             android:textSize="13sp"
             android:layout_weight="1"/>

@@ -1,26 +1,37 @@
 package com.example.unihub.presentation.requests
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihub.data.model.club_request.MyCreateClubResponse
+import com.example.unihub.data.model.club_request.MyCreateClubResponseItem
 import com.example.unihub.databinding.ItemRequestBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import java.time.Duration
+import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
+@SuppressLint("NewApi")
 open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<String>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<MyCreateClubResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: MyCreateClubResponseItem,
+            newItem: MyCreateClubResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: String,
-            newItem: String
+            oldItem: MyCreateClubResponseItem,
+            newItem: MyCreateClubResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -28,7 +39,7 @@ open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsV
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<String>) {
+    fun submitList(list: List<MyCreateClubResponseItem>) {
         differ.submitList(list)
     }
 
@@ -42,12 +53,15 @@ open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsV
     ) : RecyclerView.ViewHolder(
             binding.root
     ) {
-        fun onBind(item: String) {
+        fun onBind(item: MyCreateClubResponseItem) {
             binding.run {
-                tvRequestsName.text = item
+                tvRequestsName.text = item.title
+                tvName.text = item.description
+
+                tvTime.text = getTimeAgo(item.updatedAt)
 
                 root.setOnClickListener {
-                    listenerClickItem?.onClick(item.hashCode())
+                    listenerClickItem?.onClick(item.id)
                 }
             }
         }
@@ -68,5 +82,20 @@ open class RequestItemAdapter: RecyclerView.Adapter<RequestItemAdapter.RequestsV
 
     override fun getItemCount(): Int {
         return differ.currentList.size
+    }
+
+    fun getTimeAgo(isoTime: String): String {
+        val formatter = DateTimeFormatter.ISO_DATE_TIME
+        val updatedTime = ZonedDateTime.parse(isoTime, formatter)
+        val now = ZonedDateTime.now(ZoneId.of("UTC"))
+        val duration = Duration.between(updatedTime, now)
+
+        return when {
+            duration.toMinutes() < 1 -> "just now"
+            duration.toMinutes() < 60 -> "${duration.toMinutes()} minutes ago"
+            duration.toHours() < 24 -> "${duration.toHours()} hours ago"
+            duration.toDays() < 7 -> "${duration.toDays()} days ago"
+            else -> updatedTime.toLocalDate().toString() // Or format if needed
+        }
     }
 }

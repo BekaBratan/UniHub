@@ -30,8 +30,6 @@ class RequestsListFragment : Fragment() {
         val adapterClub = RequestItemAdapter()
         val adapterEvent = RequestItemAdapter()
 
-        adapterClub.submitList(listOf("Club1", "Club2", "Club3", "Club4", "Club5", "Club6", "Club7", "Club8", "Club9", "Club10"))
-        adapterEvent.submitList(listOf("Event1", "Event2", "Event3", "Event4", "Event5", "Event6", "Event7", "Event8", "Event9", "Event10"))
 
         adapterClub.setOnItemClickListener(
             object : RcViewItemClickIdCallback {

@@ -179,7 +179,7 @@ interface ApiService {
 
 
 
-    @GET("club-requests")
+    @POST("club-requests")
     suspend fun createClubRequest(
         @Header("Authorization") token: String,
         @Body newClub: CreateClubRequest

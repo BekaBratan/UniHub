@@ -9,6 +9,7 @@ import com.example.unihub.data.api.ServiceBuilderGpt
 import com.example.unihub.data.model.ai.ChatRequest
 import com.example.unihub.data.model.ai.Message
 import com.example.unihub.utils.Constants
+import com.example.unihub.utils.LocalConstants
 import kotlinx.coroutines.launch
 
 class ChatBotViewModel : ViewModel() {
@@ -39,7 +40,7 @@ class ChatBotViewModel : ViewModel() {
                 )
 
 
-                val response = chatApi.sendMessage(request, "Bearer ${Constants.ChatGPTApi}")
+                val response = chatApi.sendMessage(request, "Bearer ${LocalConstants.ChatGPTApi}")
                 val reply = response.choices.firstOrNull()?.message?.content ?: "No response"
                 _botMessage.postValue(reply)
 

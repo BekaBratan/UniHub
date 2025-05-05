@@ -10,6 +10,7 @@ import com.example.unihub.data.model.club.ClubDetailsResponse
 import com.example.unihub.data.model.club.ClubEventsResponse
 import com.example.unihub.data.model.club_request.CreateClubRequest
 import com.example.unihub.data.model.club_request.MyCreateClubResponse
+import com.example.unihub.data.model.club_request.MyCreateClubResponseItem
 import com.example.unihub.data.model.event.EventDetailsResponse
 import com.example.unihub.data.model.event.EventsResponse
 import com.example.unihub.data.model.post.CreatePostRequest
@@ -189,4 +190,10 @@ interface ApiService {
     suspend fun getMyClubRequests(
         @Header("Authorization") token: String
     ): MyCreateClubResponse
+
+    @GET("club-requests/{requestId}")
+    suspend fun getRequestDetails(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): MyCreateClubResponseItem
 }

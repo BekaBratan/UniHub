@@ -78,7 +78,24 @@ class HomeFragment : Fragment() {
 
         postsViewModel.getPostListResponse.observe(viewLifecycleOwner) { postList->
             postsAdapter.submitList(postList.filter { it.id != postList[0].id })
-            firstPost = postList[0]
+            firstPost = postList?.firstOrNull()?:
+                PostsResponseItem(
+                    id = 1,
+                    club = Club(
+                        id = 1,
+                        name = "Sample Club"
+                    ),
+                    content = "Sample content",
+                    createdAt = "2023-01-01T00:00:00Z",
+                    image = "sample_post_image_url",
+                    likes = 100,
+                    title = "Sample Title",
+                    user = User(
+                        id = 1,
+                        name = "John",
+                        surname = "Doe"
+                    )
+                )
             updateFirstPost()
         }
 

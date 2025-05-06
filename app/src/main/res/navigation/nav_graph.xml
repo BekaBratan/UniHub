@@ -129,6 +129,12 @@
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_createRequestFragment"
+            app:destination="@id/createRequestFragment" />
     </fragment>
     <fragment
         android:id="@+id/clubPageFragment"

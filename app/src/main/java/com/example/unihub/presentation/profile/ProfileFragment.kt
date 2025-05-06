@@ -53,6 +53,10 @@ class ProfileFragment : Fragment() {
                 findNavController().popBackStack()
             }
 
+            btnWrite.setOnClickListener {
+                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToCreateRequestFragment())
+            }
+
             llMyAccount.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment())
             }
@@ -63,6 +67,10 @@ class ProfileFragment : Fragment() {
 
             llLogOut.setOnClickListener {
                 showCustomDialogBox()
+            }
+
+            llLanguage.setOnClickListener {
+                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLanguageFragment())
             }
         }
 

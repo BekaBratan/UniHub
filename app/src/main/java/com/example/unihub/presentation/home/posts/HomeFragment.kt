@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
         val sharedProvider = SharedProvider(requireContext())
         provideNavigationHost()?.setupBottomNavForRole(sharedProvider.getRole().lowercase().contains("admin"))
 
-        if (sharedProvider.getRole().lowercase().contains("admin")) {
+        if (sharedProvider.getRole().lowercase().contains("super")) {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAdminPageFragment())
         }
 

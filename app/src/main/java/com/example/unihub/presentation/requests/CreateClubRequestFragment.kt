@@ -50,23 +50,25 @@ class CreateClubRequestFragment : Fragment() {
 
         requestViewModel.getRequestDetailsResponse.observe(viewLifecycleOwner) { requestDetails ->
             binding.run {
-                tvSender.text = "Sender: ${requestDetails.email}"
-                tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt)}"
-                tvComment.text = "Comment: ${requestDetails.comment}"
-                etClubName.setText(requestDetails.clubName)
-                etGoal.setText(requestDetails.goal)
-                etFinance.setText(requestDetails.financing)
-                etEquipment.setText(requestDetails.resources)
-                etDescription.setText(requestDetails.description)
-                tvStatus.text = "Status: ${requestDetails.status}"
-                etMethods.setText(requestDetails.attractionMethods)
-                Log.d("Header", requestDetails.headId.toString())
-                // Head ID is not used in the UI, but you can use it if needed
-                etHead.setText(requestDetails.email)
-                etEmail.setText(requestDetails.email)
-                etPhone.setText(requestDetails.phone)
-                etContacts.setText(requestDetails.communication)
-                etComment.setText(requestDetails.comment)
+                if (requestDetails != null) {
+                    tvSender.text = "Sender: ${requestDetails.email}"
+                    tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt)}"
+                    tvComment.text = "Comment: ${requestDetails.comment}"
+                    etClubName.setText(requestDetails.clubName)
+                    etGoal.setText(requestDetails.goal)
+                    etFinance.setText(requestDetails.financing)
+                    etEquipment.setText(requestDetails.resources)
+                    etDescription.setText(requestDetails.description)
+                    tvStatus.text = "Status: ${requestDetails.status}"
+                    etMethods.setText(requestDetails.attractionMethods)
+                    Log.d("Header", requestDetails.headId.toString())
+                    // Head ID is not used in the UI, but you can use it if needed
+                    etHead.setText(requestDetails.email)
+                    etEmail.setText(requestDetails.email)
+                    etPhone.setText(requestDetails.phone)
+                    etContacts.setText(requestDetails.communication)
+                    etComment.setText(requestDetails.comment)
+                }
             }
         }
 

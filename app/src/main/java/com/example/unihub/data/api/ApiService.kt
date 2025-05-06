@@ -3,6 +3,8 @@ package com.example.unihub.data.api
 import com.example.unihub.data.model.MessageResponse
 import com.example.unihub.data.model.admin.CreateClubAdminResponse
 import com.example.unihub.data.model.admin.CreateClubAdminResponseItem
+import com.example.unihub.data.model.admin.CreateEventAdminDetailsResponse
+import com.example.unihub.data.model.admin.CreateEventAdminResponse
 import com.example.unihub.data.model.admin.UsersListResponse
 import com.example.unihub.data.model.club.ClubsResponse
 import com.example.unihub.data.model.auth.LoginRequest
@@ -16,6 +18,10 @@ import com.example.unihub.data.model.club_request.MyCreateClubResponse
 import com.example.unihub.data.model.club_request.MyCreateClubResponseItem
 import com.example.unihub.data.model.event.EventDetailsResponse
 import com.example.unihub.data.model.event.EventsResponse
+import com.example.unihub.data.model.head.CreateEventsListReponse
+import com.example.unihub.data.model.head.CreateEventRequest
+import com.example.unihub.data.model.head.CreatePosterRequest
+import com.example.unihub.data.model.head.HeadProfileResponse
 import com.example.unihub.data.model.post.CreatePostRequest
 import com.example.unihub.data.model.post.PostsResponse
 import com.example.unihub.data.model.post.PostsResponseItem
@@ -250,8 +256,72 @@ interface ApiService {
         @Path("requestId") requestId: Int
     ): MessageResponse
 
+    @PUT("event-requests/{requestId}/approve")
+    suspend fun approveEventRequest(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): MessageResponse
+
+    @PUT("event-requests/{requestId}/reject")
+    suspend fun rejectEventRequest(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): MessageResponse
+
     @GET("users")
     suspend fun getUsers(
         @Header("Authorization") token: String
     ): UsersListResponse
+
+    @GET("event-requests")
+    suspend fun getEventRequests(
+        @Header("Authorization") token: String
+    ): CreateEventAdminResponse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @GET("users/profile")
+    suspend fun getHeadProfile(
+        @Header("Authorization") token: String
+    ): HeadProfileResponse
+
+    @GET("posts/my-posts")
+    suspend fun getMyPostsList(
+        @Header("Authorization") token: String
+    ): PostsResponse
+
+    @POST("event-requests")
+    suspend fun createEventRequest(
+        @Header("Authorization") token: String,
+        @Body eventRequest: CreateEventRequest
+    ): MessageResponse
+
+    @POST("posters")
+    suspend fun createPoster(
+        @Header("Authorization") token: String,
+        @Body poster: CreatePosterRequest
+    ): MessageResponse
+
+    @GET("event-requests/my-requests")
+    suspend fun getMyEventRequests(
+        @Header("Authorization") token: String
+    ): CreateEventsListReponse
+
+    @GET("event-requests/{requestId}")
+    suspend fun getEventRequestDetails(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): CreateEventAdminDetailsResponse
 }

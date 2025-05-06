@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.databinding.FragmentRequestsListBinding
-import com.example.unihub.presentation.requests.RequestItemAdapter
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
@@ -32,12 +31,17 @@ class RequestsListFragment : Fragment() {
         val sharedProvider = SharedProvider(requireContext())
 
         viewModel.getRequestsList(sharedProvider.getToken())
+        viewModel.getEventsList(sharedProvider.getToken())
 
         val adapterClub = ClubRequestItemAdapter()
-        val adapterEvent = RequestItemAdapter()
+        val adapterEvent = EventRequestItemAdapter()
 
         viewModel.getRequestsListResponse.observe(viewLifecycleOwner) { requestsList ->
             adapterClub.submitList(requestsList)
+        }
+
+        viewModel.getEventsListResponse.observe(viewLifecycleOwner) { eventsList ->
+            adapterEvent.submitList(eventsList)
         }
 
         adapterClub.setOnItemClickListener(

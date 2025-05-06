@@ -103,6 +103,10 @@
         <action
             android:id="@+id/action_homeFragment_to_newQuoteFragment"
             app:destination="@id/newQuoteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_adminPageFragment"
+            app:destination="@id/adminPageFragment"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/signInAdminFragment"

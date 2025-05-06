@@ -75,6 +75,22 @@ class AdminPageFragment : Fragment() {
                 findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToAddUserFragment())
             }
 
+            btnMenu.setOnClickListener {
+                sidebar.visibility = View.VISIBLE
+            }
+
+            llHome.setOnClickListener {
+                sidebar.visibility = View.GONE
+            }
+
+            llProfile.setOnClickListener {
+                findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToProfileFragment())
+            }
+
+            llRequests.setOnClickListener {
+                findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToRequestsListFragment())
+            }
+
             tvUsersList.setOnClickListener {
                 tvUsersList.setTextColor(resources.getColor(R.color.grey_600))
                 tvClubsList.setTextColor(resources.getColor(R.color.black_900))

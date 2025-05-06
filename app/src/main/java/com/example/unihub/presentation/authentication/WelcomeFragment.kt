@@ -27,12 +27,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        provideNavigationHost()?.setupBottomNavForRole(true)
+        provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
 
         if (sharedProvider.isAuthorized()) {
             Log.d("WelcomeFragment", "isAuthorized: ${sharedProvider.getRole()}")
-            provideNavigationHost()?.setupBottomNavForRole(sharedProvider.getRole().lowercase().contains("admin"))
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment())
         }
 

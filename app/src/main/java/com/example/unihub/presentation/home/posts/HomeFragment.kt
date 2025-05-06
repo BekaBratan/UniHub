@@ -50,9 +50,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
-        provideNavigationHost()?.setupBottomNavForRole(false)
         val sharedProvider = SharedProvider(requireContext())
         provideNavigationHost()?.setupBottomNavForRole(sharedProvider.getRole().lowercase().contains("admin"))
+
+        if (sharedProvider.getRole().lowercase().contains("admin")) {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAdminPageFragment())
+        }
 
 
         postsViewModel.getPostsList(sharedProvider.getToken())
@@ -144,7 +147,7 @@ class HomeFragment : Fragment() {
         clubsAdapter.setOnFollowClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
-
+                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id?: 1, ""))
                 }
             }
         )

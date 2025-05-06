@@ -40,6 +40,8 @@ class UserProfileFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(false)
         val sharedProvider = SharedProvider(requireContext())
 
+        findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToProfileFragment())
+
         profileViewModel.getUserProfile(sharedProvider.getToken())
 
         profileViewModel.profileResponse.observe(viewLifecycleOwner) {

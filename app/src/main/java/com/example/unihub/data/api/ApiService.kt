@@ -64,6 +64,23 @@ interface ApiService {
         @Path("clubId") clubId: Int
     ): ClubDetailsResponse
 
+    @POST("clubs/{id}/subscribe")
+    suspend fun subscribeToClub(
+        @Header("Authorization") token: String,
+        @Path("id") clubId: Int
+    ): MessageResponse
+
+    @POST("clubs/{id}/unsubscribe")
+    suspend fun unsubscribeFromClub(
+        @Header("Authorization") token: String,
+        @Path("id") clubId: Int
+    ): MessageResponse
+
+//    @GET("clubs/my-subscriptions")
+//    suspend fun getMyClubs(
+//        @Header("Authorization") token: String
+//    ): ClubsResponse
+
 
 
 

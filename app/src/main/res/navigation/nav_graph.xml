@@ -323,7 +323,11 @@
             app:destination="@id/chatFragment" />
         <action
             android:id="@+id/action_activitiesFragment_to_bookingDetailsFragment"
-            app:destination="@id/bookingDetailsFragment" />
+            app:destination="@id/bookingDetailsFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
@@ -349,7 +353,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_bookingFragment_to_registerBookingFragment"
-            app:destination="@id/registerBookingFragment">
+            app:destination="@id/registerBookingFragment"
+            app:popUpTo="@id/clubPageFragment">
             <argument
                 android:name="id"
                 app:argType="integer" />
@@ -530,5 +535,9 @@
         android:id="@+id/bookingDetailsFragment"
         android:name="com.example.unihub.presentation.home.club.BookingDetailsFragment"
         android:label="fragment_booking_details"
-        tools:layout="@layout/fragment_booking_details" />
+        tools:layout="@layout/fragment_booking_details">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

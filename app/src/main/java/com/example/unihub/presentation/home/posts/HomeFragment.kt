@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
     internal lateinit var postBinding: ItemPostCardBinding
     private val postsViewModel: PostsViewModel by viewModels()
     internal lateinit var firstPost: PostsResponseItem
+    private val clubsViewModel: ClubsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +56,7 @@ class HomeFragment : Fragment() {
 
 
         postsViewModel.getPostsList(sharedProvider.getToken())
+        clubsViewModel.getClubList(sharedProvider.getToken())
 
         firstPost = PostsResponseItem(
             id = 1,
@@ -134,19 +136,10 @@ class HomeFragment : Fragment() {
         )
 
         val clubsAdapter = RecCardAdapter()
-        clubsAdapter.submitList(List(10) { ClubsResponseItem(
-            createdAt = "2023-01-01T00:00:00Z",
-            description = "Sample description",
-            goal = "Sample goal",
-            head = Head(
-                id = 1,
-                name = "John",
-                surname = "Doe"
-            ),
-            id = 1,
-            name = "Sample name",
-            rating = 5
-        ) })
+
+        clubsViewModel.getClubListResponse.observe(viewLifecycleOwner) { clubList ->
+            clubsAdapter.submitList(clubList)
+        }
 
         clubsAdapter.setOnFollowClickListener(
             object : RcViewItemClickIdCallback {

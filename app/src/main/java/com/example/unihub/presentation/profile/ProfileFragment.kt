@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        provideNavigationHost()?.hideBottomNavigationBar(true)
+        provideNavigationHost()?.hideBottomNavigationBar(false)
         val sharedProvider = SharedProvider(requireContext())
 
         profileViewModel.getUserProfile(sharedProvider.getToken())

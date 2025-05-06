@@ -1,6 +1,9 @@
 package com.example.unihub.data.api
 
 import com.example.unihub.data.model.MessageResponse
+import com.example.unihub.data.model.admin.CreateClubAdminResponse
+import com.example.unihub.data.model.admin.CreateClubAdminResponseItem
+import com.example.unihub.data.model.admin.UsersListResponse
 import com.example.unihub.data.model.club.ClubsResponse
 import com.example.unihub.data.model.auth.LoginRequest
 import com.example.unihub.data.model.auth.LoginResponse
@@ -213,4 +216,42 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("requestId") requestId: Int
     ): MyCreateClubResponseItem
+
+
+
+
+
+
+
+
+
+
+
+    @GET("club-requests")
+    suspend fun getCreateClubRequests(
+        @Header("Authorization") token: String
+    ): CreateClubAdminResponse
+
+    @GET("club-requests/{requestId}")
+    suspend fun getClubRequestDetails(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): CreateClubAdminResponseItem
+
+    @PUT("club-requests/{requestId}/approve")
+    suspend fun approveClubRequest(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): MessageResponse
+
+    @PUT("club-requests/{requestId}/reject")
+    suspend fun rejectClubRequest(
+        @Header("Authorization") token: String,
+        @Path("requestId") requestId: Int
+    ): MessageResponse
+
+    @GET("users")
+    suspend fun getUsers(
+        @Header("Authorization") token: String
+    ): UsersListResponse
 }

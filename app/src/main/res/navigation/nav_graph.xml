@@ -234,6 +234,9 @@
                 android:name="fromAdmin"
                 app:argType="boolean" />
         </action>
+        <action
+            android:id="@+id/action_requestsListFragment_to_adminPageFragment"
+            app:destination="@id/adminPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"

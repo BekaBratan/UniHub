@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentCreateClubRequestBinding
+import com.example.unihub.presentation.admin.AdminViewModel
 import com.example.unihub.presentation.calendar.EventsFragmentArgs
 import com.example.unihub.presentation.profile.RequestViewModel
 import com.example.unihub.utils.SharedProvider
@@ -29,6 +31,7 @@ class CreateClubRequestFragment : Fragment() {
     private lateinit var binding: FragmentCreateClubRequestBinding
     private val args: CreateClubRequestFragmentArgs by navArgs()
     private val requestViewModel: RequestViewModel by viewModels()
+    private val adminViewModel: AdminViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,7 +70,16 @@ class CreateClubRequestFragment : Fragment() {
             }
         }
 
+
         binding.run {
+            val items = listOf("Approved", "Cancelled")
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, items)
+            etStatus.setAdapter(adapter)
+//            acTemplate.setText("Choose template", false)
+            etStatus.setOnClickListener {
+                etStatus.showDropDown()
+            }
+
             if (args.fromAdmin) {
                 tvComment.visibility = View.GONE
                 etStatus.visibility = View.VISIBLE
@@ -83,7 +95,29 @@ class CreateClubRequestFragment : Fragment() {
             }
 
             btnSend.setOnClickListener {
-                findNavController().navigate(CreateClubRequestFragmentDirections.actionCreateClubRequestFragmentToRequestConfirmSuccessFragment())
+                val status = etStatus.text.toString()
+                if (status == "Approved") {
+                    adminViewModel.approveClubRequest(sharedProvider.getToken(), args.id)
+                } else {
+                    adminViewModel.rejectClubRequest(sharedProvider.getToken(), args.id)
+                }
+            }
+
+            adminViewModel.approveClubRequestResponse.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    findNavController().navigate(CreateClubRequestFragmentDirections.actionCreateClubRequestFragmentToRequestConfirmSuccessFragment())
+                }
+            }
+
+            adminViewModel.rejectClubRequestResponse.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    findNavController().navigate(CreateClubRequestFragmentDirections.actionCreateClubRequestFragmentToRequestConfirmSuccessFragment())
+                }
+            }
+
+            adminViewModel.errorMessage.observe(viewLifecycleOwner) {
+                binding.tvError.text = it.message
+                binding.tvError.visibility = View.VISIBLE
             }
         }
     }

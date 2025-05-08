@@ -18,6 +18,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.unihub.R
+import com.example.unihub.data.model.post.Club
+import com.example.unihub.data.model.post.PostsResponseItem
+import com.example.unihub.data.model.post.User
 import com.example.unihub.data.model.poster.PostersByClubResponseItem
 import com.example.unihub.databinding.FragmentClubPageBinding
 import com.example.unihub.presentation.club.ClubViewModel
@@ -54,6 +57,7 @@ class ClubPageFragment : Fragment() {
         var clubInfo = ""
         var headName = ""
 
+        postsViewModel.getPostsList(sharedProvider.getToken())
         clubViewModel.getClubDetails(sharedProvider.getToken(), args.id)
         clubViewModel.getPosterByClub(sharedProvider.getToken(), args.id)
 
@@ -82,6 +86,10 @@ class ClubPageFragment : Fragment() {
         }
 
         val postsAdapter = PostsAdapter()
+
+        postsViewModel.getPostListResponse.observe(viewLifecycleOwner) { postList->
+            postsAdapter.submitList(postList)
+        }
 
         postsAdapter.setOnLikeClickListener(
             object : RcViewItemClickIdCallback {

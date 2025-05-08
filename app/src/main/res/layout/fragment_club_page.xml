@@ -112,20 +112,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"/>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnChat"
-                    android:layout_width="0dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/sh_14dp"
-                    android:backgroundTint="@color/blue_800"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Chat discussion"
-                    android:textAllCaps="false"
-                    android:layout_marginStart="18dp"
-                    android:textColor="@color/white_1000"
-                    android:textSize="15sp"
-                    android:layout_weight="1"/>
-
             </LinearLayout>
 
             <LinearLayout

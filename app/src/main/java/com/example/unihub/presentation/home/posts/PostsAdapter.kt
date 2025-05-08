@@ -11,6 +11,7 @@ import com.example.unihub.R
 import com.example.unihub.data.model.post.PostsResponseItem
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.google.android.material.imageview.ShapeableImageView
 import java.time.Duration
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -72,9 +73,31 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                 tvPostName.text = posts.content
                 var isLiked = false
 
+                val clubImageView: ShapeableImageView = binding.clubAvatar.root.findViewById(R.id.ivClubAvatar)
+
+                val index = (posts.id ?: 1) % 6
+
                 if (posts.image.isEmpty())
-                    ivPostImage.setImageResource(R.drawable.example_post)
-                else
+                    if (index==1) {
+                        clubImageView.setImageResource(R.drawable.club_1)
+                        ivPostImage.setImageResource(R.drawable.post_1)
+                    }
+                    else if (index==2) {
+                        clubImageView.setImageResource(R.drawable.club_2)
+                        ivPostImage.setImageResource(R.drawable.post_2)
+                    }                    else if (index==3) {
+                        clubImageView.setImageResource(R.drawable.club_3)
+                        ivPostImage.setImageResource(R.drawable.post3)
+                    }                    else if (index==4) {
+                        clubImageView.setImageResource(R.drawable.club_4)
+                        ivPostImage.setImageResource(R.drawable.post_4)
+                    }                    else if (index==5) {
+                        clubImageView.setImageResource(R.drawable.club_5)
+                        ivPostImage.setImageResource(R.drawable.post_5)
+                    }                    else if (index==6) {
+                        clubImageView.setImageResource(R.drawable.club_6)
+                        ivPostImage.setImageResource(R.drawable.example_post)
+                    }                else
                     Glide.with(itemView.context)
                         .load(posts.image)
                         .into(ivPostImage)

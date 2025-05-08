@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unihub.R
 import com.example.unihub.data.model.club.ClubEventsResponseItem
 import com.example.unihub.data.model.poster.PostersByClubResponse
 import com.example.unihub.data.model.poster.PostersByClubResponseItem
@@ -56,7 +57,22 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
                 tvTime.text = event.time
                 tvLocation.text = event.location
 
-                showBase64Image(event.image, ivPostImage)
+                val index = (event.id ?: 1) % 6
+
+                if (index==1) {
+                    ivPostImage.setImageResource(R.drawable.post_1)
+                }
+                else if (index==2) {
+                    ivPostImage.setImageResource(R.drawable.post_2)
+                }                    else if (index==3) {
+                    ivPostImage.setImageResource(R.drawable.post3)
+                }                    else if (index==4) {
+                    ivPostImage.setImageResource(R.drawable.post_4)
+                }                    else if (index==5) {
+                    ivPostImage.setImageResource(R.drawable.post_5)
+                }                    else if (index==6) {
+                    ivPostImage.setImageResource(R.drawable.example_post)
+                }
 
                 root.setOnClickListener {
                     listenerClickCard?.onClick(event.id)

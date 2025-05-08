@@ -169,6 +169,8 @@ class HomeFragment : Fragment() {
                 )
             )
 
+            tvWelcomeName.text = "Hi, " + sharedProvider.getName() + " \uD83D\uDC4B"
+
             rvClubs.layoutManager = horizontalLinearLayoutManager
             rvClubs.adapter = clubsAdapter
             val space = resources.getDimensionPixelSize(R.dimen.dp_12)

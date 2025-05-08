@@ -67,6 +67,7 @@
         <EditText
             android:id="@+id/etNumberOfPerson"
             android:hint="  "
+            android:text="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/sh_change_pass"

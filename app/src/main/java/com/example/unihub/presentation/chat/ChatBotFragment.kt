@@ -42,6 +42,7 @@ class ChatBotFragment : Fragment() {
             if (userMessage.isNotBlank()) {
                 chatAdapter.submitMessage(ChatMessage(userMessage, true))
                 binding.etMessage.text.clear()
+                binding.llSuggestions.visibility = View.GONE
                 viewModel.sendMessageToBot(userMessage)
             }
         }

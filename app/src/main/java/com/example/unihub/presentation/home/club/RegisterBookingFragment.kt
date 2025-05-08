@@ -48,12 +48,14 @@ class RegisterBookingFragment : Fragment() {
             btnRegister.setOnClickListener {
                 val numberOfPerson = etNumberOfPerson.text.toString()
                 val paymentProof = ""
-                clubViewModel.buyTicket(
-                    token = sharedProvider.getToken(),
-                    posterId = args.id,
-                    numberOfPersons = numberOfPerson.toInt(),
-                    paymentProof = paymentProof
-                )
+                findNavController().popBackStack()
+
+//                clubViewModel.buyTicket(
+//                    token = sharedProvider.getToken(),
+//                    posterId = args.id,
+//                    numberOfPersons = numberOfPerson.toInt(),
+//                    paymentProof = paymentProof
+//                )
             }
 
             ivDropFiles.setOnClickListener {

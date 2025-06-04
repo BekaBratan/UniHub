@@ -146,7 +146,7 @@ class HomeFragment : Fragment() {
             clubsAdapter.submitList(clubList)
         }
 
-        clubsAdapter.setOnFollowClickListener(
+        clubsAdapter.setOnClubClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToClubPageFragment(id?: 1, ""))

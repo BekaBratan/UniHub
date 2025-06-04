@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">UniHub Test</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome">Welcome to UniHub</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="welcome" translatable="false">Welcome to UniHub</string>
+    <string name="all">All</string>
+    <string name="booking">Booking</string>
 </resources>

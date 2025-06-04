@@ -57,6 +57,8 @@ class ClubPageFragment : Fragment() {
         var clubInfo = ""
         var headName = ""
 
+        var followed = false
+
         postsViewModel.getPostsList(sharedProvider.getToken())
         clubViewModel.getClubDetails(sharedProvider.getToken(), args.id)
         clubViewModel.getPosterByClub(sharedProvider.getToken(), args.id)
@@ -154,8 +156,17 @@ class ClubPageFragment : Fragment() {
             }
 
             btnFollow.setOnClickListener {
-                btnFollow.backgroundTintList = null
-                btnFollow.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_800))            }
+                if (followed) {
+                    btnFollow.backgroundTintList = AppCompatResources.getColorStateList(requireContext(), R.color.blue_800)
+                    btnFollow.text = "Follow"
+                    btnFollow.setTextColor(ContextCompat.getColor(requireContext(), R.color.white_1000))
+                } else {
+                    btnFollow.backgroundTintList = null
+                    btnFollow.text = "Unfollow"
+                    btnFollow.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_800))
+                }
+                followed = !followed
+            }
 
             tvAll.setOnClickListener {
                 idAll.visibility = View.VISIBLE

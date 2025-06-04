@@ -92,7 +92,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/tvDropFiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Drop files here"
+        android:textColor="@color/blue_900"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDropFiles"
+        app:layout_constraintVertical_bias="0.1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegister"

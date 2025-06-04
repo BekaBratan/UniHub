@@ -1,7 +1,9 @@
 package com.example.unihub.presentation.home.club
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +45,14 @@ class BookingFragment : Fragment() {
                 tvTitle.text = response.eventTitle
                 tvDescription.text = response.description
                 tvDate.text = response.eventDate
+
+                if (response.image.isNotEmpty()) {
+                    val base64String = response.image
+                    val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                    val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                    ivEventImage.setImageBitmap(bitmap)
+                }
+
                 tvTime.text = response.time
                 tvLocation.text = response.location
                 tvSeatsNumber.text = "Number of seats: " + response.seatsLeft.toString()

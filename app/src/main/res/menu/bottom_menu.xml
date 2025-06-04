@@ -14,7 +14,7 @@
         android:title=""/>
     <item
         android:id="@+id/activitiesFragment"
-        android:icon="@drawable/ic_favourite"
+        android:icon="@drawable/ic_notifications"
         android:title="" />
 
     <item

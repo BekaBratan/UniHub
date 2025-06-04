@@ -13,8 +13,8 @@
         android:icon="@drawable/ic_write"
         android:title=""/>
     <item
-        android:id="@+id/activitiesFragment"
-        android:icon="@drawable/ic_favourite"
+        android:id="@+id/headNotificationsFragment"
+        android:icon="@drawable/ic_notifications"
         android:title="" />
 
     <item

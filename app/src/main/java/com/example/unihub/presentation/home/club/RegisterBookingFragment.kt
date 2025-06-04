@@ -2,6 +2,7 @@ package com.example.unihub.presentation.home.club
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.unihub.R
 import com.example.unihub.databinding.FragmentRegisterBookingBinding
 import com.example.unihub.presentation.club.ClubViewModel
 import com.example.unihub.presentation.club.CreateNewPostFragment
+import com.example.unihub.presentation.club.CreatePosterFragment
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
@@ -21,6 +23,7 @@ class RegisterBookingFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBookingBinding
     private val clubViewModel: ClubViewModel by viewModels()
+    private var imageBase64: String = ""
     private val args: RegisterBookingFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -47,15 +50,15 @@ class RegisterBookingFragment : Fragment() {
         binding.run {
             btnRegister.setOnClickListener {
                 val numberOfPerson = etNumberOfPerson.text.toString()
-                val paymentProof = ""
-                findNavController().popBackStack()
+                val paymentProof = imageBase64
+//                findNavController().popBackStack()
 
-//                clubViewModel.buyTicket(
-//                    token = sharedProvider.getToken(),
-//                    posterId = args.id,
-//                    numberOfPersons = numberOfPerson.toInt(),
-//                    paymentProof = paymentProof
-//                )
+                clubViewModel.buyTicket(
+                    token = sharedProvider.getToken(),
+                    posterId = args.id,
+                    numberOfPersons = numberOfPerson.toInt(),
+                    paymentProof = paymentProof
+                )
             }
 
             ivDropFiles.setOnClickListener {
@@ -71,7 +74,17 @@ class RegisterBookingFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_PICK_MEDIA && resultCode == AppCompatActivity.RESULT_OK) {
             val selectedImageUri = data?.data
-            // Здесь вы можете обработать выбранное изображение, например, отобразить его
+            if (selectedImageUri != null) {
+                val inputStream = requireContext().contentResolver.openInputStream(selectedImageUri)
+                val bytes = inputStream?.readBytes()
+                inputStream?.close()
+
+                if (bytes != null) {
+                    val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    binding.tvDropFiles.text = "Files selected"
+                    imageBase64 = base64String
+                }
+            }
         }
     }
 

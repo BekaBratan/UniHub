@@ -31,6 +31,7 @@ import com.example.unihub.data.model.poster.PostersByClubResponse
 import com.example.unihub.data.model.poster.PostersResponse
 import com.example.unihub.data.model.ticket.BookTicketRequest
 import com.example.unihub.data.model.ticket.MyTicketsResponse
+import com.example.unihub.data.model.ticket.PendingTicketsResponse
 import com.example.unihub.data.model.users.UpdateUserProfileRequest
 import com.example.unihub.data.model.users.UserProfileResponse
 import retrofit2.http.Body
@@ -194,6 +195,24 @@ interface ApiService {
     suspend fun getTickets(
         @Header("Authorization") token: String
     ): MyTicketsResponse
+
+
+    @GET("tickets/pending")
+    suspend fun getPendingTickets(
+        @Header("Authorization") token: String
+    ): PendingTicketsResponse
+
+    @PUT("tickets/{ticketId}/approve")
+    suspend fun approveTicket(
+        @Header("Authorization") token: String,
+        @Path("ticketId") ticketId: Int
+    ): MessageResponse
+
+    @PUT("tickets/{ticketId}/reject")
+    suspend fun rejectTicket(
+        @Header("Authorization") token: String,
+        @Path("ticketId") ticketId: Int
+    ): MessageResponse
 
 
 

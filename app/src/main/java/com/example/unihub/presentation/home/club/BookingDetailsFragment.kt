@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.home.club
 
+import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
@@ -37,6 +38,7 @@ class BookingDetailsFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,23 +51,13 @@ class BookingDetailsFragment : Fragment() {
             val ticket = response.find { it.id == args.id }
             if (ticket != null) {
                 binding.run {
-                    tvSender.text = sharedProvider.getName() + " " + sharedProvider.getSurname()
+                    tvSender.text = "Sender: " + sharedProvider.getName() + " " + sharedProvider.getSurname()
                     tvCreateDate.text = "Date of create: " + formatDatePlusDays(ticket.createdAt)
                     etStatus.setText(ticket.status)
                     tvPersonNumber.text = "Number of Person: " + ticket.numberOfPersons.toString()
-                    tvComment.text = ticket.poster.eventTitle + " " + ticket.poster.location
+                    etComment.setText(ticket.poster.eventTitle + " " + ticket.poster.location)
                 }
             }
-        }
-    }
-
-    fun showBase64Image(base64String: String, imageView: ImageView) {
-        try {
-            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
-            val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-            imageView.setImageBitmap(bitmap)
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 

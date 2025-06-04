@@ -547,4 +547,26 @@
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/headNotificationsFragment"
+        android:name="com.example.unihub.presentation.notifications.HeadNotificationsFragment"
+        android:label="fragment_head_notifications"
+        tools:layout="@layout/fragment_head_notifications" >
+        <action
+            android:id="@+id/action_headNotificationsFragment_to_headTicketFragment"
+            app:destination="@id/headTicketFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/headTicketFragment"
+        android:name="com.example.unihub.presentation.notifications.HeadTicketFragment"
+        android:label="fragment_head_ticket"
+        tools:layout="@layout/fragment_head_ticket">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

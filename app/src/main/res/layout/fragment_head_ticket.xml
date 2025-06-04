@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.home.club.BookingDetailsFragment">
+    tools:context=".presentation.notifications.HeadTicketFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:fontFamily="@font/roboto_semibold"
             android:textColor="@color/grey_900"
             android:ellipsize="end"
-            android:text="Booking details"
+            android:text="Ticket Request"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnBack"
@@ -147,7 +147,6 @@
                     android:inputType="none"
                     android:paddingHorizontal="16dp"
                     android:text="Status"
-                    android:enabled="false"
                     android:textColor="@color/grey_900"
                     android:textColorHint="@color/grey_600"
                     android:textSize="14sp" />
@@ -189,6 +188,19 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSend"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/sh_12dp"
+                android:backgroundTint="@color/blue_800"
+                android:text="Send"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_semibold"
+                android:textSize="16sp"
+                android:textColor="@color/white_1000"
+                android:layout_marginVertical="34dp"/>
 
         </LinearLayout>
 

@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -30,15 +31,7 @@ class CreateNewPostFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateNewPostBinding
     private val clubViewModel: ClubViewModel by viewModels()
-    private var imageBase64: String? = null
-
-    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        uri?.let {
-            val bitmap = uriToBitmap(it)
-            imageBase64 = bitmapToBase64(bitmap)
-            binding.btnAddMedia.text = "Image selected"
-        }
-    }
+    private var imageBase64: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,14 +72,17 @@ class CreateNewPostFragment : Fragment() {
             }
 
             btnAddMedia.setOnClickListener {
-                pickImageLauncher.launch("image/*")
+                val intent = Intent(Intent.ACTION_PICK).apply {
+                    type = "image/*"
+                }
+                startActivityForResult(intent, REQUEST_CODE_PICK_MEDIA)
             }
 
             btnPost.setOnClickListener {
                 clubViewModel.createPost(
                     token = sharedProvider.getToken(),
                     content = etDescription.text.toString(),
-                    image = imageBase64.orEmpty(), // Use saved base64
+                    image = imageBase64,
                     title = etTitle.text.toString()
                 )
             }
@@ -105,25 +101,26 @@ class CreateNewPostFragment : Fragment() {
         }
     }
 
-    private fun uriToBitmap(uri: Uri): Bitmap {
-        return if (Build.VERSION.SDK_INT < 28) {
-            MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
-        } else {
-            val source = ImageDecoder.createSource(requireContext().contentResolver, uri)
-            ImageDecoder.decodeBitmap(source)
-        }
-        binding.imagePreview.setImageURI(uri)
-        binding.imagePreview.visibility = View.VISIBLE
-    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_PICK_MEDIA && resultCode == AppCompatActivity.RESULT_OK) {
+            val selectedImageUri = data?.data
+            if (selectedImageUri != null) {
+                val inputStream = requireContext().contentResolver.openInputStream(selectedImageUri)
+                val bytes = inputStream?.readBytes()
+                inputStream?.close()
 
-    private fun bitmapToBase64(bitmap: Bitmap): String {
-        val outputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-        val byteArray = outputStream.toByteArray()
-        return Base64.encodeToString(byteArray, Base64.DEFAULT)
+                if (bytes != null) {
+                    val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    binding.btnAddMedia.text = "Media selected"
+                    imageBase64 = base64String
+                    Toast.makeText(requireContext(), base64String, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     companion object {
-        internal const val REQUEST_CODE_PICK_MEDIA = 1001
+        private const val REQUEST_CODE_PICK_MEDIA = 1001
     }
 }

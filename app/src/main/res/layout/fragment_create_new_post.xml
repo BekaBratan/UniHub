@@ -117,7 +117,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddMedia"
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/sh_12dp"
             android:backgroundTint="@color/blue_500"

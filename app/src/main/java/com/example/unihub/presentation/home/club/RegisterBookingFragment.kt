@@ -62,9 +62,7 @@ class RegisterBookingFragment : Fragment() {
                 val intent = Intent(Intent.ACTION_PICK).apply {
                     type = "image/*"
                 }
-                startActivityForResult(intent,
-                    CreateNewPostFragment.Companion.REQUEST_CODE_PICK_MEDIA
-                )
+                startActivityForResult(intent, REQUEST_CODE_PICK_MEDIA)
             }
         }
     }

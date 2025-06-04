@@ -314,7 +314,7 @@
             app:destination="@id/eventsFragment">
             <argument
                 android:name="id"
-                app:argType="integer" />
+                app:argType="string" />
         </action>
         <action
             android:id="@+id/action_calendarFragment_to_addEventFragment"
@@ -343,7 +343,7 @@
         tools:layout="@layout/fragment_events">
         <argument
             android:name="id"
-            app:argType="integer" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/chatBotFragment"

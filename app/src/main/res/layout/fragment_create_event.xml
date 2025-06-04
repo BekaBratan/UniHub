@@ -231,7 +231,7 @@
                 <ImageButton
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/ic_map_pin"
+                    android:background="@drawable/ic_goal"
                     android:backgroundTint="@color/grey_900"/>
 
                 <TextView
@@ -422,7 +422,7 @@
                 <ImageButton
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/ic_profile"
+                    android:background="@drawable/ic_phone"
                     android:backgroundTint="@color/grey_900"/>
 
                 <TextView

@@ -11,6 +11,9 @@ import com.example.unihub.data.model.auth.LoginRequest
 import com.example.unihub.data.model.auth.LoginResponse
 import com.example.unihub.data.model.auth.PasswordChangeRequest
 import com.example.unihub.data.model.auth.SignUpRequest
+import com.example.unihub.data.model.calendar.CombinedCalendarResponse
+import com.example.unihub.data.model.calendar.CreatePersonalEvent
+import com.example.unihub.data.model.calendar.PersonalCalendarResponse
 import com.example.unihub.data.model.club.ClubDetailsResponse
 import com.example.unihub.data.model.club.ClubEventsResponse
 import com.example.unihub.data.model.club_request.CreateClubRequest
@@ -349,4 +352,28 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("requestId") requestId: Int
     ): CreateEventAdminDetailsResponse
+
+
+
+    @GET("calendar")
+    suspend fun getCombinedCalendar(
+        @Header("Authorization") token: String,
+    ): CombinedCalendarResponse
+
+    @GET("personal-events")
+    suspend fun getPersonalCalendar(
+        @Header("Authorization") token: String
+    ): PersonalCalendarResponse
+
+    @DELETE("personal-events/{eventId}")
+    suspend fun deletePersonalEvent(
+        @Header("Authorization") token: String,
+        @Path("eventId") eventId: Int
+    ): MessageResponse
+
+    @POST("personal-events")
+    suspend fun createPersonalEvent(
+        @Header("Authorization") token: String,
+        @Body event: CreatePersonalEvent
+    ): MessageResponse
 }

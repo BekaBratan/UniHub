@@ -8,15 +8,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
+import com.example.unihub.data.model.calendar.CreatePersonalEvent
 import com.example.unihub.databinding.FragmentAddEventBinding
+import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 import java.util.Calendar
+import kotlin.getValue
 
 class AddEventFragment : Fragment() {
 
     private lateinit var binding: FragmentAddEventBinding
+    private val calendarViewModel: CalendarViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +34,20 @@ class AddEventFragment : Fragment() {
     @SuppressLint("UseCompatLoadingForColorStateLists", "ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val sharedProvider = SharedProvider(requireContext())
         provideNavigationHost()?.hideBottomNavigationBar(true)
 
         binding.run {
             btnCreate.setOnClickListener {
-                findNavController().popBackStack()
+                val event = CreatePersonalEvent(
+                    date = etDate.text.toString(),
+                    endTime = etTimeEnd.text.toString(),
+                    eventName = etEventName.text.toString(),
+                    remindMe = swRemindMe.isChecked,
+                    startTime = etTimeStart.text.toString(),
+                    suggestions = etSuggestions.text.toString()
+                )
+                calendarViewModel.createPersonalEvent(sharedProvider.getToken(), event)
             }
 
             etTimeStart.setOnClickListener {
@@ -43,7 +57,7 @@ class AddEventFragment : Fragment() {
                     R.style.CustomTimePickerDialogTheme,
                     TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                         val selectedTime = String.format("%02d:%02d", hourOfDay, minute)
-                        binding.etTimeStart.text = selectedTime
+                        etTimeStart.text = selectedTime
                     },
                     calendar.get(Calendar.HOUR_OF_DAY),
                     calendar.get(Calendar.MINUTE),
@@ -59,7 +73,7 @@ class AddEventFragment : Fragment() {
                     R.style.CustomTimePickerDialogTheme,
                     TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
                         val selectedTime = String.format("%02d:%02d", hourOfDay, minute)
-                        binding.etTimeEnd.text = selectedTime
+                        etTimeEnd.text = selectedTime
                     },
                     calendar.get(Calendar.HOUR_OF_DAY),
                     calendar.get(Calendar.MINUTE),
@@ -90,6 +104,10 @@ class AddEventFragment : Fragment() {
                 else
                     swRemindMe.backgroundTintList = resources.getColorStateList(R.color.grey_200)
             }
+        }
+
+        calendarViewModel.messageResponse.observe(viewLifecycleOwner) {
+            findNavController().popBackStack()
         }
     }
 }

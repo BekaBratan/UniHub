@@ -112,19 +112,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime8am"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time8am"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="80dp"
-                android:layout_marginEnd="18dp"
-                android:orientation="horizontal">
+                android:layout_marginStart="80dp">
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llTime8am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time9am"
@@ -154,14 +155,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime9am"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time9am"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime9am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time10am"
@@ -191,14 +198,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime10am"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time10am"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime10am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time11am"
@@ -228,14 +241,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime11am"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time11am"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime11am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time12am"
@@ -265,14 +284,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime12am"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time12am"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime12am"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time1pm"
@@ -302,14 +327,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime1pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time1pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime1pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time2pm"
@@ -339,14 +370,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime2pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time2pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime2pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time3pm"
@@ -376,14 +413,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime3pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time3pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime3pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time4pm"
@@ -413,14 +456,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime4pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time4pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime4pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time5pm"
@@ -450,14 +499,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime5pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time5pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime5pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time6pm"
@@ -487,14 +542,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime6pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time6pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime6pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time7pm"
@@ -524,14 +585,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime7pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time7pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime7pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:id="@+id/time8pm"
@@ -561,14 +628,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llTime8pm"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/time8pm"
-                android:layout_marginStart="80dp"
-                android:orientation="horizontal"/>
+                android:layout_marginStart="80dp">
+
+                <LinearLayout
+                    android:id="@+id/llTime8pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"/>
+
+            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

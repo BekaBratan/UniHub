@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.unihub.data.model.admin.CreateClubAdminResponseItem
+import com.example.unihub.data.model.admin.CreateEventAdminResponse
 import com.example.unihub.databinding.FragmentRequestsListBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.SharedProvider
@@ -37,11 +39,11 @@ class RequestsListFragment : Fragment() {
         val adapterEvent = EventRequestItemAdapter()
 
         viewModel.getRequestsListResponse.observe(viewLifecycleOwner) { requestsList ->
-            adapterClub.submitList(requestsList)
+            adapterClub.submitList(requestsList.filter { it.status == "pending" })
         }
 
         viewModel.getEventsListResponse.observe(viewLifecycleOwner) { eventsList ->
-            adapterEvent.submitList(eventsList)
+            adapterEvent.submitList(eventsList.filter { it.status == "pending" })
         }
 
         adapterClub.setOnItemClickListener(

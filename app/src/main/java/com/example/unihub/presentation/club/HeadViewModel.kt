@@ -14,6 +14,7 @@ import com.example.unihub.data.model.head.CreateEventRequest
 import com.example.unihub.data.model.head.CreateEventsListReponse
 import com.example.unihub.data.model.head.CreatePosterRequest
 import com.example.unihub.data.model.head.HeadProfileResponse
+import com.example.unihub.data.model.head.MyEventsResponse
 import com.example.unihub.data.model.post.CreatePostRequest
 import com.example.unihub.data.model.post.PostsResponse
 import com.example.unihub.data.model.poster.PosterDetailsResponse
@@ -33,8 +34,8 @@ class HeadViewModel(): ViewModel() {
     private var _createEventResponse: MutableLiveData<MessageResponse> = MutableLiveData()
     val createEventResponse: LiveData<MessageResponse> = _createEventResponse
 
-    private var _createEventsListResponse: MutableLiveData<CreateEventsListReponse> = MutableLiveData()
-    val createEventsListResponse: LiveData<CreateEventsListReponse> = _createEventsListResponse
+    private var _createEventsListResponse: MutableLiveData<MyEventsResponse> = MutableLiveData()
+    val createEventsListResponse: LiveData<MyEventsResponse> = _createEventsListResponse
 
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
@@ -148,7 +149,7 @@ class HeadViewModel(): ViewModel() {
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                ServiceBuilder.api.getMyEventRequests(
+                ServiceBuilder.api.getMyEvents(
                     token = token
                 )
             }.fold(

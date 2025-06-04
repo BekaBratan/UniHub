@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ import com.example.unihub.R
 import com.example.unihub.data.model.head.CreateEventsListReponse
 import com.example.unihub.data.model.head.CreateEventsListReponseItem
 import com.example.unihub.data.model.head.CreatePosterRequest
+import com.example.unihub.data.model.head.MyEventsResponse
+import com.example.unihub.data.model.head.MyEventsResponseItem
 import com.example.unihub.databinding.FragmentCreatePosterBinding
 import com.example.unihub.utils.SharedProvider
 import java.time.ZonedDateTime
@@ -41,7 +44,7 @@ class CreatePosterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val sharedProvider = SharedProvider(requireContext())
 
-        var event = CreateEventsListReponseItem()
+        var event = MyEventsResponseItem()
 
         headViewModel.getCreateEventsList(sharedProvider.getToken())
 
@@ -52,12 +55,26 @@ class CreatePosterFragment : Fragment() {
 
             headViewModel.createEventsListResponse.observe(viewLifecycleOwner) {
                 if (it != null) {
-                    event = it.firstOrNull() ?: CreateEventsListReponseItem()
-                    val (date, time) = extractDateAndTimeSafe(event.eventDate.toString())
+                    event = it.lastOrNull() ?: MyEventsResponseItem()
+//                    val (date, time) = extractDateAndTimeSafe(event.eventDate.toString())
                     btnSend.isEnabled = true
-                    etTime.text = date
-                    etDate.text = time
-                    etEventTitle.setText(event.eventName)
+                    etDate.text = event.eventDate
+                    etTime.setOnClickListener {
+                        val calendar: Calendar = Calendar.getInstance()
+                        val timePicker = TimePickerDialog(
+                            requireContext(),
+                            R.style.CustomTimePickerDialogTheme,
+                            TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+                                val selectedTime = String.format("%02d:%02d", hourOfDay, minute)
+                                binding.etTime.text = selectedTime
+                            },
+                            calendar.get(Calendar.HOUR_OF_DAY),
+                            calendar.get(Calendar.MINUTE),
+                            true
+                        )
+                        timePicker.show()
+                    }
+                    etEventTitle.setText(event.eventName + event.id)
                     etLocation.setText(event.location)
                     etDescription.setText(event.shortDescription)
                 }
@@ -139,8 +156,17 @@ class CreatePosterFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_PICK_MEDIA && resultCode == AppCompatActivity.RESULT_OK) {
             val selectedImageUri = data?.data
-            // Здесь вы можете обработать выбранное изображение, например, отобразить его
-            binding.etMedia.text = selectedImageUri?.toString()
+            if (selectedImageUri != null) {
+                val inputStream = requireContext().contentResolver.openInputStream(selectedImageUri)
+                val bytes = inputStream?.readBytes()
+                inputStream?.close()
+
+                if (bytes != null) {
+                    val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    binding.etMedia.text = base64String
+                    // Optionally, you can log or send this base64String to your backend
+                }
+            }
         }
     }
 

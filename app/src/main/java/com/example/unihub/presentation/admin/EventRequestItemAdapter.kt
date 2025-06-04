@@ -37,7 +37,7 @@ open class EventRequestItemAdapter: RecyclerView.Adapter<EventRequestItemAdapter
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: CreateEventAdminResponse?) {
+    fun submitList(list: List<CreateEventAdminResponseItem>) {
         differ.submitList(list)
     }
 

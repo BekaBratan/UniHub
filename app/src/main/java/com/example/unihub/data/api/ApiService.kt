@@ -22,6 +22,7 @@ import com.example.unihub.data.model.head.CreateEventsListReponse
 import com.example.unihub.data.model.head.CreateEventRequest
 import com.example.unihub.data.model.head.CreatePosterRequest
 import com.example.unihub.data.model.head.HeadProfileResponse
+import com.example.unihub.data.model.head.MyEventsResponse
 import com.example.unihub.data.model.post.CreatePostRequest
 import com.example.unihub.data.model.post.PostsResponse
 import com.example.unihub.data.model.post.PostsResponseItem
@@ -103,6 +104,11 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("eventId") eventId: Int
     ): EventDetailsResponse
+
+    @GET("events/my-events")
+    suspend fun getMyEvents(
+        @Header("Authorization") token: String,
+    ): MyEventsResponse
 
     @GET("events/club/{clubId}")
     suspend fun getEventsByClub(

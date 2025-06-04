@@ -206,7 +206,6 @@
                 android:drawableEnd="@drawable/ic_clock_event"
                 android:drawableTint="@color/grey_600"
                 android:paddingHorizontal="16dp"
-                android:enabled="false"
                 android:gravity="center_vertical"
                 android:layout_weight="1"/>
 

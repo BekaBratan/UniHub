@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unihub.data.api.ServiceBuilder
 import com.example.unihub.data.model.MessageResponse
+import com.example.unihub.data.model.admin.CreateEventAdminDetailsResponse
 import com.example.unihub.data.model.auth.PasswordChangeRequest
 import com.example.unihub.data.model.club_request.CreateClubRequest
 import com.example.unihub.data.model.club_request.MyCreateClubResponse
@@ -33,6 +34,9 @@ class RequestViewModel(): ViewModel() {
 
     private var _rejectResponse: MutableLiveData<MessageResponse> = MutableLiveData()
     val rejectResponse: LiveData<MessageResponse> = _rejectResponse
+
+    private var _getEventsDetailResponse: MutableLiveData<CreateEventAdminDetailsResponse> = MutableLiveData()
+    val getEventsDetailResponse: LiveData<CreateEventAdminDetailsResponse> = _getEventsDetailResponse
 
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
@@ -156,6 +160,90 @@ class RequestViewModel(): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
                 ServiceBuilder.api.rejectClubRequest(
+                    token = token,
+                    requestId = requestId
+                )
+            }.fold(
+                onSuccess = {
+                    _rejectResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun getEventByID(token: String, eventId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.getEventRequestDetails(token = token, requestId = eventId)
+            }.fold(
+                onSuccess = {
+                    _getEventsDetailResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun approveEventRequest(token: String, requestId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.approveEventRequest(
+                    token = token,
+                    requestId = requestId
+                )
+            }.fold(
+                onSuccess = {
+                    _approveResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun rejectEventRequest(token: String, requestId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.rejectEventRequest(
                     token = token,
                     requestId = requestId
                 )

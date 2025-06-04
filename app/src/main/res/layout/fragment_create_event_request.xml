@@ -99,7 +99,6 @@
                     android:drawableEnd="@drawable/ic_arrow_down"
                     android:paddingHorizontal="16dp"
                     android:gravity="center_vertical"
-                    android:enabled="false"
                     android:layout_weight="1"/>
 
             </LinearLayout>

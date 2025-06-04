@@ -41,20 +41,23 @@ class CreateEventRequestFragment : Fragment() {
         provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
 
-        viewModel.getRequestDetails(sharedProvider.getToken(), args.id)
+        viewModel.getEventByID(sharedProvider.getToken(), args.id)
 
         binding.run {
-            viewModel.getRequestDetailsResponse.observe(viewLifecycleOwner) { requestDetails->
+            viewModel.getEventsDetailResponse.observe(viewLifecycleOwner) { requestDetails->
                 if (requestDetails != null) {
-                    tvSender.text = "Sender: ${requestDetails.email}"
-                    tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt)}"
+                    tvSender.text = "Sender: ${requestDetails.clubHead}"
+                    tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt.toString())}"
                     tvComment.text = "Comment: ${requestDetails.comment}"
-                    etEventName.setText(requestDetails.title)
+                    etEventName.setText(requestDetails.eventName)
                     etGoal.setText(requestDetails.goal)
-                    etDescription.setText(requestDetails.description)
-                    etOrganizers.setText(requestDetails.communication)
-                    etLocation.setText(requestDetails.communication)
-                    etHead.setText(requestDetails.email)
+                    etDate.setText(requestDetails.eventDate)
+                    etShedule.setText(requestDetails.schedule)
+                    etSponsorship.setText(requestDetails.sponsorship)
+                    etDescription.setText(requestDetails.shortDescription)
+                    etOrganizers.setText(requestDetails.organizers)
+                    etLocation.setText(requestDetails.location)
+                    etHead.setText(requestDetails.clubHead)
                     etPhone.setText(requestDetails.phone)
                     etComment.setText(requestDetails.comment)
                 }
@@ -83,9 +86,9 @@ class CreateEventRequestFragment : Fragment() {
             btnSend.setOnClickListener {
                 val status = etStatus.text.toString()
                 if (status == "Approved") {
-                    viewModel.approveRequest(sharedProvider.getToken(), args.id)
+                    viewModel.approveEventRequest(sharedProvider.getToken(), args.id)
                 } else {
-                    viewModel.rejectRequest(sharedProvider.getToken(), args.id)
+                    viewModel.rejectEventRequest(sharedProvider.getToken(), args.id)
                 }
                 findNavController().navigate(CreateEventRequestFragmentDirections.actionCreateEventRequestFragmentToRequestConfirmSuccessFragment())
             }

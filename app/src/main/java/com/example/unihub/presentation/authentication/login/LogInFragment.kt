@@ -47,7 +47,7 @@ class LogInFragment : Fragment() {
                 val password = etPassword.text.toString().trim()
                 Log.d("Login", "Email: $email, Password: $password")
                 authViewModel.login(email = email, password = password)
-                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
+//                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
 
             etEmail.addTextChangedListener {

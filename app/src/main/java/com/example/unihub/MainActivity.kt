@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
             true
         }
 
+        binding.bottomNavigationBarMainActivity.setOnApplyWindowInsetsListener(null)
+        binding.bottomNavigationBarMainActivity.setPadding(0,0,0,0)
+
         fun AppCompatActivity.fullScreenMode(visible: Boolean) {
             if (visible) {
                 // Hide the status bar and navigation bar
@@ -66,7 +69,7 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
             }
         }
 
-        fullScreenMode(true)
+        fullScreenMode(false)
     }
 
     override fun hideBottomNavigationBar(hiden: Boolean) {

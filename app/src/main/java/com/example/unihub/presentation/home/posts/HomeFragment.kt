@@ -1,7 +1,9 @@
 package com.example.unihub.presentation.home.posts
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -255,10 +257,12 @@ private fun HomeFragment.updateFirstPost() {
 
         if (firstPost.image.isEmpty())
             ivPostImage.setImageResource(R.drawable.example_post)
-        else
-            Glide.with(requireContext())
-                .load(firstPost.image)
-                .into(ivPostImage)
+        else {
+            val base64String = firstPost.image
+            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+            ivPostImage.setImageBitmap(bitmap)
+        }
 
         if (isLiked)
             btnLike.setImageResource(R.drawable.ic_liked)

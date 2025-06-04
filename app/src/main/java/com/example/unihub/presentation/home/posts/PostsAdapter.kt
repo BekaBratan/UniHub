@@ -1,6 +1,8 @@
 package com.example.unihub.presentation.home.posts
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -77,30 +79,32 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
                 val index = (posts.id ?: 1) % 6
 
-                if (posts.image.isEmpty())
-                    if (index==1) {
+                if (posts.image.isEmpty()) {
+                    if (index == 1) {
                         clubImageView.setImageResource(R.drawable.club_1)
                         ivPostImage.setImageResource(R.drawable.post_1)
-                    }
-                    else if (index==2) {
+                    } else if (index == 2) {
                         clubImageView.setImageResource(R.drawable.club_2)
                         ivPostImage.setImageResource(R.drawable.post_2)
-                    }                    else if (index==3) {
+                    } else if (index == 3) {
                         clubImageView.setImageResource(R.drawable.club_3)
                         ivPostImage.setImageResource(R.drawable.post3)
-                    }                    else if (index==4) {
+                    } else if (index == 4) {
                         clubImageView.setImageResource(R.drawable.club_4)
                         ivPostImage.setImageResource(R.drawable.post_4)
-                    }                    else if (index==5) {
+                    } else if (index == 5) {
                         clubImageView.setImageResource(R.drawable.club_5)
                         ivPostImage.setImageResource(R.drawable.post_5)
-                    }                    else if (index==6) {
+                    } else if (index == 6) {
                         clubImageView.setImageResource(R.drawable.club_6)
                         ivPostImage.setImageResource(R.drawable.example_post)
-                    }                else
-                    Glide.with(itemView.context)
-                        .load(posts.image)
-                        .into(ivPostImage)
+                    }
+                } else {
+                    val base64String = posts.image
+                    val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                    val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                    ivPostImage.setImageBitmap(bitmap)
+                }
 
                 if (isLiked)
                     btnLike.setImageResource(R.drawable.ic_liked)

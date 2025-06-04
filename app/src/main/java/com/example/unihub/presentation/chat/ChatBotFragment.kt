@@ -37,29 +37,34 @@ class ChatBotFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
+        binding.run {
+            tvFirstHelp.setOnClickListener {
+                llSuggestions.visibility = View.GONE
+                etMessage.setText(tvFirstHelp.text)
+            }
+            tvSecondHelp.setOnClickListener {
+                llSuggestions.visibility = View.GONE
+                etMessage.setText(tvSecondHelp.text)
+            }
+            tvThirdHelp.setOnClickListener {
+                etMessage.setText(tvThirdHelp.text)
+                llSuggestions.visibility = View.GONE
+            }
+        }
+
         binding.btnSend.setOnClickListener {
             val userMessage = binding.etMessage.text.toString()
             if (userMessage.isNotBlank()) {
                 chatAdapter.submitMessage(ChatMessage(userMessage, true))
                 binding.etMessage.text.clear()
                 binding.llSuggestions.visibility = View.GONE
+                binding.rvMessages.visibility = View.VISIBLE
                 viewModel.sendMessageToBot(userMessage)
             }
         }
 
         viewModel.botMessage.observe(viewLifecycleOwner) { botReply ->
             chatAdapter.submitMessage(ChatMessage(botReply, false))
-        }
-
-        // Helper buttons for quick responses
-        binding.tvFirstHelp.setOnClickListener {
-            binding.etMessage.setText(binding.tvFirstHelp.text)
-        }
-        binding.tvSecondHelp.setOnClickListener {
-            binding.etMessage.setText(binding.tvSecondHelp.text)
-        }
-        binding.tvThirdHelp.setOnClickListener {
-            binding.etMessage.setText(binding.tvThirdHelp.text)
         }
 
     }

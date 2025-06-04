@@ -114,7 +114,6 @@ class CreateNewPostFragment : Fragment() {
                     val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
                     binding.btnAddMedia.text = "Media selected"
                     imageBase64 = base64String
-                    Toast.makeText(requireContext(), base64String, Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -101,37 +101,38 @@ class ClubPageFragment : Fragment() {
 
         val eventsAdapter = EventCardsAdapter()
 
-        eventsAdapter.submitList(
-            listOf(
-                PostersByClubResponseItem(
-                    description = "A seminar on AI and its impact on future careers.",
-                    eventDate = "2025-05-15",
-                    eventTitle = "Future of AI in Academia",
-                    id = 1,
-                    image = "https://university.edu/images/events/ai_seminar.png",
-                    location = "Main Auditorium, SDU University",
-                    price = 1000,
-                    seats = 100,
-                    seatsLeft = 42,
-                    time = "14:00"
-                ),
-                PostersByClubResponseItem(
-                    description = "Annual cultural festival featuring music, dance, food stalls, and student performances.",
-                    eventDate = "2025-06-01",
-                    eventTitle = "SDU Cultural Fest 2025",
-                    id = 2,
-                    image = "https://university.edu/images/events/cultural_fest.png",
-                    location = "Campus Courtyard, SDU University",
-                    price = 2500,
-                    seats = 300,
-                    seatsLeft = 180,
-                    time = "17:30"
-                )
-            )
-        )
-//        clubViewModel.postersByClubResponse.observe(viewLifecycleOwner) {
-//            eventsAdapter.submitList(it)
-//        }
+//        eventsAdapter.submitList(
+//            listOf(
+//                PostersByClubResponseItem(
+//                    description = "A seminar on AI and its impact on future careers.",
+//                    eventDate = "2025-05-15",
+//                    eventTitle = "Future of AI in Academia",
+//                    id = 1,
+//                    image = "https://university.edu/images/events/ai_seminar.png",
+//                    location = "Main Auditorium, SDU University",
+//                    price = 1000,
+//                    seats = 100,
+//                    seatsLeft = 42,
+//                    time = "14:00"
+//                ),
+//                PostersByClubResponseItem(
+//                    description = "Annual cultural festival featuring music, dance, food stalls, and student performances.",
+//                    eventDate = "2025-06-01",
+//                    eventTitle = "SDU Cultural Fest 2025",
+//                    id = 2,
+//                    image = "https://university.edu/images/events/cultural_fest.png",
+//                    location = "Campus Courtyard, SDU University",
+//                    price = 2500,
+//                    seats = 300,
+//                    seatsLeft = 180,
+//                    time = "17:30"
+//                )
+//            )
+//        )
+
+        clubViewModel.postersByClubResponse.observe(viewLifecycleOwner) {
+            eventsAdapter.submitList(it)
+        }
 
         eventsAdapter.setOnCardClickListener(
             object : RcViewItemClickIdCallback {

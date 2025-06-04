@@ -30,6 +30,7 @@ class CreatePosterFragment : Fragment() {
 
     private lateinit var binding: FragmentCreatePosterBinding
     private val headViewModel: HeadViewModel by viewModels()
+    private var imageBase64: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -122,7 +123,7 @@ class CreatePosterFragment : Fragment() {
             btnSend.setOnClickListener {
                 val eventDate = etDate.text.toString()
                 val time = etTime.text.toString()
-                val media = etMedia.text.toString()
+                val media = imageBase64
                 val description = etDescription.text.toString()
 
                 headViewModel.createPoster(
@@ -163,8 +164,8 @@ class CreatePosterFragment : Fragment() {
 
                 if (bytes != null) {
                     val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
-                    binding.etMedia.text = base64String
-                    // Optionally, you can log or send this base64String to your backend
+                    binding.etMedia.text = "Media selected"
+                    imageBase64 = base64String
                 }
             }
         }

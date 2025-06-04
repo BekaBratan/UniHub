@@ -59,19 +59,25 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
 
                 val index = (event.id ?: 1) % 6
 
-                if (index==1) {
-                    ivPostImage.setImageResource(R.drawable.post_1)
-                }
-                else if (index==2) {
-                    ivPostImage.setImageResource(R.drawable.post_2)
-                }                    else if (index==3) {
-                    ivPostImage.setImageResource(R.drawable.post3)
-                }                    else if (index==4) {
-                    ivPostImage.setImageResource(R.drawable.post_4)
-                }                    else if (index==5) {
-                    ivPostImage.setImageResource(R.drawable.post_5)
-                }                    else if (index==6) {
-                    ivPostImage.setImageResource(R.drawable.example_post)
+                if (event.image.isEmpty()) {
+                    if (index == 1) {
+                        ivPostImage.setImageResource(R.drawable.post_1)
+                    } else if (index == 2) {
+                        ivPostImage.setImageResource(R.drawable.post_2)
+                    } else if (index == 3) {
+                        ivPostImage.setImageResource(R.drawable.post3)
+                    } else if (index == 4) {
+                        ivPostImage.setImageResource(R.drawable.post_4)
+                    } else if (index == 5) {
+                        ivPostImage.setImageResource(R.drawable.post_5)
+                    } else if (index == 6) {
+                        ivPostImage.setImageResource(R.drawable.example_post)
+                    }
+                } else {
+                    val base64String = event.image
+                    val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                    val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                    ivPostImage.setImageBitmap(bitmap)
                 }
 
                 root.setOnClickListener {
@@ -99,15 +105,5 @@ open class EventCardsAdapter: RecyclerView.Adapter<EventCardsAdapter.EventsViewH
 
     override fun getItemCount(): Int {
         return differ.currentList.size
-    }
-
-    fun showBase64Image(base64String: String, imageView: ImageView) {
-        try {
-            val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
-            val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
-            imageView.setImageBitmap(bitmap)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 }

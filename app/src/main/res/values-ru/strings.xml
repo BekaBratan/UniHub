@@ -170,9 +170,12 @@
     <string name="your_request_has_been_sended_please_wait">Ваш запрос был отправлен, подождите.</string>
     <string name="ok" tools:ignore="PrivateResource">ХОРОШО</string>
     <string name="we_have_sent_an_email_to_akniyet_serik_gmail_com_with_instructions_to_reset_your_password">Мы отправили электронное письмо на akniyet.serik@gmail.com с инструкциями по сбросу вашего пароля.></string>
-    <string name="head_of_club">Head of club</string>
-    <string name="admin">Admin</string>
-    <string name="student">Student</string>
-    <string name="user">User</string>
-    <string name="role">Role</string>
+    <string name="head_of_club">Глава клуба</string>
+    <string name="admin">Администратор</string>
+    <string name="student">Студент</string>
+    <string name="user">Пользователь</string>
+    <string name="role">Роль</string>
+    <string name="passwords_are_not_same">Пароли не совпадают</string>
+    <string name="please_fill_all_fields">Пожалуйста, заполните все поля</string>
+
 </resources>

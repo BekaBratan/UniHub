@@ -15,4 +15,5 @@
     <string name="email">Email</string>
     <string name="enter_email">Enter email</string>
     <string name="password">Password</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
 </resources>

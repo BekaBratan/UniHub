@@ -170,9 +170,11 @@
     <string name="your_request_has_been_sended_please_wait">Сіздің сұранысыңыз таратылды, күте тұрыңыз.</string>
     <string name="ok" tools:ignore="PrivateResource">Жарайды</string>
     <string name="we_have_sent_an_email_to_akniyet_serik_gmail_com_with_instructions_to_reset_your_password">Құпия сөзді қалпына келтіру үшін біз Akniyet.serik@gmail.com электрондық поштасын жібердік.></string>
-    <string name="head_of_club">Head of club</string>
-    <string name="admin">Admin</string>
-    <string name="student">Student</string>
-    <string name="user">User</string>
-    <string name="role">Role</string>
+    <string name="head_of_club">Клуб басшысы</string>
+    <string name="admin">Әкімші</string>
+    <string name="student">Студент</string>
+    <string name="user">Пайдаланушы</string>
+    <string name="role">Рөлі</string>
+    <string name="passwords_are_not_same">Құпиясөздер сәйкес келмейді</string>
+    <string name="please_fill_all_fields">Барлық өрістерді толтырыңыз</string>
 </resources>

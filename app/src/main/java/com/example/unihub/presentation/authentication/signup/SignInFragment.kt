@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.authentication.signup
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.unihub.R
 import com.example.unihub.databinding.FragmentSignInBinding
 import com.example.unihub.presentation.authentication.AuthViewModel
 import com.example.unihub.utils.SharedProvider
@@ -28,6 +30,7 @@ class SignInFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
@@ -66,7 +69,7 @@ class SignInFragment : Fragment() {
                     etName.text.toString().isEmpty() ||
                     etSurname.text.toString().isEmpty()
                 ) {
-                    tvError.text = "Please fill all fields"
+                    tvError.text = getString(R.string.please_fill_all_fields)
                     tvError.visibility = View.VISIBLE
                     return@setOnClickListener
                 } else if (etPassword1.text.toString() == etPassword2.text.toString()) {
@@ -77,7 +80,7 @@ class SignInFragment : Fragment() {
                     val surname = etSurname.text.toString().trim()
                     authViewModel.signup(email = email, password = password, name = name, surname = surname)
                 } else {
-                    tvError.text = "Passwords are not same"
+                    tvError.text = getString(R.string.passwords_are_not_same)
                     tvError.visibility = View.VISIBLE
                 }
             }
@@ -91,7 +94,7 @@ class SignInFragment : Fragment() {
                 sharedProvider.saveRole(it.user.role.toString())
                 sharedProvider.saveID(it.user.id)
                 sharedProvider.saveIsAuthorized(true)
-                provideNavigationHost()?.setupBottomNavForRole(it.user.role.toString().lowercase().contains("admin"))
+                provideNavigationHost()?.setupBottomNavForRole(it.user.role.toString().contains("admin", ignoreCase = true))
                 findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToHomeFragment())
             }
 

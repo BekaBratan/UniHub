@@ -93,14 +93,14 @@ class CalendarFragment : Fragment() {
                 val newCalendarItems = calendarItems.filter { it?.date == date }
                 newCalendarItems.forEach {
                     addEventCard(
-                        time = it?.time ?: it?.startTime ?: "No time",
+                        time = it?.time ?: it?.startTime ?: getString(R.string.no_time),
                         id = it?.id.toString(),
                         title = it?.title.toString(),
                         duration = it?.endTime?.let { endTime ->
                             val startTime = it.startTime ?: "00:00"
                             val durationHours = calculateDuration(startTime, endTime)
-                            "$durationHours hours"
-                        } ?: "1 hour"
+                            getString(R.string.hours, durationHours)
+                        } ?: getString(R.string._1_hour)
                     )
                 }
             }
@@ -130,18 +130,18 @@ class CalendarFragment : Fragment() {
 
     private fun getMonthName(month: Int): String {
         return when (month) {
-            0 -> "January"
-            1 -> "February"
-            2 -> "March"
-            3 -> "April"
-            4 -> "May"
-            5 -> "June"
-            6 -> "July"
-            7 -> "August"
-            8 -> "September"
-            9 -> "October"
-            10 -> "November"
-            11 -> "December"
+            0 -> getString(R.string.january)
+            1 -> getString(R.string.february)
+            2 -> getString(R.string.march)
+            3 -> getString(R.string.april)
+            4 -> getString(R.string.may)
+            5 -> getString(R.string.june)
+            6 -> getString(R.string.july)
+            7 -> getString(R.string.august)
+            8 -> getString(R.string.september)
+            9 -> getString(R.string.october)
+            10 -> getString(R.string.november)
+            11 -> getString(R.string.december)
             else -> {
                 ""
             }
@@ -149,7 +149,7 @@ class CalendarFragment : Fragment() {
     }
 
 
-    fun addEventCard(time: String, id: String, title: String = "Sample Event", duration: String = "1 hours") {
+    fun addEventCard(time: String, id: String, title: String = getString(R.string.sample_event), duration: String = getString(R.string._1_hour)) {
         val eventCardLayout = LayoutInflater.from(requireContext()).inflate(R.layout.item_calendar_card, binding.clEventsTime, false)
 
         val icEvent = eventCardLayout.findViewById<ImageButton>(R.id.icEvent)

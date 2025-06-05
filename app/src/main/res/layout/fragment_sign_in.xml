@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Surame"
+            android:text="@string/surname"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Confirm password"
+            android:text="@string/confirm_password"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -192,7 +192,7 @@
         android:layout_height="60dp"
         android:background="@drawable/sh_12dp"
         android:backgroundTint="@color/blue_800"
-        android:text="Create an account"
+        android:text="@string/create_an_account"
         android:textAllCaps="false"
         android:fontFamily="@font/roboto_semibold"
         android:textSize="16sp"

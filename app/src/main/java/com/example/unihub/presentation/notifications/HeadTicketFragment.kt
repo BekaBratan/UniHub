@@ -53,9 +53,9 @@ class HeadTicketFragment : Fragment() {
             val ticket = response.find { it.id == args.id }
             if (ticket != null) {
                 binding.run {
-                    tvSender.text = "Sender: " + sharedProvider.getName() + " " + sharedProvider.getSurname()
-                    tvCreateDate.text = "Date of create: " + formatDatePlusDays(ticket.createdAt.toString())
-                    tvPersonNumber.text = "Number of Person: " + ticket.numberOfPersons.toString()
+                    tvSender.text = getString(R.string.sender) + sharedProvider.getName() + " " + sharedProvider.getSurname()
+                    tvCreateDate.text = getString(R.string.date_of_create) + formatDatePlusDays(ticket.createdAt.toString())
+                    tvPersonNumber.text = getString(R.string.number_of_person) + ticket.numberOfPersons.toString()
 
                     if (ticket.paymentProof!!.isNotEmpty()) {
                         val base64String = ticket.paymentProof
@@ -71,7 +71,7 @@ class HeadTicketFragment : Fragment() {
         }
 
         binding.run {
-            val items = listOf("Approved", "Cancelled")
+            val items = listOf(getString(R.string.approved), getString(R.string.cancelled))
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, items)
             etStatus.setAdapter(adapter)
 //            acTemplate.setText("Choose template", false)
@@ -81,7 +81,7 @@ class HeadTicketFragment : Fragment() {
 
             btnSend.setOnClickListener {
                 val status = etStatus.text.toString()
-                if (status == "Approved") {
+                if (status == getString(R.string.approved)) {
                     notificationsViewModel.approveTicketRequest(sharedProvider.getToken(), args.id)
                 } else {
                     notificationsViewModel.rejectTicketRequest(sharedProvider.getToken(), args.id)

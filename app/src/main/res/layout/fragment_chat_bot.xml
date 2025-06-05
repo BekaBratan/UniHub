@@ -35,7 +35,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:paddingHorizontal="14dp"
-            android:text="How can I create a club?"
+            android:text="@string/how_can_i_create_a_club"
             android:textColor="@color/blue_600"
             android:textColorHint="@color/grey_600"
             android:textSize="14sp" />
@@ -49,7 +49,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:paddingHorizontal="14dp"
-            android:text="The most popular club for sport?"
+            android:text="@string/the_most_popular_club_for_sport"
             android:textColor="@color/blue_600"
             android:textColorHint="@color/grey_600"
             android:textSize="14sp" />
@@ -63,7 +63,7 @@
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:paddingHorizontal="14dp"
-            android:text="What is the latest news?"
+            android:text="@string/what_is_the_latest_news"
             android:textColor="@color/blue_600"
             android:textColorHint="@color/grey_600"
             android:textSize="14sp" />
@@ -98,7 +98,7 @@
             android:backgroundTint="@color/grey_100"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
-            android:hint="Ask me anything..."
+            android:hint="@string/ask_me_anything"
             android:inputType="text"
             android:paddingHorizontal="16dp"
             android:textColor="@color/grey_900"

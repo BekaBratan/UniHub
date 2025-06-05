@@ -21,7 +21,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textSize="18sp"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/black_1000"
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Notifications"
+                android:text="@string/notifications"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/black_1000"
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Privacy"
+                android:text="@string/privacy"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/black_1000"
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Language"
+                android:text="@string/language"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/black_1000"
@@ -136,7 +136,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="About"
+                android:text="@string/about"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/black_1000"

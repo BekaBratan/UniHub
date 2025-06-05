@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="Log into account"
+            android:text="@string/log_into_account"
             android:textAlignment="center"
             android:textColor="@color/black_1000"
             android:textSize="20sp"
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/grey_900"
             android:textSize="16sp"/>
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -117,7 +117,7 @@
             android:layout_height="60dp"
             android:background="@drawable/sh_12dp"
             android:backgroundTint="@color/blue_800"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:textAllCaps="false"
             android:fontFamily="@font/roboto_semibold"
             android:textSize="16sp"
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_semibold"
-            android:text="Forgot password?"
+            android:text="@string/forgot_password"
             android:textAlignment="center"
             android:textColor="@color/grey_900"
             android:textSize="14sp"

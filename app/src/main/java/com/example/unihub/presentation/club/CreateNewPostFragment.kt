@@ -49,7 +49,11 @@ class CreateNewPostFragment : Fragment() {
 
 
         binding.run {
-            val items = listOf("Request for event", "Create new post", "Create booking poster for event")
+            val items = listOf(
+                getString(R.string.request_for_event),
+                getString(R.string.create_new_post),
+                getString(R.string.create_booking_poster_for_event)
+            )
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, items)
             acTemplate.setAdapter(adapter)
 //            acTemplate.setText("Choose template", false)
@@ -59,13 +63,13 @@ class CreateNewPostFragment : Fragment() {
 
             acTemplate.setOnItemClickListener { _, _, position, _ ->
                 when (items[position]) {
-                    "Request for event" -> {
+                    getString(R.string.request_for_event) -> {
                         findNavController().navigate(CreateNewPostFragmentDirections.actionCreateNewPostFragmentToCreateEventFragment())
                     }
-                    "Create new post" -> {
+                    getString(R.string.create_new_post) -> {
                         // Действие для "Create new post"
                     }
-                    "Create booking poster for event" -> {
+                    getString(R.string.create_booking_poster_for_event) -> {
                         findNavController().navigate(CreateNewPostFragmentDirections.actionCreateNewPostFragmentToCreatePosterFragment())
                     }
                 }
@@ -112,7 +116,7 @@ class CreateNewPostFragment : Fragment() {
 
                 if (bytes != null) {
                     val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
-                    binding.btnAddMedia.text = "Media selected"
+                    binding.btnAddMedia.text = getString(R.string.media_selected)
                     imageBase64 = base64String
                 }
             }

@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="58dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="User account was successfully created!"
+            android:text="@string/user_account_was_successfully_created"
             android:textAlignment="center"
             android:textColor="@color/black_900"
             android:textSize="24sp" />
@@ -45,7 +45,7 @@
         android:background="@drawable/sh_12dp"
         android:backgroundTint="@color/blue_800"
         android:fontFamily="@font/roboto_semibold"
-        android:text="Back"
+        android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="@color/white_1000"
         android:textSize="16sp"

@@ -26,7 +26,7 @@
             android:textColor="@color/black_1000"
             android:ellipsize="end"
             android:textAlignment="center"
-            android:text="Add New Event"/>
+            android:text="@string/add_new_event"/>
 
         <EditText
             android:id="@+id/etEventName"
@@ -38,7 +38,7 @@
             android:textColorHint="@color/grey_600"
             android:textColor="@color/grey_900"
             android:textSize="15sp"
-            android:hint="Event name*"
+            android:hint="@string/event_name"
             android:padding="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginHorizontal="16dp"/>
@@ -53,7 +53,7 @@
             android:textColorHint="@color/grey_600"
             android:textColor="@color/grey_900"
             android:textSize="15sp"
-            android:hint="Suggestions"
+            android:hint="@string/suggestions"
             android:gravity="top"
             android:padding="16dp"
             android:layout_marginTop="16dp"
@@ -68,12 +68,12 @@
             android:textColorHint="@color/grey_600"
             android:textColor="@color/grey_900"
             android:textSize="15sp"
-            android:hint="Date"
+            android:hint="@string/date"
             android:padding="16dp"
             android:layout_marginTop="16dp"
-            android:drawableEnd="@drawable/ic_calendar_event"
-            android:drawableTint="@color/grey_300"
-            android:layout_marginHorizontal="16dp"/>
+            android:layout_marginHorizontal="16dp"
+            app:drawableEndCompat="@drawable/ic_calendar_event"
+            app:drawableTint="@color/grey_300" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,11 +91,11 @@
                 android:textColorHint="@color/grey_600"
                 android:textColor="@color/grey_900"
                 android:textSize="15sp"
-                android:hint="Start Time"
+                android:hint="@string/start_time"
                 android:padding="16dp"
-                android:drawableEnd="@drawable/ic_clock_event"
-                android:drawableTint="@color/grey_300"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                app:drawableEndCompat="@drawable/ic_clock_event"
+                app:drawableTint="@color/grey_300" />
 
             <TextView
                 android:id="@+id/etTimeEnd"
@@ -106,12 +106,12 @@
                 android:textColorHint="@color/grey_600"
                 android:textColor="@color/grey_900"
                 android:textSize="15sp"
-                android:hint="End Time"
+                android:hint="@string/end_time"
                 android:padding="16dp"
                 android:layout_marginStart="14dp"
-                android:drawableEnd="@drawable/ic_clock_event"
-                android:drawableTint="@color/grey_300"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                app:drawableEndCompat="@drawable/ic_clock_event"
+                app:drawableTint="@color/grey_300" />
 
         </LinearLayout>
 
@@ -130,7 +130,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/blue_800"
                 android:ellipsize="end"
-                android:text="Remind me"
+                android:text="@string/remind_me"
                 android:layout_weight="1"/>
 
             <Switch
@@ -151,7 +151,7 @@
             android:layout_height="60dp"
             android:background="@drawable/sh_12dp"
             android:backgroundTint="@color/blue_800"
-            android:text="Create Event"
+            android:text="@string/create_event"
             android:textAllCaps="false"
             android:fontFamily="@font/roboto_semibold"
             android:textSize="16sp"

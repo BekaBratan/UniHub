@@ -60,15 +60,15 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
                 ivRecClub.setImageResource(R.drawable.puzzle_club)
 
                 if (isFollowed)
-                    btnFollow.text = "Unfollow"
+                    btnFollow.text = root.context.getString(R.string.unfollow)
                 else
-                    btnFollow.text = "Follow"
+                    btnFollow.text = root.context.getString(R.string.follow)
 
                 btnFollow.setOnClickListener {
                     if (isFollowed) {
                         btnFollow.backgroundTintList =
                             AppCompatResources.getColorStateList(binding.root.context, R.color.blue_200)
-                        btnFollow.text = "Unfollow"
+                        btnFollow.text = root.context.getString(R.string.unfollow)
                         btnFollow.setTextColor(
                             ContextCompat.getColor(
                                 binding.root.context,
@@ -79,7 +79,7 @@ open class RecCardAdapter: RecyclerView.Adapter<RecCardAdapter.ClubsViewHolder>(
                     else {
                         btnFollow.backgroundTintList =
                             AppCompatResources.getColorStateList(binding.root.context, R.color.blue_800)
-                        btnFollow.text = "Follow"
+                        btnFollow.text = root.context.getString(R.string.follow)
                         btnFollow.setTextColor(
                             ContextCompat.getColor(
                                 binding.root.context,

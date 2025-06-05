@@ -27,7 +27,7 @@
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/black_900"
         android:ellipsize="end"
-        android:text="Bio-data"
+        android:text="@string/bio_data"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnBack"
@@ -87,7 +87,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_600"
                 android:ellipsize="end"
-                android:text="Name"
+                android:text="@string/name"
                 android:layout_weight="1"/>
 
             <EditText
@@ -124,7 +124,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_600"
                 android:ellipsize="end"
-                android:text="Surname"
+                android:text="@string/surname"
                 android:layout_weight="1"/>
 
             <EditText
@@ -161,7 +161,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_600"
                 android:ellipsize="end"
-                android:text="Phone"
+                android:text="@string/phone"
                 android:layout_weight="1"/>
 
             <EditText
@@ -197,7 +197,7 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Gender"
+                android:text="@string/gender"
                 android:textColor="@color/grey_600"
                 android:textSize="15sp" />
 
@@ -235,7 +235,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/grey_600"
                 android:ellipsize="end"
-                android:text="Birth date"
+                android:text="@string/birth_date"
                 android:layout_weight="1"/>
 
             <TextView
@@ -277,7 +277,7 @@
         android:layout_height="60dp"
         android:background="@drawable/sh_12dp"
         android:backgroundTint="@color/blue_800"
-        android:text="Save"
+        android:text="@string/save"
         android:textAllCaps="false"
         android:fontFamily="@font/roboto_semibold"
         android:textSize="16sp"

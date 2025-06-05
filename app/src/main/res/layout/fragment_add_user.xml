@@ -27,7 +27,7 @@
         android:fontFamily="@font/roboto_semibold"
         android:textColor="@color/black_1000"
         android:ellipsize="end"
-        android:text="Add User"
+        android:text="@string/add_user"
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
-            android:hint="Enter email"
+            android:hint="@string/enter_email"
             android:background="@drawable/sh_edit_text"
             android:fontFamily="@font/roboto_regular"
             android:textColorHint="@color/grey_600"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
-            android:hint="Enter password"
+            android:hint="@string/enter_password"
             android:background="@drawable/sh_edit_text"
             android:fontFamily="@font/roboto_regular"
             android:textColorHint="@color/grey_600"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="User Organization"
+            android:text="@string/user_organization"
             android:textColor="@color/grey_900"
             android:textSize="16sp" />
 
@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
-            android:hint="Organization"
+            android:hint="@string/organization"
             android:background="@drawable/sh_edit_text"
             android:fontFamily="@font/roboto_regular"
             android:textColorHint="@color/grey_600"
@@ -120,7 +120,7 @@
         android:layout_height="60dp"
         android:background="@drawable/sh_12dp"
         android:backgroundTint="@color/blue_800"
-        android:text="Create User"
+        android:text="@string/create_user"
         android:textAllCaps="false"
         android:fontFamily="@font/roboto_semibold"
         android:textSize="16sp"

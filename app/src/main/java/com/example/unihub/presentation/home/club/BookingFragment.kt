@@ -55,8 +55,8 @@ class BookingFragment : Fragment() {
 
                 tvTime.text = response.time
                 tvLocation.text = response.location
-                tvSeatsNumber.text = "Number of seats: " + response.seatsLeft.toString()
-                tvPrice.text = response.price.toString() + " KZT/Person"
+                tvSeatsNumber.text = getString(R.string.number_of_seats) + response.seatsLeft.toString()
+                tvPrice.text = response.price.toString() + getString(R.string.kzt_person)
             }
         }
 

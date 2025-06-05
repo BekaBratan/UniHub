@@ -51,10 +51,10 @@ class BookingDetailsFragment : Fragment() {
             val ticket = response.find { it.id == args.id }
             if (ticket != null) {
                 binding.run {
-                    tvSender.text = "Sender: " + sharedProvider.getName() + " " + sharedProvider.getSurname()
-                    tvCreateDate.text = "Date of create: " + formatDatePlusDays(ticket.createdAt)
+                    tvSender.text = getString(R.string.sender) + sharedProvider.getName() + " " + sharedProvider.getSurname()
+                    tvCreateDate.text = getString(R.string.date_of_create) + formatDatePlusDays(ticket.createdAt)
                     etStatus.setText(ticket.status)
-                    tvPersonNumber.text = "Number of Person: " + ticket.numberOfPersons.toString()
+                    tvPersonNumber.text = getString(R.string.number_of_person) + ticket.numberOfPersons.toString()
                     etComment.setText(ticket.poster.eventTitle + " " + ticket.poster.location)
                 }
             }

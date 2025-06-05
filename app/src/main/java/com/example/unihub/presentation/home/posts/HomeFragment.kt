@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(false)
@@ -171,7 +172,7 @@ class HomeFragment : Fragment() {
                 )
             )
 
-            tvWelcomeName.text = "Hi, " + sharedProvider.getName() + " \uD83D\uDC4B"
+            tvWelcomeName.text = getString(R.string.hi) + sharedProvider.getName() + " \uD83D\uDC4B"
 
             rvClubs.layoutManager = horizontalLinearLayoutManager
             rvClubs.adapter = clubsAdapter

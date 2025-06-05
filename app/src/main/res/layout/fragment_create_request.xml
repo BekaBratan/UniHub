@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_light"
                 android:textAlignment="center"
-                android:text="Fill the fields to create a club and get admin rights"
+                android:text="@string/fill_the_fields_to_create_a_club_and_get_admin_rights"
                 android:textColor="@color/grey_900"
                 android:textSize="13sp"/>
 
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Title*"
+                android:text="@string/title"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Name of the club*"
+                android:text="@string/name_of_the_club"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -175,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Goal of the club*"
+                android:text="@string/goal_of_the_club"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -198,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Detailed description*"
+                android:text="@string/detailed_description"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -221,7 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Club financing*"
+                android:text="@string/club_financing"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -244,7 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Resources/equipment needed for the club"
+                android:text="@string/resources_equipment_needed_for_the_club"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -267,7 +267,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Methods of attracting participants*"
+                android:text="@string/methods_of_attracting_participants"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -290,7 +290,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Email*"
+                android:text="@string/email"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -313,7 +313,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Phone*"
+                android:text="@string/phone"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -336,7 +336,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Other communication methods*"
+                android:text="@string/other_communication_methods"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -359,7 +359,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Comment"
+                android:text="@string/comment"
                 android:textColor="@color/grey_900"
                 android:layout_marginTop="14dp"
                 android:textSize="16sp"/>
@@ -384,7 +384,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_light"
                 android:textAlignment="center"
-                android:text="Fill the main fields"
+                android:text="@string/error_please_fill_all_fields"
                 android:textColor="@color/red_900"
                 android:layout_marginTop="14dp"
                 android:visibility="invisible"
@@ -396,7 +396,7 @@
                 android:layout_height="60dp"
                 android:background="@drawable/sh_12dp"
                 android:backgroundTint="@color/blue_800"
-                android:text="Send"
+                android:text="@string/send"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_semibold"
                 android:textSize="16sp"

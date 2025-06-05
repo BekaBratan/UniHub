@@ -31,7 +31,7 @@
         android:background="@drawable/sh_rounded_blue"
         android:backgroundTint="@color/blue_800"
         android:fontFamily="@font/roboto_medium"
-        android:text="Follow"
+        android:text="@string/follow"
         android:textAllCaps="false"
         android:textColor="@color/white_1000"
         android:textSize="10sp"

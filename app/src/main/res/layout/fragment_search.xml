@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Search"
+        android:text="@string/search"
         android:textColor="@color/grey_900"
         android:textSize="35sp"
         android:layout_marginHorizontal="32dp"
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:background="@color/white_1000"
-            android:hint="Search"
+            android:hint="@string/search"
             android:fontFamily="@font/roboto_medium"
             android:textColorHint="@color/grey_600"
             android:textColor="@color/grey_900"
@@ -90,7 +90,7 @@
         android:textColor="@color/grey_600"
         android:maxLines="1"
         android:ellipsize="end"
-        android:text="Recommendations for you"
+        android:text="@string/recommendations_for_you"
         app:layout_constraintTop_toBottomOf="@+id/llSearch"/>
 
     <androidx.recyclerview.widget.RecyclerView

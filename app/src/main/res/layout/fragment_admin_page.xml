@@ -28,7 +28,7 @@
         android:fontFamily="@font/roboto_semibold"
         android:textColor="@color/black_1000"
         android:ellipsize="end"
-        android:text="Hi, Admin 👋"
+        android:text="@string/hi_admin"
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         android:fontFamily="@font/roboto_regular"
         android:textColor="@color/black_1000"
         android:ellipsize="end"
-        android:text="Welcome to the Admin Dashboard."
+        android:text="@string/welcome_to_the_admin_dashboard"
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +89,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textColor="@color/grey_200"
         android:ellipsize="end"
-        android:text="Users"
+        android:text="@string/users"
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvClubs"
@@ -104,7 +104,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textColor="@color/grey_200"
         android:ellipsize="end"
-        android:text="Clubs"
+        android:text="@string/clubs"
         android:layout_weight="1"
         app:layout_constraintStart_toEndOf="@+id/tvUsers"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@color/white_1000"
-                android:hint="Search"
+                android:hint="@string/search"
                 android:fontFamily="@font/roboto_medium"
                 android:textColorHint="@color/grey_600"
                 android:textColor="@color/grey_900"
@@ -149,7 +149,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvWelcomeName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                tools:ignore="TextViewEdits" />
 
             <View
                 android:layout_width="2dp"
@@ -199,7 +200,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Users"
+            android:text="@string/users"
             android:textAlignment="center"
             android:textColor="@color/black_1000"
             android:textSize="16sp"
@@ -210,7 +211,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Clubs"
+            android:text="@string/clubs"
             android:textAlignment="center"
             android:textColor="@color/black_1000"
             android:textSize="16sp"
@@ -345,7 +346,7 @@
                 android:textColor="@color/black_1000"
                 android:ellipsize="end"
                 android:layout_marginStart="16dp"
-                android:text="Home"/>
+                android:text="@string/home"/>
 
         </LinearLayout>
 
@@ -372,7 +373,7 @@
                 android:textColor="@color/black_1000"
                 android:ellipsize="end"
                 android:layout_marginStart="16dp"
-                android:text="Requests"/>
+                android:text="@string/requests"/>
 
         </LinearLayout>
 
@@ -399,7 +400,7 @@
                 android:textColor="@color/black_1000"
                 android:ellipsize="end"
                 android:layout_marginStart="16dp"
-                android:text="Profile"/>
+                android:text="@string/profile"/>
 
         </LinearLayout>
 

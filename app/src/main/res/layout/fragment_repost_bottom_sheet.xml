@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_semibold"
-                android:text="Repost"
+                android:text="@string/repost"
                 android:textColor="@color/grey_900"
                 android:textSize="20sp"
                 android:layout_weight="1"/>
@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_semibold"
-                android:text="Quote"
+                android:text="@string/quote"
                 android:textColor="@color/grey_900"
                 android:textSize="20sp"
                 android:layout_weight="1"/>

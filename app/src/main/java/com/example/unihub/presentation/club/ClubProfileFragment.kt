@@ -122,9 +122,9 @@ class ClubProfileFragment : Fragment() {
                 findNavController().navigate(ClubProfileFragmentDirections.actionClubProfileFragmentToProfileFragment())
             }
 
-            btnWrite.setOnClickListener {
-                findNavController().navigate(ClubProfileFragmentDirections.actionClubProfileFragmentToCreateRequestFragment())
-            }
+//            btnWrite.setOnClickListener {
+//                findNavController().navigate(ClubProfileFragmentDirections.actionClubProfileFragmentToCreateRequestFragment())
+//            }
 
             tvAll.setOnClickListener {
                 idAll.visibility = View.VISIBLE

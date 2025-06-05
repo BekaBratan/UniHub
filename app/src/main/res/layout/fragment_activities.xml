@@ -25,7 +25,7 @@
             android:fontFamily="@font/roboto_semibold"
             android:textColor="@color/grey_900"
             android:ellipsize="end"
-            android:text="Notifications"
+            android:text="@string/notifications"
             android:layout_marginStart="34dp"
             android:layout_weight="1"/>
 
@@ -96,67 +96,66 @@
 
 <!--    </LinearLayout>-->
 
-    <LinearLayout
-        android:id="@+id/llSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="48dp"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="2dp"
-        android:gravity="center_vertical"
-        android:background="@drawable/sh_stroke_2dp"
-        android:layout_marginHorizontal="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/llPages"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/llSearch"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:paddingHorizontal="20dp"-->
+<!--        android:paddingVertical="2dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:background="@drawable/sh_stroke_2dp"-->
+<!--        android:layout_marginHorizontal="32dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/llPages"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
 
-        <EditText
-            android:id="@+id/etSearch"
-            android:inputType="text"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:background="@color/white_1000"
-            android:hint="Search"
-            android:fontFamily="@font/roboto_medium"
-            android:textColorHint="@color/grey_600"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="8dp"
-            android:gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_weight="1"/>
+<!--        <EditText-->
+<!--            android:id="@+id/etSearch"-->
+<!--            android:inputType="text"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:background="@color/white_1000"-->
+<!--            android:hint="Search"-->
+<!--            android:fontFamily="@font/roboto_medium"-->
+<!--            android:textColorHint="@color/grey_600"-->
+<!--            android:textColor="@color/grey_900"-->
+<!--            android:textSize="16sp"-->
+<!--            android:paddingHorizontal="8dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeName"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_weight="1"/>-->
 
-        <View
-            android:layout_width="2dp"
-            android:layout_height="21dp"
-            android:background="@color/grey_400"/>
+<!--        <View-->
+<!--            android:layout_width="2dp"-->
+<!--            android:layout_height="21dp"-->
+<!--            android:background="@color/grey_400"/>-->
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/btnSearch"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:scaleType="centerCrop"
-            android:layout_marginEnd="12dp"
-            android:layout_marginStart="28dp"
-            android:src="@drawable/ic_search"/>
+<!--        <com.google.android.material.imageview.ShapeableImageView-->
+<!--            android:id="@+id/btnSearch"-->
+<!--            android:layout_width="18dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:layout_marginEnd="12dp"-->
+<!--            android:layout_marginStart="28dp"-->
+<!--            android:src="@drawable/ic_search"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="66dp"
-        android:layout_marginHorizontal="32dp"
-        android:clipToPadding="false"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/llSearch"/>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rvChats"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:paddingTop="16dp"-->
+<!--        android:paddingBottom="66dp"-->
+<!--        android:layout_marginHorizontal="32dp"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/llSearch"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotifications"

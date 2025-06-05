@@ -52,6 +52,14 @@ class SharedProvider(private val context: Context) {
         return preferences.getString("surname", "without_surname").toString()
     }
 
+    fun saveLanguage(language: String) {
+        systemPreferences.edit() { putString("Language", language) }
+    }
+
+    fun getLanguage(): String {
+        return systemPreferences.getString("Language", "en").toString()
+    }
+
     fun savePhone(phone: String) {
         preferences.edit() { putString("phone", phone) }
     }

@@ -82,7 +82,7 @@
             android:backgroundTint="@color/grey_100"
             android:fontFamily="@font/roboto_regular"
             android:textColorHint="@color/grey_600"
-            android:hint="Ask me anything..."
+            android:hint="@string/ask_me_anything"
             android:textColor="@color/grey_900"
             android:textSize="16sp"
             android:paddingHorizontal="16dp"

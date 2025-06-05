@@ -28,6 +28,13 @@ class ProfileViewModel(): ViewModel() {
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
 
+    private var _language: MutableLiveData<String> = MutableLiveData()
+    val language: MutableLiveData<String> = _language
+
+    fun selectLanguage(language: String) {
+        _language.postValue(language)
+    }
+
     fun changePassword(token: String, oldPassword: String, newPassword: String) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {

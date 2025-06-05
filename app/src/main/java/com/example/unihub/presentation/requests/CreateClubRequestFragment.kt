@@ -41,6 +41,7 @@ class CreateClubRequestFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
@@ -51,15 +52,15 @@ class CreateClubRequestFragment : Fragment() {
         requestViewModel.getRequestDetailsResponse.observe(viewLifecycleOwner) { requestDetails ->
             binding.run {
                 if (requestDetails != null) {
-                    tvSender.text = "Sender: ${requestDetails.email}"
-                    tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt)}"
-                    tvComment.text = "Comment: ${requestDetails.comment}"
+                    tvSender.text = getString(R.string.sender) + requestDetails.email
+                    tvCreateDate.text = getString(R.string.date_of_create) + formatIsoDate(requestDetails.createdAt)
+                    tvComment.text = getString(R.string.comment) + requestDetails.comment
                     etClubName.setText(requestDetails.clubName)
                     etGoal.setText(requestDetails.goal)
                     etFinance.setText(requestDetails.financing)
                     etEquipment.setText(requestDetails.resources)
                     etDescription.setText(requestDetails.description)
-                    tvStatus.text = "Status: ${requestDetails.status}"
+                    tvStatus.text = getString(R.string.status) + requestDetails.status
                     etMethods.setText(requestDetails.attractionMethods)
                     Log.d("Header", requestDetails.headId.toString())
                     // Head ID is not used in the UI, but you can use it if needed
@@ -74,7 +75,7 @@ class CreateClubRequestFragment : Fragment() {
 
 
         binding.run {
-            val items = listOf("Approved", "Cancelled")
+            val items = listOf(getString(R.string.approved), getString(R.string.cancelled))
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, items)
             etStatus.setAdapter(adapter)
 //            acTemplate.setText("Choose template", false)
@@ -98,7 +99,7 @@ class CreateClubRequestFragment : Fragment() {
 
             btnSend.setOnClickListener {
                 val status = etStatus.text.toString()
-                if (status == "Approved") {
+                if (status == getString(R.string.approved)) {
                     adminViewModel.approveClubRequest(sharedProvider.getToken(), args.id)
                 } else {
                     adminViewModel.rejectClubRequest(sharedProvider.getToken(), args.id)

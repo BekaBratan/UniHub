@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.home.club
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
@@ -158,11 +159,11 @@ class ClubPageFragment : Fragment() {
             btnFollow.setOnClickListener {
                 if (followed) {
                     btnFollow.backgroundTintList = AppCompatResources.getColorStateList(requireContext(), R.color.blue_800)
-                    btnFollow.text = "Follow"
+                    btnFollow.text = getString(R.string.follow)
                     btnFollow.setTextColor(ContextCompat.getColor(requireContext(), R.color.white_1000))
                 } else {
                     btnFollow.backgroundTintList = null
-                    btnFollow.text = "Unfollow"
+                    btnFollow.text = getString(R.string.unfollow)
                     btnFollow.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue_800))
                 }
                 followed = !followed
@@ -243,6 +244,7 @@ class ClubPageFragment : Fragment() {
         dialog.show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showCustomDialogBox() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -254,8 +256,8 @@ class ClubPageFragment : Fragment() {
         val btnDismiss: TextView = dialog.findViewById(R.id.btnNo)
         val btnLogout: TextView = dialog.findViewById(R.id.btnYes)
 
-        tvTitle.text = "Your request has been sended, please wait."
-        btnDismiss.text = "OK"
+        tvTitle.text = getString(R.string.your_request_has_been_sended_please_wait)
+        btnDismiss.text = getString(R.string.ok)
 
         btnLogout.visibility = View.GONE
 

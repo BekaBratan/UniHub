@@ -29,7 +29,7 @@
             android:fontFamily="@font/roboto_semibold"
             android:textColor="@color/grey_900"
             android:ellipsize="end"
-            android:text="Booking details"
+            android:text="@string/booking_details"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnBack"
@@ -65,7 +65,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Date of create: 12.05.2025 12: 25"
                 android:textColor="@color/grey_900"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvPersonNumber"
@@ -85,9 +85,9 @@
                 android:layout_marginTop="18dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Transcript: "
+                android:text="@string/transcript"
                 android:textColor="@color/grey_900"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivTranscript"
@@ -129,10 +129,10 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Status:"
+                    android:text="@string/status_with_dots"
                     android:layout_weight="1"
                     android:textColor="@color/grey_900"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <AutoCompleteTextView
                     android:id="@+id/etStatus"
@@ -146,7 +146,7 @@
                     android:gravity="center_vertical"
                     android:inputType="none"
                     android:paddingHorizontal="16dp"
-                    android:text="Status"
+                    android:text="@string/status_with_dots"
                     android:enabled="false"
                     android:textColor="@color/grey_900"
                     android:textColorHint="@color/grey_600"
@@ -167,10 +167,10 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Comment:"
+                    android:text="@string/comment"
                     android:layout_weight="1"
                     android:textColor="@color/grey_900"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/etComment"

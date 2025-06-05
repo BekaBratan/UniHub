@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.requests
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,7 @@ class CreateEventRequestFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,9 +48,9 @@ class CreateEventRequestFragment : Fragment() {
         binding.run {
             viewModel.getEventsDetailResponse.observe(viewLifecycleOwner) { requestDetails->
                 if (requestDetails != null) {
-                    tvSender.text = "Sender: ${requestDetails.clubHead}"
-                    tvCreateDate.text = "Date of create: ${formatIsoDate(requestDetails.createdAt.toString())}"
-                    tvComment.text = "Comment: ${requestDetails.comment}"
+                    tvSender.text = getString(R.string.sender) + requestDetails.clubHead
+                    tvCreateDate.text = getString(R.string.date_of_create) + formatIsoDate(requestDetails.createdAt.toString())
+                    tvComment.text = getString(R.string.comment) + requestDetails.comment
                     etEventName.setText(requestDetails.eventName)
                     etGoal.setText(requestDetails.goal)
                     etDate.setText(requestDetails.eventDate)
@@ -63,7 +65,7 @@ class CreateEventRequestFragment : Fragment() {
                 }
             }
 
-            val items = listOf("Approved", "Cancelled")
+            val items = listOf(getString(R.string.approved), getString(R.string.cancelled))
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, items)
             etStatus.setAdapter(adapter)
 //            acTemplate.setText("Choose template", false)
@@ -85,7 +87,7 @@ class CreateEventRequestFragment : Fragment() {
 
             btnSend.setOnClickListener {
                 val status = etStatus.text.toString()
-                if (status == "Approved") {
+                if (status == getString(R.string.approved)) {
                     viewModel.approveEventRequest(sharedProvider.getToken(), args.id)
                 } else {
                     viewModel.rejectEventRequest(sharedProvider.getToken(), args.id)

@@ -29,7 +29,7 @@
                 android:background="@drawable/sh_rounded"
                 android:backgroundTint="@color/blue_800"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Recommendation"
+                android:text="@string/recommendation"
                 android:enabled="false"
                 android:textAllCaps="false"
                 android:textColor="@color/white_1000"
@@ -47,7 +47,7 @@
                 android:background="@drawable/sh_rounded"
                 android:backgroundTint="@color/white_900"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Subscriptions"
+                android:text="@string/subscriptions"
                 android:textAllCaps="false"
                 android:textColor="@color/grey_200"
                 android:textSize="14sp"
@@ -95,7 +95,7 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:background="@color/white_1000"
-                android:hint="Search"
+                android:hint="@string/search"
                 android:fontFamily="@font/roboto_medium"
                 android:textColorHint="@color/grey_600"
                 android:textColor="@color/grey_900"
@@ -172,7 +172,7 @@
                 android:textColor="@color/grey_600"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:text="Recommendations for you"/>
+                android:text="@string/recommendations_for_you"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvClubs"

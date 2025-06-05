@@ -81,7 +81,7 @@ class RegisterBookingFragment : Fragment() {
 
                 if (bytes != null) {
                     val base64String = Base64.encodeToString(bytes, Base64.NO_WRAP)
-                    binding.tvDropFiles.text = "Files selected"
+                    binding.tvDropFiles.text = getString(R.string.files_selected)
                     imageBase64 = base64String
                 }
             }

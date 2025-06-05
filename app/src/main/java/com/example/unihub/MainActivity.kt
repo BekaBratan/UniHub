@@ -2,6 +2,7 @@
 
 package com.example.unihub
 
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.unihub.databinding.ActivityMainBinding
 import com.example.unihub.utils.NavigationHostProvider
+import com.example.unihub.utils.SharedProvider
+import java.util.Locale
 
 class MainActivity : AppCompatActivity(), NavigationHostProvider {
 
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
             true
         }
 
+        systemLanguage()
         binding.bottomNavigationBarMainActivity.setOnApplyWindowInsetsListener(null)
         binding.bottomNavigationBarMainActivity.setPadding(0,0,0,0)
 
@@ -77,6 +81,42 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
             binding.bottomNavigationBarMainActivity.visibility = View.GONE
         } else {
             binding.bottomNavigationBarMainActivity.visibility = View.VISIBLE
+        }
+    }
+
+    private fun systemLanguage() {
+        when (SharedProvider(this).getLanguage()) {
+            "en" -> {
+                val locale = Locale("en")
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.setLocale(locale)
+                this.resources.updateConfiguration(config, this.resources.displayMetrics)
+            }
+
+            "kk" -> {
+                val locale = Locale("kk")
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.setLocale(locale)
+                this.resources.updateConfiguration(config, this.resources.displayMetrics)
+            }
+
+            "ru" -> {
+                val locale = Locale("ru")
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.setLocale(locale)
+                this.resources.updateConfiguration(config, this.resources.displayMetrics)
+            }
+
+            else -> {
+                val locale = Locale("kk")
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.setLocale(locale)
+                this.resources.updateConfiguration(config, this.resources.displayMetrics)
+            }
         }
     }
 

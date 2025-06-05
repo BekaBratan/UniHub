@@ -29,7 +29,7 @@
             android:fontFamily="@font/roboto_semibold"
             android:textColor="@color/grey_900"
             android:ellipsize="end"
-            android:text="Ticket Request"
+            android:text="@string/ticket_request"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnBack"
@@ -85,7 +85,7 @@
                 android:layout_marginTop="18dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
-                android:text="Transcript: "
+                android:text="@string/transcript"
                 android:textColor="@color/grey_900"
                 android:textSize="16dp" />
 
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Status:"
+                    android:text="@string/status_with_dots"
                     android:layout_weight="1"
                     android:textColor="@color/grey_900"
                     android:textSize="16dp" />
@@ -146,7 +146,7 @@
                     android:gravity="center_vertical"
                     android:inputType="none"
                     android:paddingHorizontal="16dp"
-                    android:text="Status"
+                    android:text="@string/status"
                     android:textColor="@color/grey_900"
                     android:textColorHint="@color/grey_600"
                     android:textSize="14sp" />
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="Comment:"
+                    android:text="@string/comment"
                     android:layout_weight="1"
                     android:textColor="@color/grey_900"
                     android:textSize="16dp" />
@@ -195,7 +195,7 @@
                 android:layout_height="60dp"
                 android:background="@drawable/sh_12dp"
                 android:backgroundTint="@color/blue_800"
-                android:text="Send"
+                android:text="@string/send"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_semibold"
                 android:textSize="16sp"

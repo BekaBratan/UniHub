@@ -34,7 +34,7 @@
             android:textSize="14sp"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/blue_700"
-            android:text="Event Title"/>
+            android:text="@string/event_title"/>
 
         <TextView
             android:id="@+id/tvTitle"
@@ -70,7 +70,7 @@
                     android:textSize="14sp"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/blue_700"
-                    android:text="Date"/>
+                    android:text="@string/date"/>
 
                 <TextView
                     android:id="@+id/tvDate"
@@ -107,7 +107,7 @@
                     android:textSize="14sp"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/blue_700"
-                    android:text="Time"/>
+                    android:text="@string/time"/>
 
                 <TextView
                     android:id="@+id/tvTime"
@@ -143,7 +143,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/blue_900"
-            android:text="Description"/>
+            android:text="@string/description"/>
 
         <TextView
             android:id="@+id/tvDescription"
@@ -162,7 +162,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/blue_700"
-            android:text="Location"/>
+            android:text="@string/location"/>
 
         <TextView
             android:id="@+id/tvLocation"
@@ -203,7 +203,7 @@
                     android:textSize="14sp"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/blue_700"
-                    android:text="Price"/>
+                    android:text="@string/price"/>
 
                 <TextView
                     android:id="@+id/tvPrice"
@@ -223,7 +223,7 @@
                 android:layout_height="52dp"
                 android:background="@drawable/sh_12dp"
                 android:backgroundTint="@color/blue_800"
-                android:text="Get Ticket"
+                android:text="@string/get_ticket"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_semibold"
                 android:textSize="16sp"

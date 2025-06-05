@@ -33,7 +33,6 @@
         android:fontFamily="@font/roboto_medium"
         android:text="@string/follow"
         android:textAllCaps="false"
-        android:textColor="@color/white_1000"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

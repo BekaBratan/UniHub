@@ -1,8 +1,10 @@
 package com.example.unihub.presentation.home.search
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -59,28 +61,31 @@ open class RecInlineAdapter: RecyclerView.Adapter<RecInlineAdapter.ClubsViewHold
 //                        .into(ivRecClub)
 
                 if (isFollowed) {
-                    btnFollow.text = "Unfollow"
-                    btnFollow.setTextColor(R.color.blue_900)
-                    btnFollow.backgroundTintList = null
+                    btnFollow.backgroundTintList = itemView.context.getColorStateList(R.color.blue_200)
+                    btnFollow.setTextColor(ContextCompat.getColor(itemView.context, R.color.blue_900))
+                    btnFollow.text = root.context.getString(R.string.unfollow)
                 }
                 else {
-                    btnFollow.text = "Follow"
-                    btnFollow.setTextColor(R.color.white_1000)
                     btnFollow.backgroundTintList = itemView.context.getColorStateList(R.color.blue_800)
+                    btnFollow.setTextColor(ContextCompat.getColor(itemView.context, R.color.white_1000))
+                    btnFollow.text = root.context.getString(R.string.follow)
                 }
 
                 btnFollow.setOnClickListener {
                     if (isFollowed) {
-                        btnFollow.text = "Unfollow"
-                        btnFollow.setTextColor(R.color.blue_900)
-                        btnFollow.backgroundTintList = null
+                        btnFollow.text = root.context.getString(R.string.unfollow)
+                        btnFollow.setTextColor(ContextCompat.getColor(itemView.context, R.color.blue_900))
+                        btnFollow.backgroundTintList = itemView.context.getColorStateList(R.color.blue_200)
                     }
                     else {
-                        btnFollow.text = "Follow"
-                        btnFollow.setTextColor(R.color.white_1000)
+                        btnFollow.text = root.context.getString(R.string.follow)
+                        btnFollow.setTextColor(ContextCompat.getColor(itemView.context, R.color.white_1000))
                         btnFollow.backgroundTintList = itemView.context.getColorStateList(R.color.blue_800)
                     }
                     isFollowed = !isFollowed
+                }
+
+                root.setOnClickListener {
                     listenerClickAtItem?.onClick(clubs.id)
                 }
             }

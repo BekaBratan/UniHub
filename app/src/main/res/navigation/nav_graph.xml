@@ -169,7 +169,15 @@
         android:id="@+id/searchFragment"
         android:name="com.example.unihub.presentation.home.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_clubPageFragment"
+            app:destination="@id/clubPageFragment">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/adminPageFragment"
         android:name="com.example.unihub.presentation.admin.AdminPageFragment"

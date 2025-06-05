@@ -6,24 +6,25 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unihub.data.model.admin.UsersListResponseItem
+import com.example.unihub.data.model.club.ClubsResponseItem
 import com.example.unihub.databinding.ItemRequestBinding
 import com.example.unihub.databinding.ItemUserAdminBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
 import com.example.unihub.utils.RcViewItemClickIdStringCallback
 
-open class UsersListItemAdapter: RecyclerView.Adapter<UsersListItemAdapter.RequestsViewHolder>() {
+open class ClubsListItemAdapter: RecyclerView.Adapter<ClubsListItemAdapter.RequestsViewHolder>() {
 
-    private val diffCallback = object : DiffUtil.ItemCallback<UsersListResponseItem>() {
+    private val diffCallback = object : DiffUtil.ItemCallback<ClubsResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: UsersListResponseItem,
-            newItem: UsersListResponseItem
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: UsersListResponseItem,
-            newItem: UsersListResponseItem
+            oldItem: ClubsResponseItem,
+            newItem: ClubsResponseItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -31,7 +32,7 @@ open class UsersListItemAdapter: RecyclerView.Adapter<UsersListItemAdapter.Reque
 
     private val differ = AsyncListDiffer(this, diffCallback)
 
-    fun submitList(list: List<UsersListResponseItem>) {
+    fun submitList(list: List<ClubsResponseItem>) {
         differ.submitList(list)
     }
 
@@ -50,19 +51,19 @@ open class UsersListItemAdapter: RecyclerView.Adapter<UsersListItemAdapter.Reque
     ) : RecyclerView.ViewHolder(
             binding.root
     ) {
-        fun onBind(item: UsersListResponseItem) {
+        fun onBind(item: ClubsResponseItem) {
             binding.run {
-                tvUserName.text = item.name + " " + item.surname
+                tvUserName.text = item.head.name + " " + item.head.surname
+
+                tvClubName.text = item.name
 
                 tvUserName.setOnClickListener {
-                    listenerClickUserName?.onClick(item.id)
+                    listenerClickUserName?.onClick(item.head.id)
                 }
 
                 ibDelete.setOnClickListener {
                     listenerClickDelete?.onClick(item.id)
                 }
-
-                ibDelete.visibility = ViewGroup.GONE
             }
         }
     }

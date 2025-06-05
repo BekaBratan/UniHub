@@ -5,6 +5,8 @@ import com.example.unihub.data.model.admin.CreateClubAdminResponse
 import com.example.unihub.data.model.admin.CreateClubAdminResponseItem
 import com.example.unihub.data.model.admin.CreateEventAdminDetailsResponse
 import com.example.unihub.data.model.admin.CreateEventAdminResponse
+import com.example.unihub.data.model.admin.GetUserResponse
+import com.example.unihub.data.model.admin.UpdateRoleRequest
 import com.example.unihub.data.model.admin.UsersListResponse
 import com.example.unihub.data.model.club.ClubsResponse
 import com.example.unihub.data.model.auth.LoginRequest
@@ -77,6 +79,12 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("clubId") clubId: Int
     ): ClubDetailsResponse
+
+    @DELETE("clubs/{id}")
+    suspend fun deleteClub(
+        @Header("Authorization") token: String,
+        @Path("id") clubId: Int
+    ): MessageResponse
 
     @POST("clubs/{id}/subscribe")
     suspend fun subscribeToClub(
@@ -300,6 +308,19 @@ interface ApiService {
     suspend fun getUsers(
         @Header("Authorization") token: String
     ): UsersListResponse
+
+    @GET("users/{userId}")
+    suspend fun getUserDetails(
+        @Header("Authorization") token: String,
+        @Path("userId") userId: Int
+    ): GetUserResponse
+
+    @PUT("users/{userId}/role")
+    suspend fun updateUserRole(
+        @Header("Authorization") token: String,
+        @Path("userId") userId: Int,
+        @Body role: UpdateRoleRequest
+    ): MessageResponse
 
     @GET("event-requests")
     suspend fun getEventRequests(

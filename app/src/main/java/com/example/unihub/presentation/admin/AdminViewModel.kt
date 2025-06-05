@@ -5,15 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unihub.data.api.ServiceBuilder
-import com.example.unihub.data.model.auth.LoginRequest
-import com.example.unihub.data.model.auth.LoginResponse
 import com.example.unihub.data.model.MessageResponse
 import com.example.unihub.data.model.admin.CreateClubAdminResponse
 import com.example.unihub.data.model.admin.CreateClubAdminResponseItem
-import com.example.unihub.data.model.admin.CreateEventAdminDetailsResponse
 import com.example.unihub.data.model.admin.CreateEventAdminResponse
+import com.example.unihub.data.model.admin.GetUserResponse
+import com.example.unihub.data.model.admin.UpdateRoleRequest
 import com.example.unihub.data.model.admin.UsersListResponse
-import com.example.unihub.data.model.auth.SignUpRequest
+import com.example.unihub.data.model.club.ClubsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -37,6 +36,15 @@ class AdminViewModel(): ViewModel() {
 
     private var _getEventsListResponse: MutableLiveData<CreateEventAdminResponse> = MutableLiveData()
     val getEventsListResponse: LiveData<CreateEventAdminResponse> = _getEventsListResponse
+
+    private var _getClubList: MutableLiveData<ClubsResponse> = MutableLiveData()
+    val getClubList: LiveData<ClubsResponse> = _getClubList
+
+    private var _getUserProfile: MutableLiveData<GetUserResponse> = MutableLiveData()
+    val getUserProfile: LiveData<GetUserResponse> = _getUserProfile
+
+    private var _messageResponse: MutableLiveData<MessageResponse> = MutableLiveData()
+    val messageResponse: LiveData<MessageResponse> = _messageResponse
 
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
@@ -178,6 +186,110 @@ class AdminViewModel(): ViewModel() {
             }.fold(
                 onSuccess = {
                     _getEventsListResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun getUserProfile(token: String, userId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.getUserDetails(token = token, userId = userId)
+            }.fold(
+                onSuccess = {
+                    _getUserProfile.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun updateUserRole(token: String, userId: Int, role: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.updateUserRole(token = token, userId = userId, role = UpdateRoleRequest(role = role))
+            }.fold(
+                onSuccess = {
+                    _messageResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun getClubsList(token: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.getClubs(token = token)
+            }.fold(
+                onSuccess = {
+                    _getClubList.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun deleteClub(token: String, clubId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.deleteClub(token = token, clubId = clubId)
+            }.fold(
+                onSuccess = {
+                    _messageResponse.postValue(it)
                 },
                 onFailure = { throwable ->
                     val errorMessage = if (throwable is HttpException) {

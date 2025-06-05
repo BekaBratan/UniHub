@@ -10,11 +10,10 @@ import android.view.Window
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.unihub.R
 import com.example.unihub.databinding.FragmentAdminPageBinding
-import com.example.unihub.presentation.requests.RequestItemAdapter
 import com.example.unihub.utils.RcViewItemClickIdCallback
-import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.provideNavigationHost
 
@@ -37,20 +36,25 @@ class AdminPageFragment : Fragment() {
         val sharedProvider = SharedProvider(requireContext())
 
         adminViewModel.getUsersList(sharedProvider.getToken())
+        adminViewModel.getClubsList(sharedProvider.getToken())
 
         val adapterUsers = UsersListItemAdapter()
-        val adapterClubs = UsersListItemAdapter()
+        val adapterClubs = ClubsListItemAdapter()
         var usersCount = adapterUsers.itemCount
         var clubsCount = adapterClubs.itemCount
 
         adminViewModel.getUsersListResponse.observe(viewLifecycleOwner) { usersList ->
             adapterUsers.submitList(usersList)
             usersCount = usersList.size
-            val filteredClubs = usersList.filter { user -> user.role?.contains("head") == true }
-            adapterClubs.submitList(filteredClubs)
-            clubsCount = filteredClubs.size
             binding.run {
                 tvUsersCount.text = usersCount.toString()
+            }
+        }
+
+        adminViewModel.getClubList.observe(viewLifecycleOwner) { clubsList ->
+            adapterClubs.submitList(clubsList)
+            clubsCount = clubsList.size
+            binding.run {
                 tvClubsCount.text = clubsCount.toString()
             }
         }
@@ -59,18 +63,10 @@ class AdminPageFragment : Fragment() {
             binding.tvWelcomeMsg.text = it.message
         }
 
-        adapterUsers.setOnDeleteClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int?) {
-                    showCustomDialogBox()
-                }
-            }
-        )
-
         adapterUsers.setOnUserNameClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
-                    findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToEditUserFragment())
+                    findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToEditUserFragment(id!!))
                 }
             }
         )
@@ -78,7 +74,7 @@ class AdminPageFragment : Fragment() {
         adapterClubs.setOnDeleteClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
-                    showCustomDialogBox()
+                    showCustomDialogBox(id!!)
                 }
             }
         )
@@ -86,7 +82,7 @@ class AdminPageFragment : Fragment() {
         adapterClubs.setOnUserNameClickListener(
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
-                    findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToEditUserFragment())
+                    findNavController().navigate(AdminPageFragmentDirections.actionAdminPageFragmentToEditUserFragment(id!!))
                 }
             }
         )
@@ -133,25 +129,26 @@ class AdminPageFragment : Fragment() {
         }
     }
 
-    private fun showCustomDialogBox() {
+    private fun showCustomDialogBox(id: Int) {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_log_out)
         dialog.window?.setBackgroundDrawableResource(R.color.transparent)
 
-        val btnDismiss: TextView = dialog.findViewById(R.id.btnNo)
-        val btnLogout: TextView = dialog.findViewById(R.id.btnYes)
+        val btnNo: TextView = dialog.findViewById(R.id.btnNo)
+        val btnYes: TextView = dialog.findViewById(R.id.btnYes)
 
         val tvTitle: TextView = dialog.findViewById(R.id.tvTitle)
 
         tvTitle.text = "Are you sure you want to delete this user?"
 
-        btnDismiss.setOnClickListener {
+        btnNo.setOnClickListener {
             dialog.dismiss()
         }
 
-        btnLogout.setOnClickListener {
+        btnYes.setOnClickListener {
+            adminViewModel.deleteClub(SharedProvider(requireContext()).getToken(), id)
             dialog.dismiss()
         }
 

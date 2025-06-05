@@ -172,4 +172,9 @@
     <string name="unfollow">Unfollow</string>
     <string name="your_request_has_been_sended_please_wait">Your request has been sended, please wait.</string>
     <string name="ok" tools:ignore="PrivateResource">OK</string>
+    <string name="head_of_club">Head of club</string>
+    <string name="admin">Admin</string>
+    <string name="student">Student</string>
+    <string name="user">User</string>
+    <string name="role">Role</string>
 </resources>

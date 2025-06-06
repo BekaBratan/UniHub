@@ -177,5 +177,9 @@
     <string name="role">Роль</string>
     <string name="passwords_are_not_same">Пароли не совпадают</string>
     <string name="please_fill_all_fields">Пожалуйста, заполните все поля</string>
-
+    <string name="invalid_email">Неверный email</string>
+    <string name="password_too_short">Пороль слишком короткий</string>
+    <string name="name_too_short">Имя слишком короткий</string>
+    <string name="we_just_sent_6_digit_code_to">Мы отправили на вашу </string>
+    <string name="enter_it_bellow"> почту 6-значное число, введите ниже:</string>
 </resources>

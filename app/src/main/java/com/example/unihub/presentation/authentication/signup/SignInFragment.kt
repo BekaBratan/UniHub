@@ -35,10 +35,11 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
+        sharedProvider.clearShared()
 
         binding.run {
             btnBack.setOnClickListener {
-                findNavController().popBackStack()
+                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToWelcomeFragment())
             }
 
             etName.addTextChangedListener {
@@ -72,30 +73,54 @@ class SignInFragment : Fragment() {
                     tvError.text = getString(R.string.please_fill_all_fields)
                     tvError.visibility = View.VISIBLE
                     return@setOnClickListener
-                } else if (etPassword1.text.toString() == etPassword2.text.toString()) {
-                    tvError.visibility = View.INVISIBLE
-                    val email = etEmail.text.toString().trim()
-                    val password = etPassword1.text.toString().trim()
-                    val name = etName.text.toString().trim()
-                    val surname = etSurname.text.toString().trim()
-                    authViewModel.signup(email = email, password = password, name = name, surname = surname)
-                } else {
+                }
+
+                val email = etEmail.text.toString().trim()
+                val password1 = etPassword1.text.toString().trim()
+                val password2 = etPassword2.text.toString().trim()
+                val name = etName.text.toString().trim()
+                val surname = etSurname.text.toString().trim()
+
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    tvError.text = getString(R.string.invalid_email)
+                    tvError.visibility = View.VISIBLE
+                    return@setOnClickListener
+                }
+
+                if (password1.length < 8) {
+                    tvError.text = getString(R.string.password_too_short)
+                    tvError.visibility = View.VISIBLE
+                    return@setOnClickListener
+                }
+
+                if (password1 != password2) {
                     tvError.text = getString(R.string.passwords_are_not_same)
                     tvError.visibility = View.VISIBLE
+                    return@setOnClickListener
                 }
+
+                if (name.length < 2 || surname.length < 2) {
+                    tvError.text = getString(R.string.name_too_short)
+                    tvError.visibility = View.VISIBLE
+                    return@setOnClickListener
+                }
+
+                tvError.visibility = View.INVISIBLE
+                authViewModel.signup(email = email, password = password1, name = name, surname = surname)
             }
 
             authViewModel.signupResponse.observe(viewLifecycleOwner) {
                 Log.d("Login Response", it.toString())
-                sharedProvider.saveToken(it.token.toString())
-                sharedProvider.saveEmail(it.user.email.toString())
-                sharedProvider.saveName(it.user.name.toString())
-                sharedProvider.saveSurname(it.user.surname.toString())
-                sharedProvider.saveRole(it.user.role.toString())
-                sharedProvider.saveID(it.user.id)
-                sharedProvider.saveIsAuthorized(true)
-                provideNavigationHost()?.setupBottomNavForRole(it.user.role.toString().contains("admin", ignoreCase = true))
-                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToHomeFragment())
+                sharedProvider.saveEmail(it.email.toString())
+//                sharedProvider.saveToken(it.token.toString())
+//                sharedProvider.saveEmail(it.user.email.toString())
+//                sharedProvider.saveName(it.user.name.toString())
+//                sharedProvider.saveSurname(it.user.surname.toString())
+//                sharedProvider.saveRole(it.user.role.toString())
+//                sharedProvider.saveID(it.user.id)
+//                sharedProvider.saveIsAuthorized(true)
+//                provideNavigationHost()?.setupBottomNavForRole(it.user.role.toString().contains("admin", ignoreCase = true))
+                findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToVerifyFragment2())
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {

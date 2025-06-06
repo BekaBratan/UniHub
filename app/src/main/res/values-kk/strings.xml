@@ -177,4 +177,9 @@
     <string name="role">Рөлі</string>
     <string name="passwords_are_not_same">Құпиясөздер сәйкес келмейді</string>
     <string name="please_fill_all_fields">Барлық өрістерді толтырыңыз</string>
+    <string name="invalid_email">Қате email форматы</string>
+    <string name="password_too_short">Құпия сөз тым қысқа</string>
+    <string name="name_too_short">Есіміңіз тым қысқа</string>
+    <string name="we_just_sent_6_digit_code_to">Біз сіздің</string>
+    <string name="enter_it_bellow">поштаңызға 6 санды код жібердік, төменге еңгізіңіз:</string>
 </resources>

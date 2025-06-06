@@ -36,10 +36,11 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
         val sharedProvider = SharedProvider(requireContext())
+        sharedProvider.clearShared()
 
         binding.run {
             btnBack.setOnClickListener{
-                findNavController().popBackStack()
+                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToWelcomeFragment())
             }
 
             btnLogin.setOnClickListener{

@@ -1,5 +1,6 @@
 package com.example.unihub.presentation.authentication.signup
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.unihub.R
 import com.example.unihub.databinding.FragmentVerifyBinding
 import com.example.unihub.presentation.authentication.AuthViewModel
 import com.example.unihub.utils.SharedProvider
@@ -28,6 +30,7 @@ class VerifyFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.hideBottomNavigationBar(true)
@@ -35,17 +38,31 @@ class VerifyFragment : Fragment() {
 
         binding.run {
             btnBack.setOnClickListener {
-                findNavController().popBackStack()
+                findNavController().navigate(VerifyFragmentDirections.actionVerifyFragmentToSignInFragment())
             }
+
+            tvTitle.text = getString(R.string.we_just_sent_6_digit_code_to) + " ${sharedProvider.getEmail()} " + getString(R.string.enter_it_bellow)
 
             btnVerify.setOnClickListener {
                 val email = sharedProvider.getEmail()
                 val code = etCode.text.toString()
+                authViewModel.verifyEmail(email, code)
                 Log.d("Verify", "Email: $email, Code: $code")
             }
 
             etCode.addTextChangedListener {
                 tvError.visibility = View.INVISIBLE
+            }
+
+            authViewModel.verifyEmailResponse.observe(viewLifecycleOwner) {
+                Log.d("Login Response", it.toString())
+                sharedProvider.saveToken(it.token.toString())
+                sharedProvider.saveEmail(it.user?.email.toString())
+                sharedProvider.saveName(it.user?.name.toString())
+                sharedProvider.saveSurname(it.user?.surname.toString())
+                sharedProvider.saveRole(it.user?.role.toString())
+                sharedProvider.saveID(it.user?.id ?: 0)
+                findNavController().navigate(VerifyFragmentDirections.actionVerifyFragment2ToSuccessFragment2())
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {

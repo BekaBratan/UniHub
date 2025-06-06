@@ -13,6 +13,9 @@ import com.example.unihub.data.model.auth.LoginRequest
 import com.example.unihub.data.model.auth.LoginResponse
 import com.example.unihub.data.model.auth.PasswordChangeRequest
 import com.example.unihub.data.model.auth.SignUpRequest
+import com.example.unihub.data.model.auth.SignUpResponse
+import com.example.unihub.data.model.auth.VerifyEmailRequest
+import com.example.unihub.data.model.auth.VerifyEmailResponse
 import com.example.unihub.data.model.calendar.CombinedCalendarResponse
 import com.example.unihub.data.model.calendar.CreatePersonalEvent
 import com.example.unihub.data.model.calendar.PersonalCalendarResponse
@@ -58,7 +61,12 @@ interface ApiService {
     @POST("auth/register")
     suspend fun register(
         @Body registerBody: SignUpRequest
-    ): LoginResponse
+    ): SignUpResponse
+
+    @POST("auth/verify-email")
+    suspend fun verifyEmail(
+        @Body verify: VerifyEmailRequest
+    ): VerifyEmailResponse
 
     @PUT("auth/change-password")
     suspend fun changePassword(

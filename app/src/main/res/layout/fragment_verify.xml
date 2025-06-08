@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
             android:textAlignment="center"
-            android:text="We just sent 5-digit code to \n akniyet.serik@gmail.com, enter it bellow:"
+            android:text="@string/we_just_sent_6_digit_code_to"
             android:textColor="@color/black_900"
             android:textSize="16sp" />
 
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
-            android:text="Code"
+            android:text="@string/code"
             android:textColor="@color/grey_900"
             android:textSize="14sp"
             android:layout_marginTop="16dp"/>
@@ -120,12 +120,35 @@
             android:layout_height="60dp"
             android:background="@drawable/sh_12dp"
             android:backgroundTint="@color/blue_800"
-            android:text="Verify email"
+            android:text="@string/verify_email"
             android:textAllCaps="false"
             android:fontFamily="@font/roboto_semibold"
             android:textSize="16sp"
             android:textColor="@color/white_1000"
             android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/btnLoad"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="60dp"
+            android:background="@drawable/sh_12dp"
+            android:backgroundTint="@color/blue_800"
+            android:text="Verify email"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_semibold"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:textColor="@color/white_1000"
+            android:layout_marginTop="16dp">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:indeterminateTint="@color/white_1000"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -136,7 +159,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wrong email?"
+                android:text="@string/wrong_email"
                 android:textColor="@color/black_900"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_regular"
@@ -146,7 +169,7 @@
                 android:id="@+id/tvDifferentEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send to different email"
+                android:text="@string/send_to_different_email"
                 android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto_semibold"/>

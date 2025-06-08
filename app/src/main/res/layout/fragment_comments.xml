@@ -238,19 +238,19 @@
 
         <EditText
             android:id="@+id/etMessage"
-            android:inputType="text"
             android:layout_width="0dp"
             android:layout_height="46dp"
+            android:layout_weight="1"
             android:background="@drawable/sh_edit_text"
             android:backgroundTint="@color/grey_100"
             android:fontFamily="@font/roboto_regular"
-            android:textColorHint="@color/grey_600"
-            android:hint="Reply to Puzzle Club SDU"
-            android:textColor="@color/grey_900"
-            android:textSize="16sp"
-            android:paddingHorizontal="16dp"
             android:gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:hint="Reply to Puzzle Club SDU"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/grey_900"
+            android:textColorHint="@color/grey_600"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="46dp"

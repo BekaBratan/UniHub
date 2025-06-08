@@ -107,11 +107,15 @@ class SignInFragment : Fragment() {
 
                 tvError.visibility = View.INVISIBLE
                 authViewModel.signup(email = email, password = password1, name = name, surname = surname)
+                btnCreate.visibility = View.INVISIBLE
+                btnLoad.visibility = View.VISIBLE
             }
 
             authViewModel.signupResponse.observe(viewLifecycleOwner) {
                 Log.d("Login Response", it.toString())
                 sharedProvider.saveEmail(it.email.toString())
+                btnCreate.visibility = View.VISIBLE
+                btnLoad.visibility = View.INVISIBLE
 //                sharedProvider.saveToken(it.token.toString())
 //                sharedProvider.saveEmail(it.user.email.toString())
 //                sharedProvider.saveName(it.user.name.toString())
@@ -124,7 +128,16 @@ class SignInFragment : Fragment() {
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {
+                btnCreate.visibility = View.VISIBLE
+                btnLoad.visibility = View.INVISIBLE
                 tvError.text = it.message
+                tvError.visibility = View.VISIBLE
+            }
+
+            authViewModel.signUpErrorMessage.observe(viewLifecycleOwner) {
+                btnCreate.visibility = View.VISIBLE
+                btnLoad.visibility = View.INVISIBLE
+                tvError.text = it.error
                 tvError.visibility = View.VISIBLE
             }
         }

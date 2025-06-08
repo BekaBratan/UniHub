@@ -47,6 +47,8 @@ class LogInFragment : Fragment() {
                 val email = etEmail.text.toString().trim()
                 val password = etPassword.text.toString().trim()
                 Log.d("Login", "Email: $email, Password: $password")
+                btnLogin.visibility = View.GONE
+                btnLoad.visibility = View.VISIBLE
                 authViewModel.login(email = email, password = password)
 //                findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToHomeFragment())
             }
@@ -79,6 +81,8 @@ class LogInFragment : Fragment() {
 
             authViewModel.loginResponse.observe(viewLifecycleOwner) {
                 Log.d("Login Response", it.toString())
+                btnLogin.visibility = View.VISIBLE
+                btnLoad.visibility = View.GONE
                 sharedProvider.saveToken(it.token.toString())
                 sharedProvider.saveEmail(it.user.email.toString())
                 sharedProvider.saveName(it.user.name.toString())
@@ -91,6 +95,8 @@ class LogInFragment : Fragment() {
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {
+                btnLogin.visibility = View.VISIBLE
+                btnLoad.visibility = View.GONE
                 tvError.text = it.message
                 tvError.visibility = View.VISIBLE
             }

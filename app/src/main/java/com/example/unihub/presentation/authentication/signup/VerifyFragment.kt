@@ -47,6 +47,8 @@ class VerifyFragment : Fragment() {
                 val email = sharedProvider.getEmail()
                 val code = etCode.text.toString()
                 authViewModel.verifyEmail(email, code)
+                btnVerify.visibility = View.GONE
+                btnLoad.visibility = View.VISIBLE
                 Log.d("Verify", "Email: $email, Code: $code")
             }
 
@@ -62,10 +64,14 @@ class VerifyFragment : Fragment() {
                 sharedProvider.saveSurname(it.user?.surname.toString())
                 sharedProvider.saveRole(it.user?.role.toString())
                 sharedProvider.saveID(it.user?.id ?: 0)
+                btnVerify.visibility = View.VISIBLE
+                btnLoad.visibility = View.GONE
                 findNavController().navigate(VerifyFragmentDirections.actionVerifyFragment2ToSuccessFragment2())
             }
 
             authViewModel.errorMessage.observe(viewLifecycleOwner) {
+                btnVerify.visibility = View.VISIBLE
+                btnLoad.visibility = View.GONE
                 tvError.text = it.message
                 tvError.visibility = View.VISIBLE
             }

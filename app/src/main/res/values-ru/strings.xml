@@ -107,11 +107,11 @@
     <string name="_new">Новый</string>
     <string name="create_new_post">Создайте новый пост</string>
     <string name="title">Заголовок</string>
-    <string name="add_media">Добавить СМИ</string>
-    <string name="post">Почта</string>
+    <string name="add_media">Добавить медиа</string>
+    <string name="post">Запостить</string>
     <string name="request_for_event">Запрос на мероприятие</string>
     <string name="create_booking_poster_for_event">Создать плакат бронирования для мероприятия</string>
-    <string name="media_selected">СМИ выбраны</string>
+    <string name="media_selected">Медиа выбраны</string>
     <string name="create_poster">Создать плакат</string>
     <string name="seats">Места:</string>
     <string name="fill_the_fields_to_create_a_club_and_get_admin_rights">Заполните поля, чтобы создать клуб и получить права администратора</string>
@@ -160,7 +160,7 @@
     <string name="back_to_login">Вернуться к входу в систему</string>
     <string name="privacy">Конфиденциальность</string>
     <string name="language">Язык</string>
-    <string name="about">Об</string>
+    <string name="about">О нас</string>
     <string name="confirm_password">Подтвердите пароль</string>
     <string name="create_an_account">Завести аккаунт</string>
     <string name="your_account_n_was_successfully_created">Ваша учетная запись была успешно создана!</string>
@@ -182,4 +182,9 @@
     <string name="name_too_short">Имя слишком короткий</string>
     <string name="we_just_sent_6_digit_code_to">Мы отправили на вашу </string>
     <string name="enter_it_bellow"> почту 6-значное число, введите ниже:</string>
+    <string name="verify_email">Подтвердить email</string>
+    <string name="send_to_different_email">Другой email</string>
+    <string name="wrong_email">Не правильный email?</string>
+    <string name="code">Код</string>
+    <string name="example_example">example@example</string>
 </resources>

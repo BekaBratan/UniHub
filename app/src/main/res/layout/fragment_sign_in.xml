@@ -203,4 +203,31 @@
         android:layout_marginBottom="70dp"
         android:layout_marginHorizontal="35dp"/>
 
+    <LinearLayout
+        android:id="@+id/btnLoad"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/sh_12dp"
+        android:backgroundTint="@color/blue_800"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_semibold"
+        android:textSize="16sp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:textColor="@color/white_1000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="70dp"
+        android:visibility="invisible"
+        android:layout_marginHorizontal="35dp">
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:indeterminateTint="@color/white_1000"/>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

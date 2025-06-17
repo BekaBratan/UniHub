@@ -252,11 +252,11 @@ private fun HomeFragment.updateFirstPost() {
     postBinding.run {
         llClubInfo
         tvClubName.text = firstPost.club?.name
-        tvTime.text = getTimeAgo(firstPost.createdAt)
-        tvPostName.text = firstPost.content
+        tvTime.text = getTimeAgo(firstPost.createdAt ?: "2023-01-01T00:00:00Z")
+        tvPostName.text = firstPost.content ?: "No content available"
         var isLiked = false
 
-        if (firstPost.image.isEmpty())
+        if ((firstPost.image?.length ?: 0) == 0)
             ivPostImage.setImageResource(R.drawable.example_post)
         else {
             val base64String = firstPost.image

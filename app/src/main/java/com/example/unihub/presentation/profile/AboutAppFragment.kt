@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unihub.R
-import com.example.unihub.databinding.FragmentSettingsBinding
+import com.example.unihub.databinding.FragmentAboutAppBinding
 import com.example.unihub.utils.provideNavigationHost
 
-class SettingsFragment : Fragment() {
+class AboutAppFragment : Fragment() {
 
-    private lateinit var binding: FragmentSettingsBinding
+    private lateinit var binding: FragmentAboutAppBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        binding = FragmentAboutAppBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,14 +29,6 @@ class SettingsFragment : Fragment() {
         binding.run {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
-            }
-
-            llLanguage.setOnClickListener {
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToLanguageFragment())
-            }
-
-            llAbout.setOnClickListener {
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToAboutAppFragment())
             }
         }
     }

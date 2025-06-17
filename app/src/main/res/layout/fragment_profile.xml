@@ -34,68 +34,73 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnBack"/>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMain"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        android:layout_height="0dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/llProfileCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="34dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/sh_5dp"
             android:backgroundTint="@color/blue_800"
+            android:gravity="center_vertical"
             android:padding="18dp"
-            android:gravity="center_vertical">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:background="@drawable/sh_rounded_white">
+                android:background="@drawable/sh_rounded_white"
+                android:padding="2dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivClubAvatar"
                     android:layout_width="74dp"
                     android:layout_height="72dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sdu_people"/>
+                    android:src="@drawable/sdu_people"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginStart="10dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/white_1000"
                     android:ellipsize="end"
-                    android:text="Akniyet Serik"/>
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Akniyet Serik"
+                    android:textColor="@color/white_1000"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/white_1000"
-                    android:ellipsize="end"
                     android:layout_marginTop="4dp"
-                    android:text="akniyet.serik@gmail.com"/>
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="akniyet.serik@gmail.com"
+                    android:textColor="@color/white_1000"
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -103,15 +108,15 @@
                 android:id="@+id/btnWrite"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/sh_10dp"
-                android:gravity="center"
-                android:layout_marginStart="15dp">
+                android:gravity="center">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:src="@drawable/ic_write"/>
+                    android:src="@drawable/ic_write" />
 
             </LinearLayout>
 
@@ -120,14 +125,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="34dp"
-            android:layout_marginTop="32dp"
-            android:paddingVertical="12dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/sh_5dp"
             android:backgroundTint="@color/white_1000"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/tvError"
@@ -139,59 +143,59 @@
                 android:textAlignment="center"
                 android:textColor="@color/red_900"
                 android:textSize="13sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/llMyAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_my_account"/>
+                    android:src="@drawable/ic_my_account"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginStart="16dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:ellipsize="end"
                         android:fontFamily="@font/roboto_medium"
+                        android:text="@string/my_account"
                         android:textColor="@color/black_900"
-                        android:ellipsize="end"
-                        android:text="@string/my_account"/>
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/grey_600"
-                        android:ellipsize="end"
                         android:layout_marginTop="4dp"
-                        android:text="@string/make_changes_to_your_account"/>
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/make_changes_to_your_account"
+                        android:textColor="@color/grey_600"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_next"
                     android:background="@color/white_1000"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
@@ -199,53 +203,53 @@
                 android:id="@+id/llChangePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_change_password"/>
+                    android:src="@drawable/ic_change_password"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginStart="16dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:ellipsize="end"
                         android:fontFamily="@font/roboto_medium"
+                        android:text="@string/change_password"
                         android:textColor="@color/black_900"
-                        android:ellipsize="end"
-                        android:text="@string/change_password"/>
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/grey_600"
-                        android:ellipsize="end"
                         android:layout_marginTop="4dp"
-                        android:text="@string/further_secure_your_account_for_safety"/>
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/further_secure_your_account_for_safety"
+                        android:textColor="@color/grey_600"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_next"
                     android:background="@color/white_1000"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
@@ -253,53 +257,53 @@
                 android:id="@+id/llLogOut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_log_out"/>
+                    android:src="@drawable/ic_log_out"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginStart="16dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:ellipsize="end"
                         android:fontFamily="@font/roboto_medium"
+                        android:text="@string/log_out"
                         android:textColor="@color/black_900"
-                        android:ellipsize="end"
-                        android:text="@string/log_out"/>
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/grey_600"
-                        android:ellipsize="end"
                         android:layout_marginTop="4dp"
-                        android:text="@string/log_out_from_your_account"/>
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/log_out_from_your_account"
+                        android:textColor="@color/grey_600"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_next"
                     android:background="@color/white_1000"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
@@ -308,49 +312,48 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="34dp"
-            android:layout_marginTop="32dp"
-            android:paddingVertical="12dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/sh_5dp"
             android:backgroundTint="@color/white_1000"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:id="@+id/llAboutApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_about_app"/>
+                    android:src="@drawable/ic_about_app"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/black_900"
-                    android:ellipsize="end"
                     android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/about_app"
-                    android:layout_weight="1"/>
+                    android:textColor="@color/black_900"
+                    android:textSize="13sp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_next"
                     android:background="@color/white_1000"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
@@ -358,42 +361,45 @@
                 android:id="@+id/llLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="16dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:shapeAppearanceOverlay="@style/style_corner_rounded"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_about_app"/>
+                    android:src="@drawable/ic_about_app"
+                    app:shapeAppearanceOverlay="@style/style_corner_rounded" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/black_900"
-                    android:ellipsize="end"
-                    android:text="@string/languages"
                     android:layout_marginStart="16dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/languages"
+                    android:textColor="@color/black_900"
+                    android:textSize="13sp" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_next"
                     android:background="@color/white_1000"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:src="@drawable/ic_next"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMain"
@@ -407,7 +413,7 @@
         android:textSize="16sp"
         android:textColor="@color/white_1000"
         android:layout_marginHorizontal="34dp"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

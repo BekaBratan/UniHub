@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sharedProvider = SharedProvider(requireContext())
-        provideNavigationHost()?.hideBottomNavigationBar(sharedProvider.getRole().lowercase().contains("admin"))
+        provideNavigationHost()?.hideBottomNavigationBar(true)
 
         profileViewModel.getUserProfile(sharedProvider.getToken())
 
@@ -74,6 +74,10 @@ class ProfileFragment : Fragment() {
 
             llLanguage.setOnClickListener {
                 findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLanguageFragment())
+            }
+
+            llAboutApp.setOnClickListener {
+                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAboutAppFragment())
             }
         }
 

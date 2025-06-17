@@ -86,7 +86,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnEditUser"
                 android:layout_width="0dp"
-                android:layout_height="34dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/sh_10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/edit_profile"
@@ -98,7 +98,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSettings"
                 android:layout_width="0dp"
-                android:layout_height="34dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/sh_10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/settings"

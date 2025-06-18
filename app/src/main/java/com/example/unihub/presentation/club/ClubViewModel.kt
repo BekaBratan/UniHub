@@ -48,6 +48,9 @@ class ClubViewModel(): ViewModel() {
     private var _buyTicketResponse: MutableLiveData<MessageResponse> = MutableLiveData()
     val buyTicketResponse: LiveData<MessageResponse> = _buyTicketResponse
 
+    private var _deletePosterResponse: MutableLiveData<MessageResponse> = MutableLiveData()
+    val deletePosterResponse: LiveData<MessageResponse> = _deletePosterResponse
+
     private var _errorMessage: MutableLiveData<MessageResponse> = MutableLiveData()
     val errorMessage: LiveData<MessageResponse> = _errorMessage
 
@@ -239,6 +242,38 @@ class ClubViewModel(): ViewModel() {
             }.fold(
                 onSuccess = {
                     _profileResponse.postValue(it)
+                },
+                onFailure = { throwable ->
+                    val errorMessage = if (throwable is HttpException) {
+                        val errorBody = throwable.response()?.errorBody()?.string()
+                        try {
+                            val json = JSONObject(errorBody ?: "")
+                            json.getString("message")
+                        } catch (e: Exception) {
+                            "Something went wrong."
+                        }
+                    } else {
+                        throwable.message ?: "An unknown error occurred."
+                    }
+                    _errorMessage.postValue(MessageResponse(errorMessage))
+                }
+            )
+        }
+    }
+
+    fun deletePoster(
+        token: String,
+        postId: Int
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                ServiceBuilder.api.deletePost(
+                    token = token,
+                    postId = postId
+                )
+            }.fold(
+                onSuccess = {
+                    _deletePosterResponse.postValue(it)
                 },
                 onFailure = { throwable ->
                     val errorMessage = if (throwable is HttpException) {

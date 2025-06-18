@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -19,7 +20,7 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
-open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
+open class PostsAdapter(val isProfile: Boolean = false): RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<PostsResponseItem>() {
         override fun areItemsTheSame(
@@ -51,6 +52,11 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
     var listenerClickClubName: RcViewItemClickIdCallback? = null
     fun setOnClubNameClickListener(listener: RcViewItemClickIdCallback) {
         this.listenerClickClubName = listener
+    }
+
+    var listenerClickDelete: RcViewItemClickIdCallback? = null
+    fun setOnDeleteClickListener(listener: RcViewItemClickIdCallback) {
+        this.listenerClickDelete = listener
     }
 
     var listenerClickRepost: RcViewItemClickIdCallback? = null
@@ -130,6 +136,15 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
                 btnSend.setOnClickListener {
                     listenerClickShare?.onClick(posts.id)
+                }
+
+                if (isProfile)
+                    btnDelete.visibility = View.VISIBLE
+                else
+                    btnDelete.visibility = View.GONE
+
+                btnDelete.setOnClickListener {
+                    listenerClickDelete?.onClick(posts.id)
                 }
             }
         }

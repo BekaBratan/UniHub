@@ -61,7 +61,7 @@ class ClubProfileFragment : Fragment() {
 
         clubViewModel.getMyPosts(sharedProvider.getToken())
 
-        val postsAdapter = PostsAdapter()
+        val postsAdapter = PostsAdapter(isProfile = true)
 
         clubViewModel.clubResponse.observe(viewLifecycleOwner) {
             binding.run {
@@ -91,6 +91,14 @@ class ClubProfileFragment : Fragment() {
             object : RcViewItemClickIdCallback {
                 override fun onClick(id: Int?) {
 
+                }
+            }
+        )
+
+        postsAdapter.setOnDeleteClickListener(
+            object : RcViewItemClickIdCallback {
+                override fun onClick(id: Int?) {
+                    showDeleteDialogBox(sharedProvider.getToken(), id ?: 0)
                 }
             }
         )
@@ -195,6 +203,31 @@ class ClubProfileFragment : Fragment() {
 
         btnClose.setOnClickListener {
             dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun showDeleteDialogBox(token: String, postId: Int) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_log_out)
+        dialog.window?.setBackgroundDrawableResource(R.color.transparent)
+
+        val tvTitle: TextView = dialog.findViewById(R.id.tvTitle)
+        val btnDismiss: TextView = dialog.findViewById(R.id.btnNo)
+        val btnLogout: TextView = dialog.findViewById(R.id.btnYes)
+
+        tvTitle.text = getString(R.string.delete_post_confirmation)
+
+        btnDismiss.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnLogout.setOnClickListener {
+            dialog.dismiss()
+            clubViewModel.deletePoster(token, postId)
         }
 
         dialog.show()

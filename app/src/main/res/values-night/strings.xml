@@ -27,4 +27,5 @@
     <string name="code">Code</string>
     <string name="example_example">example@example</string>
     <string name="about_app_description">UniHub is a centralized platform developed specifically for SDU students to enhance their university experience through active participation in student clubs. The app allows students to easily discover clubs, join events, track announcements, and stay informed about all campus activities.\nWith UniHub, we aim to build a stronger student community by simplifying communication between club leaders and members, encouraging collaboration, and making it easier to get involved in what matters to you.\nWhether you\'re a first-year student looking to connect or a club leader organizing events — UniHub is your go-to tool for managing and enjoying student life at SDU.</string>
+    <string name="delete_post_confirmation">Do you want to delete post?</string>
 </resources>

@@ -259,7 +259,7 @@ private fun HomeFragment.updateFirstPost() {
         if ((firstPost.image?.length ?: 0) == 0)
             ivPostImage.setImageResource(R.drawable.example_post)
         else {
-            val base64String = firstPost.image
+            val base64String = firstPost.image ?: ""
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
             val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
             ivPostImage.setImageBitmap(bitmap)

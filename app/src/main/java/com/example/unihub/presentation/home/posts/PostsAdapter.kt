@@ -100,7 +100,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
                         ivPostImage.setImageResource(R.drawable.example_post)
                     }
                 } else {
-                    val base64String = posts.image
+                    val base64String = posts.image ?: ""
                     val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
                     val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
                     ivPostImage.setImageBitmap(bitmap)

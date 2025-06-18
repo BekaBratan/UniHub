@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sharedProvider = SharedProvider(requireContext())
-        provideNavigationHost()?.hideBottomNavigationBar(true)
+        provideNavigationHost()?.hideBottomNavigationBar(sharedProvider.getRole().lowercase().contains("admin"))
 
         profileViewModel.getUserProfile(sharedProvider.getToken())
 
@@ -43,6 +43,11 @@ class ProfileFragment : Fragment() {
             profileViewModel.profileResponse.observe(viewLifecycleOwner) {
                 tvName.text = it.name + " " + it.surname
                 tvEmail.text = it.email
+            }
+
+            if (!sharedProvider.getRole().lowercase().contains("admin")) {
+            btnBack.visibility = View.INVISIBLE
+                btnMain.visibility = View.GONE
             }
 
             btnBack.setOnClickListener {

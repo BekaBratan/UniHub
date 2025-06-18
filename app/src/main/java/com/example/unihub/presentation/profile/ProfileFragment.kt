@@ -46,7 +46,7 @@ class ProfileFragment : Fragment() {
             }
 
             if (!sharedProvider.getRole().lowercase().contains("admin")) {
-            btnBack.visibility = View.INVISIBLE
+                btnBack.visibility = View.INVISIBLE
                 btnMain.visibility = View.GONE
             }
 

@@ -79,48 +79,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:orientation="horizontal"
             android:layout_marginTop="52dp"
+            android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/llClubInfo">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnEditUser"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@drawable/sh_10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/edit_profile"
                 android:textAllCaps="false"
                 android:textColor="@color/black_1000"
-                android:textSize="15sp"
-                android:layout_weight="1"/>
+                android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSettings"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
+                android:layout_weight="1"
                 android:background="@drawable/sh_10dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/settings"
                 android:textAllCaps="false"
-                android:layout_marginStart="18dp"
                 android:textColor="@color/black_1000"
-                android:textSize="15sp"
-                android:layout_weight="1"/>
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:id="@+id/btnWrite"
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/sh_10dp"
-                android:gravity="center"
-                android:layout_marginStart="15dp">
+                android:gravity="center">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:src="@drawable/ic_write"/>
+                    android:src="@drawable/ic_write" />
 
             </LinearLayout>
 

@@ -71,7 +71,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
         fun onBind(posts: PostsResponseItem) {
             binding.run {
                 tvClubName.text = posts.club?.name
-                tvTime.text = getTimeAgo(posts.createdAt)
+                tvTime.text = getTimeAgo(posts.createdAt.toString())
                 tvPostName.text = posts.content
                 var isLiked = false
 
@@ -79,7 +79,7 @@ open class PostsAdapter: RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
                 val index = (posts.id ?: 1) % 6
 
-                if (posts.image.isEmpty()) {
+                if (posts.image?.isEmpty() == true) {
                     if (index == 1) {
                         clubImageView.setImageResource(R.drawable.club_1)
                         ivPostImage.setImageResource(R.drawable.post_1)

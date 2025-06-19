@@ -1,6 +1,7 @@
 package com.example.unihub.presentation.home.posts
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -25,6 +27,7 @@ import com.example.unihub.databinding.FragmentHomeBinding
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.CustomDividerItemDecoration
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.example.unihub.utils.SharedProvider
 import com.example.unihub.utils.SpacesItemDecoration
 import com.example.unihub.utils.provideNavigationHost
@@ -133,10 +136,14 @@ class HomeFragment : Fragment() {
         )
 
         postsAdapter.setOnShareClickListener(
-            object : RcViewItemClickIdCallback {
-                override fun onClick(id: Int?) {
-                    val shareBottomSheet = ShareBottomSheet(id?:1)
-                    shareBottomSheet.show(childFragmentManager, shareBottomSheet.tag)
+            object : RcViewItemClickIdStringCallback {
+                override fun onClick(id: String) {
+                    val shareIntent = Intent(Intent.ACTION_SEND)
+                    shareIntent.setType("text/plain")
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, id)
+
+                    val chooserIntent = Intent.createChooser(shareIntent, "Share post via...")
+                    startActivity(chooserIntent)
                 }
             }
         )
@@ -276,6 +283,15 @@ private fun HomeFragment.updateFirstPost() {
             else
                 btnLike.setImageResource(R.drawable.ic_liked)
             isLiked = !isLiked
+        }
+
+        btnSend.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.setType("text/plain")
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "${firstPost.club?.name} \n ${firstPost.content}")
+
+            val chooserIntent = Intent.createChooser(shareIntent, "Share post via...")
+            startActivity(chooserIntent)
         }
 
         tvClubName.setOnClickListener {

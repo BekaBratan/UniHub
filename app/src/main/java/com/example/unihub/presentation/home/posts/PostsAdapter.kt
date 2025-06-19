@@ -14,6 +14,7 @@ import com.example.unihub.R
 import com.example.unihub.data.model.post.PostsResponseItem
 import com.example.unihub.databinding.ItemPostCardBinding
 import com.example.unihub.utils.RcViewItemClickIdCallback
+import com.example.unihub.utils.RcViewItemClickIdStringCallback
 import com.google.android.material.imageview.ShapeableImageView
 import java.time.Duration
 import java.time.ZoneId
@@ -64,8 +65,8 @@ open class PostsAdapter(val isProfile: Boolean = false): RecyclerView.Adapter<Po
         this.listenerClickRepost = listener
     }
 
-    var listenerClickShare: RcViewItemClickIdCallback? = null
-    fun setOnShareClickListener(listener: RcViewItemClickIdCallback) {
+    var listenerClickShare: RcViewItemClickIdStringCallback? = null
+    fun setOnShareClickListener(listener: RcViewItemClickIdStringCallback) {
         this.listenerClickShare = listener
     }
 
@@ -135,7 +136,7 @@ open class PostsAdapter(val isProfile: Boolean = false): RecyclerView.Adapter<Po
                 }
 
                 btnSend.setOnClickListener {
-                    listenerClickShare?.onClick(posts.id)
+                    listenerClickShare?.onClick("${posts.club} \n ${posts.content}")
                 }
 
                 if (isProfile)

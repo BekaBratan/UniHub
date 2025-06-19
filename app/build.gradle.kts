@@ -1,8 +1,20 @@
+import java.util.Properties
+import kotlin.apply
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
 }
+
+val localProperties = Properties().apply {
+    val localFile = rootProject.file("local.properties")
+    if (localFile.exists()) {
+        load(localFile.inputStream())
+    }
+}
+
+val chatGptApiKey = localProperties.getProperty("CHAT_GPT_API_KEY") ?: "\"\""
 
 android {
     namespace = "com.example.unihub"
@@ -16,11 +28,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "CHAT_GPT_API_KEY", "\"$chatGptApiKey\"")
+        }
         release {
+            buildConfigField("String", "CHAT_GPT_API_KEY", "\"$chatGptApiKey\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -37,6 +52,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
